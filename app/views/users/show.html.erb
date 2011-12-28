@@ -15,8 +15,10 @@ None
 
 <h3>Uploads</h3>
 <ul>
+<% if !@uploads.nil? %>
 <% @uploads.each do |upload| %>
 	<%= render upload %>
+<% end %>
 <% end %>
 </ul>
 
