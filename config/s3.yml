@@ -1,0 +1,9 @@
+#config/s3.yml
+development:
+  access_key_id: AKIAIB4YCCRU3H27SXEQ
+  secret_access_key: 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
+  bucket: habosa-bucket-test
+production:
+  access_key_id: AKIAIB4YCCRU3H27SXEQ
+  secret_access_key: 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
+  bucket: habosa-bucket-production

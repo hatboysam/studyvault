@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudyHeist - Rob The Vault</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all, :defaults %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+  <%= csrf_meta_tag %>
+
+	<%= yield :head %>
+	
+</head>
+<body>
+	<script>
+	$(document).ready(function () {
+		$(".downloadlink").click(
+			function() {
+				location.reload();
+			});
+	});	
+	</script>
+	
+	<%= render 'shared/header' %>
+
+	<div class = "yield">
+		<%= yield %>
+	</div>
+
+</body>
+</html>

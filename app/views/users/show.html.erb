@@ -1,0 +1,33 @@
+<h2><%= @user.username %></h2>
+
+<h3>School</h3>
+<% if @user.school %>
+<%= @user.school.name %>
+<% else %>
+None
+<% end %>
+
+<h3>Graduation Year</h3>
+<%= @user.graduation %>
+
+<h3>Files Uploaded</h3>
+<%= @user.uploads.all.length %>
+
+<h3>Uploads</h3>
+<ul>
+<% @uploads.each do |upload| %>
+	<%= render upload %>
+<% end %>
+</ul>
+
+<h3>Downloads</h3>
+<ul>
+<% @downloads.each do |download| %>
+	<%= render download %>
+<% end %>
+</ul>
+
+</br>
+<% if @user == current_user %>
+<%= link_to "Edit Profile" ,edit_user_path(@user) %>
+<% end %>

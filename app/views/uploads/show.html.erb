@@ -1,0 +1,27 @@
+<ul>
+<%= render @upload %>
+</ul>
+
+<h2>Uploaded by: <%= link_to "#{@upload.user.username}", @upload.user %>
+
+<h2>Description</h2>
+<%= @upload.description %>
+
+<h2>Number of Downloads: <%= @downloads.length %></h2>
+
+<h2>Comments/Ratings</h2>
+<% if @downloads2.length > 0 %>
+	You have already downloaded this file!
+	<% if @comments2.length < 1 %>
+	Comment or rate.
+	<p><%= render "/shared/comment_form"%></p>
+	<% end %>
+<% else %>
+	You have not yet downloaded this file.  Use the download button above!
+<% end %>
+	</br></br>
+	<ul>
+		<% @comments.each do |comment| %>
+			<%= render comment %>
+		<% end %>
+	</ul>

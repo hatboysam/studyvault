@@ -1,0 +1,25 @@
+	<div id = "header">
+		<a href= <%= "#{root_path}" %>> <img alt = "StudyHeist" src = "/images/logo.png" class = "logo" ></img></a>
+		<div class = "usertop">
+		<% if signed_in? %>
+			<%= link_to "#{current_user.username} (#{current_user.credits})", current_user %> | 
+			<%= link_to "Sign Out", signout_path %>
+		<% else %>
+			<%= link_to "Sign In", signin_path %> |
+			<%= link_to "Sign Up", signup_path %>
+		<% end %>
+		</div>
+		
+		</br>
+		
+		<% [:info, :error, :notice, :alert, :success].each do |key| %>
+   		<% if flash[key] %>
+   		<p>
+		<div class="<%= key %>" id="flash">
+     		<span><%= flash[key] %></span>
+   		</div>
+		</p>
+   		<% end %>
+ 		<% end %>
+
+	</div>

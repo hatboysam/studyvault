@@ -1,0 +1,70 @@
+<script>
+	$(document).ready(function () {
+		$("#browsediv").fadeIn(700);
+		$("#uploaddiv").hide();
+		$("#creditsdiv").hide();
+		
+		$("#browse").click(
+			function() {
+				$("#browsediv").fadeIn(700);
+				$("#uploaddiv").hide();
+				$("#creditsdiv").hide();
+			}
+		);
+		$("#contribute").click(
+			function() {
+				$("#browsediv").hide();
+				$("#uploaddiv").fadeIn(700);
+				$("#creditsdiv").hide();
+			}
+		);
+		$("#credits").click(
+			function() {
+				$("#browsediv").hide();
+				$("#uploaddiv").hide();
+				$("#creditsdiv").fadeIn(700);
+			}
+		);
+	});
+</script>
+
+<p class = "center"><div id = "mainbod" class = "center">
+		<table>
+			<tr>
+				<td class = "nav round"><img src = "/images/browse.png" class = "nav" id = "browse"></img></td>
+				<td class = "nav round"><img src = "/images/contribute.png" class = "nav" id = "contribute"></img></td>
+				<td class = "nav round"><img src = "/images/credits.png" class = "nav" id = "credits"></img><td>
+			</tr>
+			<tr>
+				<td>Browse</td>
+				<td>Upload</td>
+				<td>Get Credits</td>
+			</tr>
+		</table>
+			<p><div id = "maintext" class = "rounddoublepadded">
+			<% if signed_in? %>
+			<div id = "uploaddiv">
+				<%= render '/shared/upload_form' %>
+			</div>
+			<div id = "browsediv">
+				</h2>Recent Uploads</h2>
+				</br>
+				<%= will_paginate @uploads %>
+
+				<ul>
+					<% @uploads.each do |upload| %>
+	  				<%= render upload %> 
+					<% end %>	
+				</ul>
+
+				<%= will_paginate @uploads %>
+			</div>
+			<div id = "creditsdiv">
+				<h2>Add 5 Credits</h2>
+					<%= link_to "Click Here", "/users/#{current_user.id}/add" %>
+			</div>
+			<% else %>
+				Welcome to StudyHeist, the nation's vault for college study materials.  We have user uploaded study material for colleges and courses across the nation, and it's all rated and sorted by other students.   It's free to download, as long as you contribute to the community.   To get started, make an account!
+			<% end %>
+			</div></p>
+</div></p>
