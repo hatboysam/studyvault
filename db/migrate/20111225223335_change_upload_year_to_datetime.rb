@@ -1,13 +1,11 @@
 class ChangeUploadYearToDatetime < ActiveRecord::Migration
   def self.up
-    change_table :uploads do |t|
-      t.change :year, :datetime
-    end
+    remove_column :uploads, :year
+    add_column :uploads, :year, :datetime
   end
 
   def self.down
-    change_table :uploads do |t|
-      t.change :year, :integer
-    end
+    remove_column :uploads, :year
+    add_column :uploads, :year, :integer
   end
 end
