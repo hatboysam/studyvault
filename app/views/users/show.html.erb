@@ -24,8 +24,10 @@ None
 
 <h3>Downloads</h3>
 <ul>
+<% if !@downloads.nil? %>
 <% @downloads.each do |download| %>
 	<%= render download %>
+<% end %>
 <% end %>
 </ul>
 
