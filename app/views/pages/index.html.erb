@@ -25,6 +25,12 @@
 				$("#creditsdiv").fadeIn(700);
 			}
 		);
+		
+		 	var data = "/schools.js"
+    		$('#school_name').autocomplete({
+        		source: data
+    		});
+ 
 	});
 </script>
 
@@ -47,17 +53,12 @@
 				<%= render '/shared/upload_form' %>
 			</div>
 			<div id = "browsediv">
-				</h2>Recent Uploads</h2>
-				</br>
-				<%= will_paginate @uploads %>
-
-				<ul>
-					<% @uploads.each do |upload| %>
-	  				<%= render upload %> 
-					<% end %>	
-				</ul>
-
-				<%= will_paginate @uploads %>
+				<h2>Browse Files by School</h2>
+				<% form_tag(schoolsearch_path, :method => "get") do %>
+				<%= label_tag :school_name, "School Name:"%>
+				<%= text_field_tag :school_name, nil, :id => 'school_name', :class => "round" %>
+				<%= submit_tag "Browse"%>
+				<% end %>
 			</div>
 			<div id = "creditsdiv">
 				<h2>Add 5 Credits</h2>

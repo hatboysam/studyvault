@@ -1,6 +1,6 @@
 <h2>Upload a New File</h2>
 
-	<script>
+<script>
 	$(document).ready(function () {
 		
 		(function($) {
@@ -50,6 +50,21 @@
 	});
 </script>
 
+<script>
+$(document).ready(function () {
+ 	var data = "/courses.js"
+    $('#upload_course_name').autocomplete({
+        source: data
+    });
+
+	var data2 = "/professors.js"
+    $('#upload_professor').autocomplete({
+        source: data2
+    });
+ 
+});
+</script>
+
 <% form_for(@upload, :html => {:multipart => true}) do |f| %>
 	<div class = "field">
 		<%= f.label(:semester, "Semester") %><br />
@@ -60,8 +75,8 @@
 		<%= date_select :upload, :year, :start_year => 1980, :end_year => Time.now.year, :discard_month => true %>
 	</div>
 	<div class = "field">
-		<%= f.label(:class_id, "Class ID") %><br />
-		<%= f.text_field :class_id %>
+		<%= f.label(:course_name, "Course Name") %><br />
+		<%= f.text_field :course_name %>
 	</div>
 	<div class = "field">
 		<%= f.label(:professor, "Professor") %><br />
@@ -75,6 +90,7 @@
 	
 	<%= f.hidden_field(:stars, :value => '0' )%>
 	<%= f.hidden_field(:ratings, :value => '0' )%>
+	<%= f.hidden_field(:school_id, :value => current_user.school.id )%>
 	
 	<div class = "field upload">
 		<%= f.label(:linked, "Upload File") %><br />

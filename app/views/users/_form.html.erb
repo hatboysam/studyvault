@@ -1,3 +1,13 @@
+<script>
+$(document).ready(function () {
+ 	var data = "/schools.js"
+    $('#user_school_name').autocomplete({
+        source: data
+    });
+ 
+});
+</script>
+
 <%= form_for(@user) do |f| %>
 	<%= f.error_messages %>
 	<div class = "field" >
@@ -17,8 +27,8 @@
 		<%= f.password_field :password_confirmation %>
 	</div>
 	<div class = "field" >
-		<%= f.label :school_name, "School ID*" %><br />
-		<%= f.text_field :school_id %>
+		<%= f.label :school_name, "School Name*" %><br />
+		<%= f.text_field :school_name %>
 	</div>
 	<div class = "field" >
 		<%= f.label :Graduation, "Year of Graduation*" %><br />

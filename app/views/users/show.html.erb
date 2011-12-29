@@ -2,7 +2,7 @@
 
 <h3>School</h3>
 <% if @user.school %>
-<%= @user.school.name %>
+<%= link_to @user.school.name, @user.school %>
 <% else %>
 None
 <% end %>

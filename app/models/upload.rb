@@ -3,7 +3,11 @@ class Upload < ActiveRecord::Base
   
     attr_protected :linked_file_name, :linked_content_type, :linked_size
   
+    after_save :set_course_school
+    
     belongs_to :user
+    belongs_to :school
+    belongs_to :course
     has_many :downloads, :source => :upload_id, :dependent => :destroy
     has_many :comments, :foreign_key => "file_id", :dependent => :destroy
     #belongs_to :class
@@ -15,7 +19,7 @@ class Upload < ActiveRecord::Base
           :path => ":class/:id/:attachment/:basename.:extension"
           
     #validations
-    validates :class_id, :presence => true
+    validates :school_id, :presence => true
     
     def update_rating
       @comments = self.comments.all
@@ -29,4 +33,27 @@ class Upload < ActiveRecord::Base
       end
       self.save(false)
     end
+    
+    def course_name
+      return [course.subject, course.course_code].join(' ') if course
+    end
+    
+    def course_name=(name)
+      @split = name.split(' ', 2)
+      @subject = @split.first
+      @course_code = @split.last
+      
+      @conditions = {
+        :subject => @subject,
+        :course_code => @course_code,
+        :school_id => self.school_id
+      }
+      
+      self.course = Course.find(:first, :conditions => @conditions) || Course.create(@conditions)
+    end
+    
+    def set_course_school
+      course.set_school
+    end
+    
 end

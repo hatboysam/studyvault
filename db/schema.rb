@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227140724) do
+ActiveRecord::Schema.define(:version => 20111229144132) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -51,13 +51,14 @@ ActiveRecord::Schema.define(:version => 20111227140724) do
     t.integer  "linked_file_size"
     t.integer  "stars"
     t.integer  "ratings"
-    t.integer  "class_id"
     t.string   "semester"
-    t.datetime "year"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "professor"
+    t.datetime "year"
     t.text     "description",         :default => "No description given"
+    t.integer  "school_id"
+    t.integer  "course_id"
   end
 
   create_table "users", :force => true do |t|

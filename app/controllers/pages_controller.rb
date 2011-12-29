@@ -5,7 +5,21 @@ class PagesController < ApplicationController
       @user = current_user
       @upload = Upload.new
     end
-    @uploads = Upload.all.paginate(:page => params[:page], :per_page => 5)
+  end
+  
+  def professors
+    if params[:term]
+      @search = params[:term]
+      @raw = current_user.school.uploads.find(:all, :conditions => ['professor LIKE ?', "#{@search}%"])
+    else
+      @raw = current_user.school.uploads
+    end
+    
+    @professors = @raw.map(&:professor).first(10).uniq
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
 end

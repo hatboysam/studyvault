@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, 
                   :password_confirmation, :confirmed, 
                   :school_id, :graduation, 
-                  :admin, :stars, :credits
+                  :admin, :stars, :credits, :school_name
   
   has_many :uploads, :dependent => :destroy
   belongs_to :school
@@ -47,8 +47,8 @@ class User < ActiveRecord::Base
   end
   
   #setter for school name (will create school if it didn't find one)
-  def self.school_name=(name)
-    self.school = School.find_or_create_by_name(name) unless name.blank?
+  def school_name=(name)
+    self.school = School.find_by_name(name) unless name.blank?
   end
   
   def add_credits(num)
