@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(Integer(params[:id]))
+    @user = User.find(params[:id])
     @uploads = @user.uploads.all
     @downloads = @user.downloads.all
   end
