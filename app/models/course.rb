@@ -20,4 +20,7 @@ class Course < ActiveRecord::Base
       self.save(false)
     end
         
+    def num_uploads
+      return uploads.length
+    end
 end

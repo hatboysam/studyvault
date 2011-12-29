@@ -25,7 +25,7 @@ class SchoolsController < ApplicationController
   
   def show
     @school = School.find(params[:id])
-    @uploads = @school.uploads.all
+    @courses = @school.courses.all
   end
   
   def search

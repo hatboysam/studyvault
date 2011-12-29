@@ -1,0 +1,8 @@
+<h2><%= @course.course_name %> - <%= @course.school.name %></h2>
+
+<h2>Files</h2>
+<ul>
+	<% @uploads.each do |upload| %>
+		<%= render upload %>
+	<% end %>
+</ul>
