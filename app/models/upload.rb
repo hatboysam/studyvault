@@ -1,5 +1,7 @@
 class Upload < ActiveRecord::Base
-    default_scope :order => 'uploads.created_at DESC'
+    #default_scope :order => 'uploads.created_at DESC'
+    #WARNING
+    #FIND SOME OTHER WAY TO DO ORDER
   
     attr_protected :linked_file_name, :linked_content_type, :linked_size
     
