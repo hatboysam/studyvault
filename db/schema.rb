@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229144132) do
+ActiveRecord::Schema.define(:version => 20111229222739) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20111229144132) do
   add_index "schools", ["name"], :name => "index_schools_on_name", :unique => true
 
   create_table "uploads", :force => true do |t|
-    t.string   "user_id"
+    t.integer  "user_id",             :limit => 255
     t.string   "linked_file_name"
     t.string   "linked_content_type"
     t.integer  "linked_file_size"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20111229144132) do
     t.datetime "updated_at"
     t.string   "professor"
     t.datetime "year"
-    t.text     "description",         :default => "No description given"
+    t.text     "description",                        :default => "No description given"
     t.integer  "school_id"
     t.integer  "course_id"
   end
