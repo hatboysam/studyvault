@@ -32,7 +32,8 @@ class CoursesController < ApplicationController
   
   def show
     @course = Course.find(params[:id])
-    @uploads = @course.uploads
+    @uploads = @course.uploads.sort_by &:year
+    @years = @uploads.reverse.map(&:year).uniq
   end
   
 end

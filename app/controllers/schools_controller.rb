@@ -29,7 +29,8 @@ class SchoolsController < ApplicationController
   
   def show
     @school = School.find(params[:id])
-    @courses = @school.courses.all
+    @courses = @school.courses.all.sort_by &:full_name
+    @subjects = @courses.map(&:subject).uniq
   end
   
   def search

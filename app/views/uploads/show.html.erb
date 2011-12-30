@@ -11,7 +11,7 @@
 
 <h2>School: <%= link_to @upload.school.name, @upload.school %></h2>
 
-<h2>Course: <%= @upload.course_name %></h2>
+<h2>Course: <%= link_to @upload.course_name, @upload.course %></h2>
 
 <h2>Comments/Ratings</h2>
 <% if @downloads2.length > 0 %>

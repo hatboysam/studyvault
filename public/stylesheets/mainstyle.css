@@ -201,6 +201,10 @@ div#maintext {
 	color: #8a1f11;
 }
 
+.indent {
+	margin-left: 20px;
+}
+
 .upload input {
 	text-align: right;
 	margin-top: 10px;
