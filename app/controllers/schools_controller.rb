@@ -1,7 +1,11 @@
 class SchoolsController < ApplicationController
   def index
     if params[:term]
-      @schools = School.find(:all, :conditions => ['name LIKE ?', "#{params[:term]}%"])
+      if ENV['RAILS_ENV'] == "development"
+        @schools = School.find(:all, :conditions => ['name LIKE ?', "#{params[:term]}%"])
+      else 
+        @schools = School.find(:all, :conditions => ['name ILIKE ?', "#{params[:term]}%"])
+      end
     else
       @schools = School.all
     end
@@ -33,7 +37,7 @@ class SchoolsController < ApplicationController
     if !@school.nil?
       redirect_to @school
     else
-      flash[:error] = "That school does not exist in our database"
+      flash[:error] = "That school does not exist in our database.  Make sure you are using the proper name of your University, for example: Pennsylvania State not Penn State"
       redirect_to root_path
     end
   end
