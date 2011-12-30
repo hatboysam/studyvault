@@ -23,9 +23,10 @@ Studyvault::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/about',   :to => 'pages#about'
   
   match '/schoolsearch', :to => 'schools#search'
-  match '/professors', :to => 'pages#professors'
+  match '/professors',   :to => 'pages#professors'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

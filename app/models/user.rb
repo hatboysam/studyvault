@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, 
                   :password_confirmation, :confirmed, 
                   :school_id, :graduation, 
-                  :admin, :stars, :credits, :school_name
+                  :admin, :stars, :credits, :school_name, :stars_redeemed
   
   has_many :uploads, :dependent => :destroy
   belongs_to :school
@@ -55,6 +55,18 @@ class User < ActiveRecord::Base
     self.credits += num
   end
   
+  def get_stars(num)
+    self.stars += num
+    if self.stars >= 10
+      self.stars_redeemed += 10
+      self.stars -= 10
+      self.credits += 1
+    end
+    self.save(false)
+  end
+  
+  #WARNING 
+  #THIS ALLOWS FOR NEGATIVE CREDITS
   def charge
     self.credits -= 1
     self.save(false)

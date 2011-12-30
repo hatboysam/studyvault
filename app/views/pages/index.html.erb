@@ -4,6 +4,8 @@
 		$("#uploaddiv").hide();
 		$("#creditsdiv").hide();
 		
+		$("#yield").removeClass('yield');
+		
 		$("#browse").click(
 			function() {
 				$("#browsediv").fadeIn(700);
@@ -55,9 +57,9 @@
 			<div id = "browsediv">
 				<h2>Browse Files by School</h2>
 				<% form_tag(schoolsearch_path, :method => "get") do %>
-				<%= label_tag :school_name, "School Name:"%>
+				<%= label_tag :school_name, "School:", :id => 'school_name_label'%>
 				<%= text_field_tag :school_name, nil, :id => 'school_name', :class => "round" %>
-				<%= submit_tag "Browse"%>
+				<%= submit_tag "Go", :id => 'school_browse'%>
 				<% end %>
 			</div>
 			<div id = "creditsdiv">
@@ -65,7 +67,7 @@
 					<%= link_to "Click Here", "/users/#{current_user.id}/add" %>
 			</div>
 			<% else %>
-				Welcome to StudyHeist, the nation's vault for college study materials.  We have user uploaded study material for colleges and courses across the nation, and it's all rated and sorted by other students.   It's free to download, as long as you contribute to the community.   To get started, make an account!
+				Welcome to StudyHeist, the nation's vault for college study materials.  We have user uploaded study material for colleges and courses across the nation, and it's all rated and sorted by other students.   It's free to download, as long as you contribute to the community.   To get started, <%= link_to "make an account!", signup_path %>  Confused?  Look at our <%= link_to "Frequently Asked Questions", about_path %>.
 			<% end %>
 			</div></p>
 </div></p>

@@ -13,6 +13,23 @@
 a {
 	color: white;
 	text-decoration: none;
+	font-style: bold;
+}
+
+a:visited {
+	color: white;
+}
+
+a:hover {
+	color:black;
+}
+
+h2 {
+	color: #D7A909;
+}
+
+h3 {
+	color: #FBDE2D
 }
 
 ul {
@@ -48,17 +65,22 @@ ul {
 	color: #CCA20F;
 }
 
+.down100 {
+ 	margin-top: 100px;	
+}
+
 .yield {
-	margin-top: 100px;
+	background: #664D78;
+	min-width: 0px;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-image: url('/images/gradient3.png');
+	background-repeat: repeat-x;
+	background-position: bottom-left;
 }
 
-a:visited {
-	color: white;
-}
-
-a:hover {
-	color:black;
-}
 
 .usertop img{
 	margin-left: 15px;
@@ -159,7 +181,7 @@ div#maintext {
 	background-position: top-left;
 	text-align: center;
 	margin-top: 10px;
-	min-height: 400px;
+	min-height: 520px;
 	width: 580px;
 }
 
@@ -184,6 +206,24 @@ div#maintext {
 	margin-top: 10px;
 }
 
+#school_name{
+	height: 25px;
+	min-width: 350px;
+	font-size: large;
+}
+
+#school_name_label{
+	font-size: x-large;
+	font-style: bold;
+}
+
+#school_browse{
+	min-height: 40px;
+	max-width: 100px;
+	width: 50px;
+	padding: 0px;
+	font-size: x-large;
+}
 .roundpadded {
   padding: 10px 10px 10px 10px;
   -moz-border-radius:    10px;

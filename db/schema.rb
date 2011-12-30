@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230010324) do
+ActiveRecord::Schema.define(:version => 20111230013859) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20111230010324) do
     t.boolean  "confirmed",          :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "stars_redeemed",     :default => 0
   end
 
 end

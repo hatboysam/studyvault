@@ -10,7 +10,11 @@ class PagesController < ApplicationController
   def professors
     if params[:term]
       @search = params[:term]
-      @raw = current_user.school.uploads.find(:all, :conditions => ['professor LIKE ?', "#{@search}%"])
+      if ENV['RAILS_ENV'] == "development"
+        @raw = current_user.school.uploads.find(:all, :conditions => ['professor LIKE ?', "#{@search}%"])
+      else
+        @raw = current_user.school.uploads.find(:all, :conditions => ['professor ILIKE ?', "#{@search}%"])
+      end
     else
       @raw = current_user.school.uploads
     end
@@ -20,6 +24,10 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+  
+  def about
+    
   end
 
 end

@@ -1,3 +1,4 @@
+
 <h2><%= @user.username %></h2>
 
 <h3>School</h3>
@@ -12,6 +13,9 @@ None
 
 <h3>Files Uploaded</h3>
 <%= @user.uploads.all.length %>
+
+<h3>Credits Earned from Uploads</h3>
+<%= @user.stars_redeemed/10 %>
 
 <h3>Uploads</h3>
 <ul>
