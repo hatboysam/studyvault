@@ -2,10 +2,6 @@ class Upload < ActiveRecord::Base
     default_scope :order => 'uploads.created_at DESC'
 
     attr_protected :linked_file_name, :linked_content_type, :linked_size
-    
-    attr_accessible :user_id, :stars, :ratings, 
-                    :semester, :professor, :year, 
-                    :description, :course_id, :school_id, :course_name
   
     after_save :set_course_school
     
