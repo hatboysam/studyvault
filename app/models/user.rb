@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
     return (@downloads.length > 0)
   end
   
-  def set_stars_redeemend
+  def set_stars_redeemed
     stars_redeemed = 0
     self.save(false)
   end
