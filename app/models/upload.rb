@@ -46,7 +46,8 @@ class Upload < ActiveRecord::Base
       @conditions = {
         :subject => @subject,
         :course_code => @course_code,
-        :school_id => self.school_id
+        :school_id => self.school_id,
+        :full_name => name
       }
       
       self.course = Course.find(:first, :conditions => @conditions) || Course.create(@conditions)

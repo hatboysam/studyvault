@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-    attr_accessible :subject, :course_code, :school_id, :course_name
+    attr_accessible :subject, :course_code, :school_id, :course_name, :full_name
     
     belongs_to :school
     has_many   :uploads
