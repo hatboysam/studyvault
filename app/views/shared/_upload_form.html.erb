@@ -53,7 +53,7 @@
 <script>
 $(document).ready(function () {
  	var data = "/courses.js"
-    $('#upload_course_name').autocomplete({
+    $('#upload_temp_coursename').autocomplete({
         source: data
     });
 
@@ -75,8 +75,8 @@ $(document).ready(function () {
 		<%= date_select :upload, :year, :start_year => 1980, :end_year => Time.now.year, :discard_month => true %>
 	</div>
 	<div class = "field">
-		<%= f.label(:course_name, "Course Name") %><br />
-		<%= f.text_field :course_name %>
+		<%= f.label(:temp_coursename, "Course Name") %><br />
+		<%= f.text_field :temp_coursename %>
 	</div>
 	<div class = "field">
 		<%= f.label(:professor, "Professor") %><br />

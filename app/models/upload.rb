@@ -1,9 +1,10 @@
 class Upload < ActiveRecord::Base
+    include SessionsHelper
     default_scope :order => 'uploads.created_at DESC'
 
     attr_protected :linked_file_name, :linked_content_type, :linked_size
   
-    after_save :set_course_school
+    after_create :set_course_name
     
     belongs_to :user
     belongs_to :school
@@ -35,30 +36,29 @@ class Upload < ActiveRecord::Base
     end
     
     def course_name
-      return [course.subject, course.course_code].join(' ') if course
+      return course.full_name if course
     end
     
-    def course_name=(name)
-      @split = name.split(' ', 2)
+    def set_course_name
+      @split = temp_coursename.split(' ', 2)
       @subject = @split.first
       @course_code = @split.last
       
       @conditions1 = {
-        :full_name => name
+        :full_name => temp_coursename,
+        :school_id => school_id
       }
       
       @conditions2 = {
         :subject => @subject,
         :course_code => @course_code,
-        :school_id => self.school_id,
-        :full_name => name
+        :school_id => school_id,
+        :full_name => temp_coursename
       }
       
       self.course = Course.find(:first, :conditions => @conditions1) || Course.create(@conditions2)
+      self.save
     end
     
-    def set_course_school
-      course.set_school
-    end
     
 end

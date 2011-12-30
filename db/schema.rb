@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230013859) do
+ActiveRecord::Schema.define(:version => 20111230042053) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111230013859) do
     t.text     "description",                        :default => "No description given"
     t.integer  "school_id"
     t.integer  "course_id"
+    t.string   "temp_coursename"
   end
 
   create_table "users", :force => true do |t|
