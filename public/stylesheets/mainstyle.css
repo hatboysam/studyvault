@@ -62,11 +62,11 @@ a:hover {
 }
 
 h2 {
-	color: #4FA9B8;
+	color: #D7A905;
 }
 
 h3 {
-	color: #74C0CF;
+	color: #4FA9B8;
 }
 
 ul {
@@ -222,6 +222,10 @@ div#maintext {
 
 .indent {
 	margin-left: 20px;
+}
+
+.indent li {
+	margin-bottom: 10px;
 }
 
 .upload input {

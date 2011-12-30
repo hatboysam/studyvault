@@ -1,12 +1,10 @@
-<h2><%= @school.name %></h2>
-
-<h2>Courses</h2>
+<h2><%= @school.name %> - Courses</h2>
 <% @subjects.each do |subject| %>
 <h3><%= subject %></h3>
 <ul class = "indent">
 	<% @courses.each do |course| %>
 		<% if course.subject == subject %>
-			<li><a href = <%= course_path(course) %>><h3><%= course.course_name %> (<%= course.num_uploads %>)</h3></a></li>
+			<li><a href = <%= course_path(course) %>><%= course.course_name %> (<%= course.num_uploads %>)</a></li>
 		<% end %>
 	<% end %>
 </ul>
