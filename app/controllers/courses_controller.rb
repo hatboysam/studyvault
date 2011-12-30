@@ -4,7 +4,11 @@ class CoursesController < ApplicationController
       @split = params[:term].split(' ', 2)
       @subject = @split.first
       @code = @split.last
-      @courses = current_user.school.courses.find(:all, :conditions => ['subject LIKE ? OR course_code LIKE ?', "#{@subject}%", "#{@code}%"])
+      if ENV['RAILS_ENV'] == "development"
+        @courses = current_user.school.courses.find(:all, :conditions => ['subject LIKE ? OR course_code LIKE ?', "#{@subject}%", "#{@code}%"])
+      else
+        @courses = current_user.school.courses.find(:all, :conditions => ['subject ILIKE ? OR course_code ILIKE ?', "#{@subject}%", "#{@code}%"])
+      end
     else
       @courses = Course.all
     end
