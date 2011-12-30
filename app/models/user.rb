@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   #THIS SHOULD REALLY BE BEFORE_SAVE
   before_create :encrypt_password
   
+  after_create :set_stars_redeemed
+  
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
@@ -77,6 +79,10 @@ class User < ActiveRecord::Base
     return (@downloads.length > 0)
   end
   
+  def set_stars_redeemend
+    stars_redeemed = 0
+    self.save(false)
+  end
 
   private
   
