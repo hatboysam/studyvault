@@ -5,7 +5,7 @@ class Upload < ActiveRecord::Base
     
     attr_accessible :user_id, :stars, :ratings, 
                     :semester, :professor, :year, 
-                    :description, :course_id, :school_id
+                    :description, :course_id, :school_id, :course_name
   
     after_save :set_course_school
     
