@@ -43,14 +43,18 @@ class Upload < ActiveRecord::Base
       @subject = @split.first
       @course_code = @split.last
       
-      @conditions = {
+      @conditions1 = {
+        :full_name => name
+      }
+      
+      @conditions2 = {
         :subject => @subject,
         :course_code => @course_code,
         :school_id => self.school_id,
         :full_name => name
       }
       
-      self.course = Course.find(:first, :conditions => @conditions) || Course.create(@conditions)
+      self.course = Course.find(:first, :conditions => @conditions1) || Course.create(@conditions2)
     end
     
     def set_course_school
