@@ -1,3 +1,38 @@
+@font-face {
+	font-family: ubuntu;
+	src: url('/fonts/Ubuntu-R.ttf');
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url('/fonts/Ubuntu-B.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url('/fonts/Ubuntu-RI.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url('/fonts/Ubuntu-BI.ttf');
+	font-weight: bold;
+    font-style: italic;
+}
+
+body {
+	width: 960px;
+	background: #4E7178;
+	font-family: ubuntu;
+	font-size: large;
+	color: #F1F7E2;
+	padding: 10px 20px 10px 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .logo {
 	max-width: 350px;
 	float: left;
@@ -11,13 +46,15 @@
 }
 
 a {
-	color: white;
+	color: #F1F7E2;
 	text-decoration: none;
-	font-style: bold;
+	font-weight: bold;
+	font-style: italic;
+	
 }
 
 a:visited {
-	color: white;
+	color: #F1F7E2;
 }
 
 a:hover {
@@ -25,11 +62,11 @@ a:hover {
 }
 
 h2 {
-	color: #D7A909;
+	color: #4FA9B8;
 }
 
 h3 {
-	color: #FBDE2D
+	color: #74C0CF;
 }
 
 ul {
@@ -39,7 +76,7 @@ ul {
 }
 
 .uploadli {
-	background: gray;
+	background: #4FA9B8;
 	border: 1px 1px 1px 1px;
 	border-style: solid;
 	border-color: white;
@@ -70,15 +107,12 @@ ul {
 }
 
 .yield {
-	background: #664D78;
+	background: #202B30;
 	min-width: 0px;
 	padding-top: 20px;
 	padding-bottom: 30px;
 	padding-left: 20px;
 	padding-right: 20px;
-	background-image: url('/images/gradient3.png');
-	background-repeat: repeat-x;
-	background-position: bottom-left;
 }
 
 
@@ -131,19 +165,6 @@ input, select, textarea {
 	margin-bottom: 50px;
 }
 
-body {
-	width: 960px;
-	background: #313030;
-	background-image: url('/images/gradient.png');
-	background-repeat: repeat-x;
-	background-position: top-left;
-	font-family: arial;
-	color: white;
-	padding: 10px 20px 10px 20px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 #mainbod{
 	float: right;
 	text-align: center;
@@ -176,9 +197,7 @@ div#mainbod table {
 }
 
 div#maintext {
-	background-image: url('/images/gradient2.png');
-	background-repeat: repeat-x;
-	background-position: top-left;
+	background: #202B30;
 	text-align: center;
 	margin-top: 10px;
 	min-height: 520px;

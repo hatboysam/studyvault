@@ -1,5 +1,4 @@
 class Upload < ActiveRecord::Base
-    include SessionsHelper
     default_scope :order => 'uploads.created_at DESC'
 
     attr_protected :linked_file_name, :linked_content_type, :linked_size

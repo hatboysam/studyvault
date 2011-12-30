@@ -34,14 +34,14 @@ class UploadsController < ApplicationController
       @download = current_user.downloads.build(:upload_id => @upload.id)
       if @download.save #if we can record the download
         redirect_to @upload.linked.url
-        flash[:notice] = "Download started, you have been charged one credit"
+        flash.now[:notice] = "Download started, you have been charged one credit"
         current_user.charge
       else #couldn't record the download
-        flash[:error] = "Sorry, there was an error downloading your file"
+        flash.now[:error] = "Sorry, there was an error downloading your file"
       end
     else #they have already downloaded it
       redirect_to @upload.linked.url
-      flash[:notice] = "Re-Download started, you have not been charged"
+      flash.now[:notice] = "Re-Download started, you have not been charged"
     end
   end
 end
