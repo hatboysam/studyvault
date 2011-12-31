@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         sign_in @user
         redirect_to @user
       else
-        flash[:error] = "Sorry, there was an error creating your account"
+        flash.now[:error] = "Sorry, there was an error creating your account"
         render 'new'
       end
   end

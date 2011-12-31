@@ -66,6 +66,9 @@ $(document).ready(function () {
 </script>
 
 <% form_for(@upload, :html => {:multipart => true}) do |f| %>
+	
+	<%= f.error_messages %>
+	
 	<div class = "field">
 		<%= f.label(:semester, "Semester") %><br />
 		<%= f.select(:semester, options_for_select([["Fall","Fall"],["Spring","Spring"],["Summer","Summer"]])) %>

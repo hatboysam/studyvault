@@ -1,5 +1,5 @@
 <li class = "uploadli round">
-	<% if (upload.user == current_user) || (current_user.has_downloaded?(upload))%>
+	<% if (upload.user.id == current_user.id) || (current_user.has_downloaded?(upload))%>
 	<span class = "downloadicon">
 		<%= link_to image_tag("/images/freedownload.png"), "/uploads/#{upload.id}/download", :target => "_blank", :class => "downloadlink" %>
 	</span>

@@ -8,8 +8,8 @@ class UploadsController < ApplicationController
       redirect_to root_path
     else
       #TODO change this to be better
-      flash[:error] = 'Upload Unsuccessful'
-      redirect_to root_path
+      flash.now[:error] = 'Sorry, there was an error with your upload, click Upload to see what went wrong'
+      render 'pages/index'
     end
   end
   

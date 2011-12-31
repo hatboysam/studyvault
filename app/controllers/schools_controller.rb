@@ -10,7 +10,7 @@ class SchoolsController < ApplicationController
       @schools = School.all
     end
     
-    @school_names = @schools.map(&:name).first(10)
+    @school_names = @schools.map(&:name).first(20)
     
     respond_to do |format|
       format.html

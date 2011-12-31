@@ -18,8 +18,14 @@ class Upload < ActiveRecord::Base
           :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
           :path => ":class/:id/:attachment/:basename.:extension"
           
+    coursename_regex = /[a-zA-Z]+\s[0-9]+/
+          
     #validations
     validates :school_id, :presence => true
+    
+    validates :temp_coursename, :presence => true,
+                                :format => { :with => coursename_regex, :message => "must be of the form ClassName 123" }
+    
     
     def update_rating
       @comments = self.comments.all
