@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
     @token = secure_hash(@user.username)
     @url = "http://www.studyheist.com/users/#{@user.id}?token=#{@token}"
     
-    mail(:to => @user.email,
+    mail(:to => "#{user.username} <#{@user.email}>",
          :subject => "Thanks for joining StudyHeist!")
   end
   
