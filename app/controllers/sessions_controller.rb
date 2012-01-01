@@ -11,9 +11,14 @@ class SessionsController < ApplicationController
       render 'new'
       #work on error messages
     else
-      flash[:info] = "Welcome Back!"
-      sign_in user
-      redirect_to user
+      if sign_in?(user)
+        flash[:info] = "Welcome Back!"
+        redirect_to user
+      else
+        flash.now[:error] = "You must confirm your email before you may sign in,
+                              please click the link in your inbox."
+        render 'new'
+      end
     end
   end
 

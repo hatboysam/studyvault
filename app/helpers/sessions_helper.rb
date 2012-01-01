@@ -1,8 +1,13 @@
 module SessionsHelper
 
-  def sign_in(user)
+  def sign_in?(user)
+    if user.confirmed?
       cookies.permanent.signed[:remember_token] = [user.id, user.pepper]
       self.current_user = user
+      return true
+    else
+      return false
+    end
   end
   
   def current_user=(user)
@@ -28,6 +33,10 @@ module SessionsHelper
   
   def deny_access
       redirect_to signin_path
+  end
+  
+  def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
   end
   
   private

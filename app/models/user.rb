@@ -40,7 +40,8 @@ class User < ActiveRecord::Base
   end
   
   def confirm
-    confirmed = true
+    self.confirmed = true
+    self.save(false)
   end
   
   #getter for school name

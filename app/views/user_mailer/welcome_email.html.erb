@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+	<%= image_tag attachments['logo.png'].url, :alt => "StudyHeist" %>
+	</br>
+    <h1>Welcome to StudyHeist.com, <%= @user.username %></h1>
+    <p>
+      You have successfully signed up to example.com, now you need to verify your email address.
+        Your username is: <%= @user.username %>.<br/>
+    </p>
+    <p>
+      To confirm your email, just follow this link: <%= link_to "confirm", @url %>.
+    </p>
+	<p>If you have any questions, visit our <%= link_to "FAQs", about_path %>
+    <p>Thanks for joining and have a great day!</p>
+	</br>
+	<p>Sam</p>
+	<p>StudyHeist.com</p>
+  </body>
+</html>
