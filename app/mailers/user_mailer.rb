@@ -7,7 +7,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     @token = secure_hash(@user.username)
     @url = "http://www.studyheist.com/users/#{@user.id}?token=#{@token}"
-    attachments.inline['logo.png'] = File.read('/images/logo.png')
     
     mail(:to => @user.email,
          :subject => "Thanks for joining StudyHeist!")
