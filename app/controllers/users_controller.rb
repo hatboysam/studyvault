@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   include SessionsHelper
   
+  before_filter :authenticate, :only => [:edit, :update]
+  
   def new
     if signed_in?
       flash[:notice] = "You already have a StudyHeist account"
@@ -33,12 +35,20 @@ class UsersController < ApplicationController
     @downloads = @user.downloads.all
     if params[:token]
       if params[:token] == secure_hash(@user.username)
-        flash.now[:success] = "Account Confirmed.  Welcome to StudyHeist!"
+        flash[:success] = "Account Confirmed. Please sign in to continue"
+        redirect_to signin_path
         @user.confirm
       else
-        flash.now[:error] = "An error occurred during account confirmation."
+        flash[:error] = "An error occurred during account confirmation."
+        redirect_to root_path
+      end
+    else
+      if !signed_in?
+        flash[:notice] = "You need to sign in to do that"
+        redirect_to signin_path
       end
     end
+    
   end
   
   def edit

@@ -29,10 +29,10 @@ Studyvault::Application.configure do
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 =>  587,
-  #:domain               => "studyheist.com",
-  #:user_name            => "accounts@studyheist.com",
+  :domain               => "studyheist.com",
+  :user_name            => "sam@studyheist.com",
   :password             => "shep222222",
-  :user_name => "hatboysam",
+  #:user_name => "hatboysam",
   :authentication       => "plain",
   :enable_starttls_auto => true  }
 
