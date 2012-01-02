@@ -1,0 +1,10 @@
+#config/paypal.yml
+development:
+    :login:
+    :password:
+    :signature:
+
+production:
+    :login:
+    :password:
+    :signature:
