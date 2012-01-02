@@ -24,6 +24,7 @@ Studyvault::Application.routes.draw do
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/about',   :to => 'pages#about'
+  match '/terms',   :to => 'pages#terms'
   
   match '/schoolsearch', :to => 'schools#search'
   match '/professors',   :to => 'pages#professors'

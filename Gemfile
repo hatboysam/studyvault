@@ -23,6 +23,8 @@ gem 'mime-types'
 
 #gem 'fastercsv'
 
+gem 'activemerchant'
+
 gem 'jquery-rails', '>= 1.0.12'
 
 gem 'rdoc'
