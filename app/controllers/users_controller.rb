@@ -21,11 +21,13 @@ class UsersController < ApplicationController
                           your email inbox."
                           
         if ENV['RAILS_ENV'] == "development"
-          #autoconfirm, can't send these emails from development
           @user.confirm
-        else
+        end
+        
+        if ENV['RAILS_ENV'] == "production"
           UserMailer.welcome_email(@user).deliver
         end
+        
         redirect_to root_path
       else
         flash.now[:error] = "Sorry, there was an error creating your account"
