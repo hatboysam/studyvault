@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Thanks for your purchase, <%= @user.username %></h1>
+    <p>
+      You have successfully added 10 credits to your StudyHeist account.
+        Your purchase id (for future reference) is: <%= @number %>.<br/>
+    </p>
+    <p>
+      If you have any problems with this order, email sam@studyheist.com
+    </p>
+	<p>If you have any questions, visit our <%= link_to "FAQs", "http://www.studyheist.com/about" %>
+    <p>Have a great day!</p>
+	</br>
+	<p>Sam</p>
+	<p>StudyHeist.com</p>
+  </body>
+</html>
