@@ -24,9 +24,7 @@ class UsersController < ApplicationController
           @user.confirm
         end
         
-        if ENV['RAILS_ENV'] == "production"
-          UserMailer.welcome_email(@user).deliver
-        end
+        UserMailer.welcome_email(@user).deliver
         
         redirect_to root_path
       else
