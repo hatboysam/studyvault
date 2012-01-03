@@ -64,11 +64,19 @@
 				<% end %>
 			</div>
 			<div id = "creditsdiv">
-				<h2>Add 5 Credits</h2>
-					<%= link_to "Click Here", "/users/#{current_user.id}/add" %>
+			<h2>Add 10 Credits for $4.99!</h2>
+				<%= link_to "Click Here", new_purchase_path %>
 			</div>
 			<% else %>
-				Welcome to StudyHeist, the nation's vault for college study materials.  We have user uploaded study material for colleges and courses across the nation, and it's all rated and sorted by other students.   It's free to download, as long as you contribute to the community.   To get started, <%= link_to "make an account!", signup_path %>  Confused?  Look at our <%= link_to "Frequently Asked Questions", about_path %>.
+				Welcome to StudyHeist, the nation's vault for college study materials.  We collect and organize user uploaded study material for colleges and courses across the nation, and it's all rated and sorted by other students.   It's free to download, as long as you contribute to the community. 
+				</br>
+				</br>
+				
+				Upload your study guides/notes or even general class materials like lecture presentations and practice tests.   When someone else downloads your file, they will rate it.   Every 10 rating stars you receive earns you a download credit.   So, if you upload the best you get to download the most.  It's that simple!
+				
+				</br>
+				</br>
+				To get started (with two free downloads), <%= link_to "make an account!", signup_path %>  Confused?  Look at our <%= link_to "Frequently Asked Questions", about_path %>.
 			<% end %>
 			</div></p>
 </div></p>

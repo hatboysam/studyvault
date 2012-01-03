@@ -20,6 +20,8 @@ Studyvault::Application.routes.draw do
   
   resources :downloads
   
+  resources :purchases
+  
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'

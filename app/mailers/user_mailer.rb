@@ -12,4 +12,12 @@ class UserMailer < ActionMailer::Base
          :subject => "Thanks for joining StudyHeist!")
   end
   
+  def purchase_receipt(purchase)
+    @user = purchase.user
+    @number = purchase.id
+    
+    mail(:to => "#{@user.username} <#{@user.email}>",
+         :subject => "Thanks for your purchase at StudyHeist!")
+  end
+  
 end

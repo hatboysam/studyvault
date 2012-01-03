@@ -8,6 +8,10 @@ class Comment < ActiveRecord::Base
     belongs_to :file, :class_name => "Upload"
     belongs_to :user
     
+    validates :file_id, :presence => true
+    validates :user_id, :presence => true
+    validates :rating, :presence => true
+    
     def apply_rating
       self.file.update_rating
     end

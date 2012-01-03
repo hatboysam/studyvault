@@ -30,18 +30,23 @@ class UploadsController < ApplicationController
   
   def download
     @upload = Upload.find(params[:id])
-    if (!current_user.has_downloaded?(@upload)) && !(current_user == @upload.user) #if they haven't already downloaded it
-      @download = current_user.downloads.build(:upload_id => @upload.id)
-      if @download.save #if we can record the download
+    if (current_user.credits > 0)
+      if (!current_user.has_downloaded?(@upload)) && !(current_user == @upload.user) #if they haven't already downloaded it
+        @download = current_user.downloads.build(:upload_id => @upload.id)
+        if @download.save #if we can record the download
+          redirect_to @upload.linked.url
+          flash.now[:notice] = "Download started, you have been charged one credit"
+          current_user.charge
+        else #couldn't record the download
+          flash.now[:error] = "Sorry, there was an error downloading your file"
+        end
+      else #they have already downloaded it
         redirect_to @upload.linked.url
-        flash.now[:notice] = "Download started, you have been charged one credit"
-        current_user.charge
-      else #couldn't record the download
-        flash.now[:error] = "Sorry, there was an error downloading your file"
+        flash.now[:notice] = "Re-Download started, you have not been charged"
       end
-    else #they have already downloaded it
-      redirect_to @upload.linked.url
-      flash.now[:notice] = "Re-Download started, you have not been charged"
+    else
+      flash[:notice] = "You need credits to download, buy them here or upload content to receieve free credits"
+      redirect_to new_purchase_path
     end
   end
 end

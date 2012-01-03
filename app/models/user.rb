@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :downloads, :source => :user_id, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   
+  has_many :purchases
+  
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 6..40 }

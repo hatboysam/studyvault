@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     if signed_in?
       @user = current_user
       @upload = Upload.new
+      @purchase = Purchase.new
     end
   end
   

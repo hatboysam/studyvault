@@ -1,9 +1,9 @@
 <h2><%= @course.course_name %> - <%= @course.school.name %> - Files</h2>
 <% @years.each do |year| %>
-<h3><%= year.year %></h3>
+<h3><%= year %></h3>
 <ul class = "indent">
 	<% @uploads.each do |upload| %>
-		<% if upload.year.year == year.year %>
+		<% if upload.year.year == year %>
 		<%= render upload %>
 		<% end %>
 	<% end %>

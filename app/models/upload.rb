@@ -30,11 +30,19 @@ class Upload < ActiveRecord::Base
     validates :school_id, :presence => true
     
     validates :temp_coursename, :presence => true,
-                                :format => { :with => coursename_regex, :message => "must be of the form ClassName 123" }
+                                :format => { :with => coursename_regex, 
+                                              :message => "must be of the form ClassName 123" }
+    
+    validates_attachment_presence :linked
+    validates_attachment_size :linked, :less_than => 100.megabyte
+    validates_attachment_content_type :linked, {
+      :content_type => [/[\w\W]*image[\w\W]*/, /[\w\W]*doc[\w\W]*/, /[\w\W]*sheet[\w\W]*/, /[\w\W]*pdf[\w\W]*/, /[\w\W]*presentation[\w\W]*/],
+      :message => "invalid"
+    }
     
     
     
-    def self.human_attribute_name(attr)
+    def self.human_attribute_name(attr, options = {})
       HUMANIZED_ATTRIBUTES[attr.to_sym] || super
     end
     
