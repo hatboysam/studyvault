@@ -1,3 +1,5 @@
+<span class="payment-errors"></span>
+</br>
 <%= form_for @purchase do |f| %>
 <%= f.error_messages %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -26,8 +28,6 @@
 		<%= f.submit "Purchase", :class => "submit-button round info" %></div>
 	</div>
 	</br>
-	<span class="payment-errors"></span>
-	
 <div id="stripe_error">
 	<noscript>
 	JavaScript is not enabled and is required for this form. First enable it in your web browser settings.

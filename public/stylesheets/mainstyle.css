@@ -162,6 +162,7 @@ input.text, select, textarea {
 	padding-left: 10px;
 }
 
+
 #new_purchase {
 	text-align: left;
 }
@@ -202,10 +203,10 @@ input.text, select, textarea {
 	border-color:#fbc2c4;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	padding-left: 20px;
 	padding-right: 20px;
 	margin-top: 10px;
 	float: left;
+	text-align: left;
 }
 
 #spintarget{
