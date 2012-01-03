@@ -19,9 +19,13 @@ class UsersController < ApplicationController
                           Before you can log in, 
                           you must click the confirmation link in 
                           your email inbox."
-        UserMailer.welcome_email(@user).deliver
-        #NEED TO MAKE IT SO THEY CAN'T SIGN IN UNLESS CONFIRMED
-        sign_in?(@user)
+                          
+        if ENV['RAILS_ENV'] == "development"
+          #autoconfirm, can't send these emails from development
+          @user.confirm
+        else
+          UserMailer.welcome_email(@user).deliver
+        end
         redirect_to root_path
       else
         flash.now[:error] = "Sorry, there was an error creating your account"

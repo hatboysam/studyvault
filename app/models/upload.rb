@@ -10,7 +10,13 @@ class Upload < ActiveRecord::Base
     belongs_to :course
     has_many :downloads, :source => :upload_id, :dependent => :destroy
     has_many :comments, :foreign_key => "file_id", :dependent => :destroy
-    #belongs_to :class
+
+    
+    HUMANIZED_ATTRIBUTES = {
+      :email => "E-Mail address",
+      :temp_coursename => "Course name"
+    }
+    
     
     #paperclip
     has_attached_file :linked,
@@ -26,6 +32,11 @@ class Upload < ActiveRecord::Base
     validates :temp_coursename, :presence => true,
                                 :format => { :with => coursename_regex, :message => "must be of the form ClassName 123" }
     
+    
+    
+    def self.human_attribute_name(attr)
+      HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+    end
     
     def update_rating
       @comments = self.comments.all

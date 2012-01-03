@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
                        :length       => { :within => 6..40 }
   validates :email, :presence => true, :uniqueness => { :case_sensitive => false}
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false}
-  
+  validates :school_id, :presence => { :message => "must be in our database, pick a school from the suggestions as you type"}
   #WARNING
   #THIS SHOULD REALLY BE BEFORE_SAVE
   before_create :encrypt_password
