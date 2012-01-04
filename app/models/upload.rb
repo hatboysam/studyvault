@@ -66,11 +66,18 @@ class Upload < ActiveRecord::Base
     def set_course_name
       @split = temp_coursename.split(' ')
       @clip = @split.size - 1
+      
+      for i in 0 ... @split.size
+        @split[i] = @split[i].capitalize
+      end
+      
       @subject = @split.take(@clip).join(' ')
       @course_code = @split.last
       
+      @full_name = @subject + " " + @course_code
+      
       @conditions1 = {
-        :full_name => temp_coursename,
+        :full_name => @full_name,
         :school_id => school_id
       }
       
@@ -78,7 +85,7 @@ class Upload < ActiveRecord::Base
         :subject => @subject,
         :course_code => @course_code,
         :school_id => school_id,
-        :full_name => temp_coursename
+        :full_name => @full_name
       }
       
       self.course = Course.find(:first, :conditions => @conditions1) || Course.create(@conditions2)
