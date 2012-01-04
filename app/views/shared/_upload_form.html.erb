@@ -79,7 +79,7 @@ $(document).ready(function () {
 		<%= date_select :upload, :year, :start_year => 1980, :end_year => Time.now.year, :discard_month => true %>
 	</div>
 	<div class = "field">
-		<%= f.label(:temp_coursename, "Course Name") %><br />
+		<%= f.label(:temp_coursename, "Course Name (full department name and number)") %><br />
 		<%= f.text_field :temp_coursename %>
 	</div>
 	<div class = "field">

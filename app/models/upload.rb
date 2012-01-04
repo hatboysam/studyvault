@@ -64,8 +64,9 @@ class Upload < ActiveRecord::Base
     end
     
     def set_course_name
-      @split = temp_coursename.split(' ', 2)
-      @subject = @split.first
+      @split = temp_coursename.split(' ')
+      @clip = @split.size - 1
+      @subject = @split.take(@clip).join(' ')
       @course_code = @split.last
       
       @conditions1 = {
