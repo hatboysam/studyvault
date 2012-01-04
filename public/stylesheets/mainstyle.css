@@ -264,6 +264,11 @@ div#maintext {
 	margin-right: auto;
 }
 
+.downloadtime {
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
 .delete {
 	color: #8a1f11;
 }

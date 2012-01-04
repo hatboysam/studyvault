@@ -3,5 +3,7 @@
 	</br>
 	Rating: <%= comment.rating %>/10
 	</br>
+	<% if !comment.content.blank? %>
 	Comments: <%= comment.content %>
+	<% end %>
 </li>
