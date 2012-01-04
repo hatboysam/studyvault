@@ -46,7 +46,7 @@
 	$(document).ready(function () {
 		$(".downloadlink").click(
 			function() {
-				location.reload();
+				window.location.replace(window.location.pathname+"/?downloaded=true");
 			});
 	});	
 	</script>
