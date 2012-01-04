@@ -31,7 +31,7 @@ class Upload < ActiveRecord::Base
     
     validates :temp_coursename, :presence => true,
                                 :format => { :with => coursename_regex, 
-                                              :message => "must be of the form ClassName 123" }
+                                              :message => "must be of the form Subject 123" }
     
     validates_attachment_presence :linked
     validates_attachment_size :linked, :less_than => 100.megabyte
