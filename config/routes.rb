@@ -14,13 +14,27 @@ Studyvault::Application.routes.draw do
   
   resources :sessions, :only => [:new, :create, :destroy]
   
-  resources :schools
+  #can see all requests by school
+  resources :schools do
+    resources :requests
+  end
+  
   resources :courses
   resources :comments
   
   resources :downloads
   
   resources :purchases
+  
+  #can access a response by the request
+  resources :requests do
+    resources :responses
+  end
+  
+  resources :responses do
+    get 'download', :on => :member
+    get 'accept', :on => :member
+  end
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

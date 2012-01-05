@@ -1,0 +1,22 @@
+<h2><%= @school.name %> - Marketplace</h2>
+
+<%= render 'requests/form' %>
+
+<p><b>Note: </b> making a request requires a deposit of 2 credits.   When you accept a response to your request or delete the request listing you will be returned those 2 credits.   This is to ensure that requests are posted with thought and removed in a timely fashion.</p>
+
+
+<% @subjects.each do |subject| %>
+<h3><%= subject %></h3>
+<ul class = "indent">
+	<% @courses.each do |course| %>
+		<% if course.subject == subject%>
+		<%= link_to course.full_name, course %>
+			<% @requests.each do |request| %>
+				<% if request.course.full_name == course.full_name %>
+					<%= render request %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>
+<% end %>

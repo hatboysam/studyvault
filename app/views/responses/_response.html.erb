@@ -1,0 +1,32 @@
+<li class = "uploadli round">
+	<span class = "downloadicon">
+		<%= link_to image_tag("/images/freedownload.png"), "/responses/#{response.id}/download", :target => "_blank" %>
+	</span>
+	
+	<span class = "typeicon">
+		<% if response.linked.content_type.include?("pdf") %>
+			<img src = "/images/filetypes/adobefile.png"></img>
+		<% elsif response.linked.content_type.include?(".doc") || response.linked.content_type.include?("msword") %>
+			<img src = "/images/filetypes/wordfile.png"></img>
+		<% elsif response.linked.content_type.include?("presentation") %>
+			<img src = "/images/filetypes/pptfile.png"></img>
+		<% elsif response.linked.content_type.include?(".sheet") %>
+			<img src = "/images/filetypes/excelfile.png"></img>
+		<% elsif response.linked.content_type.include?("image") %>
+			<img src = "/images/filetypes/picfile.png"></img>
+		<% else %>
+			<img src = "/images/filetypes/textfile.png"></img>
+		<% end %>
+	</span>	
+	<%= "#{response.linked.original_filename}" %>
+	 </br>
+	Description: <%= response.description %> | <%= link_to "Accept this response", "/responses/#{response.id}/accept" %>
+	
+	<% if response.user == current_user %> 
+	|  <%= link_to "delete", response, :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => response.linked.original_filename 		  %>
+	<% end %>
+	 </br>
+	<end>
+</li>

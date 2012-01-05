@@ -32,7 +32,9 @@
 	<% if upload.user == current_user %> 
 	|  <%= link_to "delete", upload, :method => :delete,
                                      :confirm => "You sure?",
-                                     :title => upload.linked.original_filename 		  %>
+                                     :title => upload.linked.original_filename,
+									 :class => "delete"
+ 		%>
 	<% end %>
 	 </br>
 	<end>

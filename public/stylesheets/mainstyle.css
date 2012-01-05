@@ -135,6 +135,18 @@ div#flash {
 	font-size: large;
 }
 
+.info a {
+	color: #264409;
+}
+
+.info a:hover {
+	color: green;
+}
+
+.info a:visited {
+	
+}
+
 .error, .alert, .notice, .success, .info {
 	padding:0.8em;margin-bottom:1em;border:2px solid #ddd;
 }
@@ -167,15 +179,48 @@ input.text, select, textarea {
 	text-align: left;
 }
 
+#request_semester {
+	margin-left: 100px;
+} 
+#request_year_1i{
+	margin-left: 140px;
+	
+} 
+#request_temp_coursename {
+	margin-left: 35px;
+	
+}
+#request_professor {
+	margin-left: 97px;
+	
+}
+#request_description {
+	margin-left: 185px;
+	margin-top: -20px;
+	
+} 
 
-.card-number, .card-cvc, .card-expiry-month, .card-expiry-year, .name{
+#request_submit {
+	margin-left: 185px;
+}
+
+.request {
+	margin-top: 10px;
+}
+
+.respond {
+	float: right;
+	margin-top: -35px;
+}
+
+.card-number, .card-cvc, .card-expiry-month, .card-expiry-year, .name, .address_zip{
 	border: 4px solid;
 	border-color: #c6d880;
 	background: #e6efc2;
 	text-align: center;
 }
 
-.card-number, .card-cvc, .name, .monthyear {
+.card-number, .card-cvc, .name, .monthyear, .address_zip {
 	float: right;
 }
 
@@ -183,7 +228,7 @@ input.text, select, textarea {
 	min-width: 250px;
 }
 
-.card-expiry-year, .card-expiry-month {
+.card-expiry-year, .card-expiry-month, .address_zip {
 	width: 60px;
 }
 
@@ -273,6 +318,10 @@ div#maintext {
 	color: #8a1f11;
 }
 
+.delete:visited {
+	color: #8a1f11;
+}
+
 .indent {
 	margin-left: 20px;
 }
@@ -321,6 +370,12 @@ div#maintext {
   border-radius:         10px;
 }
 
+.roundish {
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  border-radius:         5px;
+}
+
 .fb-like {
 	margin-top: 10px;
 }
@@ -356,7 +411,7 @@ div#maintext {
 }
 
 .field input {
-	  -moz-border-radius:    10px;
-	  -webkit-border-radius: 10px;
-	  border-radius:         10px;
+	  -moz-border-radius:    5px;
+	  -webkit-border-radius: 5px;
+	  border-radius:         5px;
 }

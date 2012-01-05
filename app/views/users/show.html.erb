@@ -1,5 +1,8 @@
 
 <h2><%= @user.username %></h2> 
+<div class = "info" id = "#flash">
+Want to earn 2 free credits for uploading a file?  Need to request a file you don't see here?  Try visiting the <%= link_to "#{current_user.school.name} Marketplace!", school_requests_path(current_user.school)%>
+</div>
 <% if signed_in? %>
 	<% if @user == current_user %>
 		<%= link_to "Edit Your Profile" ,edit_user_path(@user) %>
@@ -9,7 +12,7 @@
 <h3>School</h3>
 <% if @user.school %>
 <%= link_to @user.school.name, @user.school %>
-<% elsif @user = current_user %>
+<% elsif @user == current_user %>
 School not in our database, you won't be able to upload until you select a valid school.
 <% else %>
 None
@@ -17,9 +20,6 @@ None
 
 <h3>Graduation Year</h3>
 <%= @user.graduation %>
-
-<h3>Files Uploaded</h3>
-<%= @user.uploads.all.length %>
 
 <h3>Credits Earned from Uploads</h3>
 <%= @user.stars_redeemed/10 %>
@@ -42,9 +42,16 @@ None
 <% end %>
 </ul>
 
-</br>
 <% if signed_in? %>
 <% if @user == current_user %>
-<%= link_to "Edit Profile" ,edit_user_path(@user) %>
+<h3>Requests</h3>
+	<% if @requests.size == 0%>
+		None
+	<% end %>
+<ul>
+	<% @requests.each do |request|%>
+		<%= render request %>
+	<% end %>
+</ul>
 <% end %>
 <% end %>

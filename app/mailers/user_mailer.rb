@@ -20,4 +20,22 @@ class UserMailer < ActionMailer::Base
          :subject => "Thanks for your purchase at StudyHeist!")
   end
   
+  def response_notify(response)
+    @response = response
+    @request = @response.request
+    @user = @response.request.user
+    @url = "http://www.studyheist.com/requests/#{@request.id}/responses"
+    
+    mail(:to => "#{@user.username} <#{@user.email}>",
+         :subject => "Your StudyHeist Marketplace request got a response!")
+  end
+  
+  def accept_response(response)
+    @response = response
+    @user = @response.user
+    
+    mail(:to => "#{@user.username} <#{@user.email}>",
+         :subject => "Your StudyHeist Marketplace response was accepted!")
+  end
+  
 end

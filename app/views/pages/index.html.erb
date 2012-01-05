@@ -59,9 +59,12 @@
 				<h2>Browse Files by School</h2>
 				<% form_tag(schoolsearch_path, :method => "get") do %>
 				<%= label_tag :school_name, "School:", :id => 'school_name_label'%>
-				<%= text_field_tag :school_name, nil, :id => 'school_name', :class => "round" %>
+				<%= text_field_tag :school_name, nil, :id => 'school_name', :class => "roundish" %>
 				<%= submit_tag "Go", :id => 'school_browse'%>
 				<% end %>
+				</br>
+				<h2>Browse File Requests</h2>
+				<%= link_to "#{current_user.school.name} Marketplace", school_requests_path(current_user.school) %>
 			</div>
 			<div id = "creditsdiv">
 			<h2>Add 10 Credits for $4.99!</h2>

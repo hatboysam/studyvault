@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Good news, <%= @user.username %></h1>
+    <p>
+      Your request on the StudyHeist Marketplace has received a response.
+    </p>
+	<p>
+		As a reminder, here is what you requested: <%= @request.description %>
+    <p>
+      To view the response, just follow this link: <%= link_to "responses", @url %>.
+    </p>
+	<p>If you have any questions, visit our <%= link_to "FAQs", "http://www.studyheist.com/about" %>
+    <p>Thanks for contributing and have a great day!</p>
+	</br>
+	<p>Sam</p>
+	<p>StudyHeist.com</p>
+  </body>
+</html>

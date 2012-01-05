@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Good news, <%= @user.username %></h1>
+    <p>
+      Your response on the StudyHeist Marketplace was accepted!   You have received two free credits to use on StudyHeist!
+    </p>
+	<p>
+		As a reminder, here is how you described your response: <%= @response.description %>
+    <p>
+     	Now go back to <%= link_to "StudyHeist", "http://www.studyheist.com" %> and use your newly earned credits!
+    </p>
+	<p>If you have any questions, visit our <%= link_to "FAQs", "http://www.studyheist.com/about" %>
+    <p>Thanks for contributing and have a great day!</p>
+	</br>
+	<p>Sam</p>
+	<p>StudyHeist.com</p>
+  </body>
+</html>

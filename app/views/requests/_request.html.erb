@@ -1,0 +1,23 @@
+<li class ="uploadli round request">
+	<b>User: </b><%= request.user.username %>
+	</br>
+	<b>Course: </b><%= request.course.full_name %> |
+	<%= request.semester + " " %> <%= request.year.year %>
+	</br>
+	<% if !request.description.blank? %>
+	<b>Description: </b><%= request.description %>
+	<% end %>
+	<% if request.user.id == current_user.id %>
+		</br><%= link_to "delete request", request, 
+									 :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => "Delete Request", 
+									 :class => "delete" %> | 
+					<%= link_to "view responses", request_responses_path(request) %>
+	<% elsif !current_user.has_responded?(request) %>
+		<a href = <%= "/requests/#{request.id}/responses"%> ><%= image_tag "/images/respond.png", :class => "respond"%></a>
+	<% else %>
+	</br>
+	<span class = "delete">You have already responded to this request, thanks!</span>
+	<% end %>
+</li>

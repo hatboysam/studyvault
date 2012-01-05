@@ -4,6 +4,8 @@ class Course < ActiveRecord::Base
     belongs_to :school
     has_many   :uploads
     
+    has_many  :requests
+    
     def course_name
       return [subject, course_code].join(' ')
     end

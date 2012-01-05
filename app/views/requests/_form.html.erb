@@ -1,0 +1,47 @@
+<script>
+$(document).ready(function () {
+	
+ 	var data2 = "/courses.js"
+    $('#request_temp_coursename').autocomplete({
+        source: data2
+    });
+
+	var data3 = "/professors.js"
+    $('#request_professor').autocomplete({
+        source: data3
+    });
+ 
+});
+</script>
+<h3>Make a Request</h3>
+<%= form_for(@request) do |f| %>
+	<%= f.error_messages %>
+	<div class = "field">
+		<%= f.label(:semester, "Semester: ") %>
+		<%= f.select(:semester, options_for_select([["Fall","Fall"],["Spring","Spring"],["Summer","Summer"]])) %>
+	</div>
+	<div class = "field">
+		<%= f.label(:year, "Year: ") %>
+		<%= date_select :request, :year, :start_year => 1980, :end_year => Time.now.year, :discard_month => true %>
+	</div>
+	<div class = "field">
+		<%= f.label(:temp_coursename, "Full Course Name: ") %>
+		<%= f.text_field :temp_coursename %>
+	</div>
+	<div class = "field">
+		<%= f.label(:professor, "Professor: ") %>
+		<%= f.text_field :professor %>
+	</div>
+	<div class = "field">
+		<%= f.label(:description, "Description:") %><br />
+		<%= f.text_area :description, :class => "round" %>
+	</div>
+	<%= f.hidden_field(:user_id, :value => current_user.id )%>
+	<%= f.hidden_field(:school_id, :value => current_user.school_id )%>
+	
+  	<div class="actions">
+    	<%= f.submit "Submit" %>
+  	</div>
+<% end %>
+</br>
+</br>

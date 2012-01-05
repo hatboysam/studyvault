@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @uploads = @user.uploads.all
     @downloads = @user.downloads.all
+    @requests = @user.requests.all
     if params[:token]
       if params[:token] == secure_hash(@user.username)
         flash[:success] = "Account Confirmed. Please sign in to continue"

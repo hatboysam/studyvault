@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103054758) do
+ActiveRecord::Schema.define(:version => 20120105043227) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -43,6 +43,30 @@ ActiveRecord::Schema.define(:version => 20120103054758) do
     t.boolean  "good"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "requests", :force => true do |t|
+    t.string   "temp_coursename"
+    t.string   "professor"
+    t.string   "semester"
+    t.datetime "year"
+    t.integer  "course_id"
+    t.integer  "school_id"
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "responses", :force => true do |t|
+    t.integer  "request_id"
+    t.integer  "user_id"
+    t.string   "linked_file_name"
+    t.string   "linked_content_type"
+    t.integer  "linked_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "schools", :force => true do |t|
@@ -85,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20120103054758) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "stars_redeemed",     :default => 0
+    t.integer  "limbo_credits",      :default => 0
   end
 
 end

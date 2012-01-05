@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, 
                   :password_confirmation, :confirmed, 
                   :school_id, :graduation, 
-                  :admin, :stars, :credits, :school_name, :stars_redeemed
+                  :admin, :stars, :credits, :school_name, :stars_redeemed,
+                  :limbo_credits
   
   has_many :uploads, :dependent => :destroy
   belongs_to :school
@@ -12,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   
   has_many :purchases
+  
+  has_many :responses, :dependent => :destroy 
+  has_many :requests, :dependent => :destroy
   
   validates :password, :presence     => true,
                        :confirmation => true,
@@ -82,10 +86,33 @@ class User < ActiveRecord::Base
     return (@downloads.length > 0)
   end
   
+  def has_responded?(request)
+    @responses = self.responses.find(:all, :conditions => "request_id = #{request.id}")
+    return (@responses.length > 0)
+  end
+  
   def set_stars_redeemed
     stars_redeemed = 0
     self.save(false)
   end
+  
+  def make_request
+    self.limbo_credits += 2
+    self.credits -= 2
+    self.save(false)
+  end
+  
+  def return_deposit
+    self.limbo_credits -=2
+    self.credits +=2
+    self.save(false)
+  end
+  
+  def response_accepted
+    self.credits += 2
+    self.save(false)
+  end
+    
 
   private
   

@@ -1,10 +1,13 @@
 class SchoolsController < ApplicationController
   def index
     if params[:term]
+      @split = params[:term].split(' ')
       if ENV['RAILS_ENV'] == "development"
-        @schools = School.find(:all, :conditions => ['name LIKE ?', "#{params[:term]}%"])
+        #@schools = School.find(:all, :conditions => ['name LIKE ?', "#{params[:term]}%"])
+        @schools = School.find(:all, :conditions => ['name LIKE ? AND name LIKE ?', "#{@split.first}%", "%#{@split.last}%"])
       else 
-        @schools = School.find(:all, :conditions => ['name ILIKE ?', "#{params[:term]}%"])
+        #@schools = School.find(:all, :conditions => ['name ILIKE ?', "#{params[:term]}%"])
+        @schools = School.find(:all, :conditions => ['name ILIKE ? AND name ILIKE ?', "#{@split.first}%", "%#{@split.last}%"])
       end
     else
       @schools = School.all

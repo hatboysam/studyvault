@@ -29,6 +29,10 @@ class Upload < ActiveRecord::Base
     #validations
     validates :school_id, :presence => true
     
+    validates :year, :presence => true
+    
+    validates :semester, :presence => true
+    
     validates :temp_coursename, :presence => true,
                                 :format => { :with => coursename_regex, 
                                               :message => "must be of the form Subject 123" }
