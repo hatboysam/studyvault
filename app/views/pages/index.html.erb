@@ -40,9 +40,27 @@
 <p class = "center"><div id = "mainbod" class = "center">
 		<table>
 			<tr>
-				<td class = "nav round"><img src = "/images/browse.png" class = "nav" id = "browse"></img></td>
-				<td class = "nav round"><img src = "/images/contribute.png" class = "nav" id = "contribute"></img></td>
-				<td class = "nav round"><img src = "/images/credits.png" class = "nav" id = "credits"></img><td>
+				<td class = "nav round">
+					<% if signed_in? %>
+					<img src = "/images/browse.png" class = "nav" id = "browse"></img>
+					<% else %>
+					<a href = "?signedin=false"><img src = "/images/browse.png" class = "nav" id = "browse"></img></a>
+					<% end %>
+				</td>
+				<td class = "nav round">
+					<% if signed_in? %>
+					<img src = "/images/contribute.png" class = "nav" id = "contribute"></img>
+					<% else %>
+					<a href = "?signedin=false"><img src = "/images/contribute.png" class = "nav" id = "contribute"></img></a>
+					<% end %>
+				</td>
+				<td class = "nav round">
+					<% if signed_in? %>
+					<img src = "/images/credits.png" class = "nav" id = "credits"></img>
+					<% else %>
+					<a href = "?signedin=false"><img src = "/images/credits.png" class = "nav" id = "credits"></img></a>
+					<% end %>
+				<td>
 			</tr>
 			<tr>
 				<td>Browse</td>
@@ -63,7 +81,7 @@
 				<%= submit_tag "Go", :id => 'school_browse'%>
 				<% end %>
 				</br>
-				<h2>Browse File Requests</h2>
+				<h2>Browse File Marketplace</h2>
 				<%= link_to "#{current_user.school.name} Marketplace", school_requests_path(current_user.school) %>
 			</div>
 			<div id = "creditsdiv">
