@@ -58,11 +58,13 @@ class ResponsesController < ApplicationController
   end
   
   def accept
+    UserMailer.accept_response(@response).deliver
+    
     @response = Response.find(params[:id])
     @response.request.user.return_deposit
     @response.user.response_accepted
     @response.request.destroy
-    
+     
     flash[:notice] = "Your deposit has been returned and your request listing removed."
     redirect_to current_user
   end
