@@ -97,6 +97,9 @@ class User < ActiveRecord::Base
   end
   
   def make_request
+    if self.limbo_credits.nil?
+      self.limbo_credits = 0
+    end
     self.limbo_credits += 2
     self.credits -= 2
     self.save(false)
