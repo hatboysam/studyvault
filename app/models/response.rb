@@ -3,6 +3,7 @@ class Response < ActiveRecord::Base
   
   belongs_to :request
   belongs_to :user
+  belongs_to :upload
   
     #paperclip
     has_attached_file :linked,
@@ -21,5 +22,10 @@ class Response < ActiveRecord::Base
     validates :request_id, :presence => true
     validates :user_id, :presence => true
     
+    
+    def assign_upload(upload)
+      self.upload_id = upload.id
+      self.save(false)
+    end
   
 end

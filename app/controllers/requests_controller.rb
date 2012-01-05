@@ -31,12 +31,12 @@ class RequestsController < ApplicationController
   
   def destroy
     @request = current_user.requests.find_by_id(params[:id])
+    @request.user.return_deposit
     @request.destroy if !@request.nil?
     redirect_to current_user
   end
   
   def show
-    
   end
   
 end

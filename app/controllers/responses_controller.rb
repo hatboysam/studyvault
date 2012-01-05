@@ -16,7 +16,7 @@ class ResponsesController < ApplicationController
 		  @upload.ratings = 0
 		  
       if @upload.save(false)
-        #this is good, do nothing
+        @response.assign_upload(@upload)
       end
       
       
@@ -54,13 +54,16 @@ class ResponsesController < ApplicationController
   
   def download
     @response = Response.find(params[:id])
+    @download = current_user.downloads.build(:upload_id => @response.upload.id)
+    @download.save
     redirect_to @response.linked.url
   end
   
   def accept
-    UserMailer.accept_response(@response).deliver
-    
     @response = Response.find(params[:id])
+    
+    UserMailer.accept_response(@response).deliver
+  
     @response.request.user.return_deposit
     @response.user.response_accepted
     @response.request.destroy
