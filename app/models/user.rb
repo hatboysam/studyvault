@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  default_scope :order => 'users.id ASC'
   
   attr_accessor :password
   attr_accessible :username, :email, :password, 
@@ -113,6 +114,11 @@ class User < ActiveRecord::Base
   
   def response_accepted
     self.credits += 2
+    self.save(false)
+  end
+  
+  def add_swag(num)
+    self.swag += num
     self.save(false)
   end
     

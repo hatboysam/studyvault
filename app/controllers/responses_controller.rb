@@ -1,5 +1,6 @@
 class ResponsesController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [:create, :destroy, :index, :download, :accept]
+  before_filter :correct_user, :only => [:accept, :download]
   
   def create
     @response = current_user.responses.build(params[:response])
@@ -14,8 +15,10 @@ class ResponsesController < ApplicationController
 		  @upload.temp_coursename = @response.request.course.full_name
 		  @upload.stars = 0
 		  @upload.ratings = 0
+		  @response.user.add_swag(100)
 		  
       if @upload.save(false)
+        @upload.user.add_swag(200)
         @response.assign_upload(@upload)
       end
       
@@ -25,7 +28,7 @@ class ResponsesController < ApplicationController
       #notify the request poster
       UserMailer.response_notify(@response).deliver
       
-      redirect_to request_responses_path(@response.request)
+      redirect_to request_responses_path(@response.request, :swag => "300")
     else
       #TODO change this to be better
       flash[:error] = 'Sorry, there was an error posting your response, make sure you chose a valid file and
@@ -35,11 +38,6 @@ class ResponsesController < ApplicationController
   end
   
   def index
-    if !signed_in?
-      flash[:error] = "Sorry, you must be signed in to view your requests.  Sign in 
-                        and then click on the link in your email again."
-      redirect_to signin_path
-    end
     @response = Response.new
     @upload = Upload.new
     @request = Request.find(params[:request_id])
@@ -62,6 +60,8 @@ class ResponsesController < ApplicationController
   def accept
     @response = Response.find(params[:id])
     
+    @response.user.add_swag(150)
+    
     UserMailer.accept_response(@response).deliver
   
     @response.request.user.return_deposit
@@ -71,4 +71,18 @@ class ResponsesController < ApplicationController
     flash[:notice] = "Your deposit has been returned and your request listing removed."
     redirect_to current_user
   end
+  
+  #======================================================
+  private
+  #======================================================
+
+
+      def correct_user
+          @response = Response.find(params[:id])
+          @request = @response.request
+          if !(current_user.id == @request.user.id)
+            flash[:error] = "Sorry, you don't have permission to do that"
+            redirect_to(root_path)
+          end
+      end
 end

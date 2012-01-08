@@ -31,6 +31,10 @@ class PagesController < ApplicationController
     
   end
   
+  def aboutswag
+    
+  end
+  
   def terms
     
   end

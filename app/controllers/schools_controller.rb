@@ -1,4 +1,6 @@
 class SchoolsController < ApplicationController
+  before_filter :authenticate, :only => [:search, :show]
+  
   def index
     if params[:term]
       @split = params[:term].split(' ')

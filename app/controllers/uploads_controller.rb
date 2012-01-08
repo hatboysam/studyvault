@@ -1,11 +1,12 @@
 class UploadsController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy, :download]
+  before_filter :authenticate
   
   def create
     @upload = current_user.uploads.build(params[:upload])
     if @upload.save
       flash[:success] = "Upload Successful (#{@upload.linked.original_filename})"
-      redirect_to root_path
+      @upload.user.add_swag(200)
+      redirect_to root_path(nil, :swag => "10")
     else
       #TODO change this to be better
       flash.now[:error] = 'Sorry, there was an error with your upload, click Upload to see what went wrong'
@@ -35,6 +36,8 @@ class UploadsController < ApplicationController
         @download = current_user.downloads.build(:upload_id => @upload.id)
         if @download.save 
           #if we can record the download
+          current_user.add_swag(50)
+          @upload.user.add_swag(20)
           redirect_to @upload.linked.url
           current_user.charge
         else 

@@ -1,5 +1,7 @@
 class PurchasesController < ApplicationController
   
+  before_filter :authenticate
+  
   def create
     @token = params[:stripeToken]
     Stripe.api_key = "kTAsb04yQMFHdYcu5yZmyW0Gmt5DAf3M"

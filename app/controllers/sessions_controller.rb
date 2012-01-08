@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     else
       if sign_in?(user)
         flash[:info] = "Welcome Back!"
-        redirect_to user
+        redirect_back_or user
       else
         flash.now[:error] = "You must confirm your email before you may sign in,
                               please click the link in your inbox."

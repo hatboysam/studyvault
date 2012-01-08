@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
         flash.now[:success] = "Thanks for downloading, please don't forget to rate your downloads!"
       end
     end
+    
+    if params[:swag]
+      @swag = params[:swag].to_i
+    end
   end
   
 end

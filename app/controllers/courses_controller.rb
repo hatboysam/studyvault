@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+  
+  before_filter :authenticate
+  
   def index
     if params[:term]
       @split = params[:term].split(' ', 2)
@@ -41,6 +44,16 @@ class CoursesController < ApplicationController
     @years = @years.uniq
     
     
+  end
+  
+  def search
+    @course = Course.find_by_full_name(params[:course_name])
+    if !@course.nil?
+      redirect_to @course
+    else
+      flash[:error] = "That course does not exist in your school databse yet.  You can add it by uploading a file to that course"
+      redirect_to root_path
+    end
   end
   
 end

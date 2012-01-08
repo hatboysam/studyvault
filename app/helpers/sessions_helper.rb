@@ -32,7 +32,16 @@ module SessionsHelper
   end
   
   def deny_access
+      store_location
+      if flash[:notice].blank?
+        flash[:notice] = "You need to sign in to do that"
+      end
       redirect_to signin_path
+  end
+  
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    clear_return_to
   end
   
   def secure_hash(string)
@@ -47,6 +56,14 @@ module SessionsHelper
 
       def remember_token
         cookies.signed[:remember_token] || [nil, nil]
+      end
+      
+      def store_location
+        session[:return_to] = request.fullpath
+      end
+
+      def clear_return_to
+        session[:return_to] = nil
       end
   
 end

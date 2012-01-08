@@ -1,5 +1,5 @@
 
-<h2><%= @user.username %></h2> 
+<h2><%= @user.username %> (<%= @user.swag %> SWAG)</h2> 
 <div class = "info" id = "#flash">
 Want to earn 2 free credits for uploading a file?  Need to request a file you don't see here?  Try visiting the <%= link_to "#{current_user.school.name} Marketplace!", school_requests_path(current_user.school)%>
 </div>
@@ -33,6 +33,9 @@ None
 <% end %>
 </ul>
 
+<% if signed_in? %>
+<% if @user == current_user %>
+
 <h3>Downloads</h3>
 <ul>
 <% if !@downloads.nil? %>
@@ -42,8 +45,6 @@ None
 <% end %>
 </ul>
 
-<% if signed_in? %>
-<% if @user == current_user %>
 <h3>Requests</h3>
 	<% if @requests.size == 0%>
 		None

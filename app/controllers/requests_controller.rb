@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy, :show]
+  before_filter :correct_school, :only => [:index]
   
   def create
     @user = User.find(params[:request][:user_id])
@@ -8,7 +9,8 @@ class RequestsController < ApplicationController
       if @request.save
         @request.user.make_request
         flash[:success] = "Request posting successful.  Deposit of 2 credits made."
-        redirect_to school_requests_path(@request.school)
+        @request.user.add_swag(50)
+        redirect_to school_requests_path(@request.school, :swag => "50")
       else
         #TODO change this to be better
         flash[:error] = 'Sorry, there was an error posting your request, make sure you filled out all fields
@@ -38,5 +40,18 @@ class RequestsController < ApplicationController
   
   def show
   end
+  
+  #======================================================
+  private
+  #======================================================
+
+
+      def correct_school
+          @school = School.find(params[:school_id])
+          if !(current_user.school.id == @school.id)
+            flash[:error] = "Sorry, you don't have permission to do that"
+            redirect_to(root_path)
+          end
+      end
   
 end

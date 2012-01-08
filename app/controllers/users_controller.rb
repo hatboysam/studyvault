@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   include SessionsHelper
   
   before_filter :authenticate, :only => [:edit, :update]
+  before_filter :correct_user, :only => [:edit, :update]
   
   def new
     if signed_in?
@@ -80,5 +81,20 @@ class UsersController < ApplicationController
     end
     redirect_to root_path
   end
+  
+  #======================================================
+  private
+  #======================================================
+
+
+      def correct_user
+          @user = User.find(params[:id])
+          flash[:error] = "Sorry, you don't have permission to do that"
+          redirect_to(root_path) unless (current_user == (@user))
+      end
+      
+      def admin_user
+          redirect_to(root_path) unless current_user.admin?
+      end
   
 end

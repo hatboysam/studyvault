@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+    default_scope :order => 'comments.created_at DESC'
     attr_accessible :content, :user_id, :file_id, :rating
     
     after_save :apply_rating
