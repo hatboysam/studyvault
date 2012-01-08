@@ -6,7 +6,7 @@ class UploadsController < ApplicationController
     if @upload.save
       flash[:success] = "Upload Successful (#{@upload.linked.original_filename})"
       @upload.user.add_swag(200)
-      redirect_to root_path(nil, :swag => "10")
+      redirect_to root_path(nil, :swag => "200")
     else
       #TODO change this to be better
       flash.now[:error] = 'Sorry, there was an error with your upload, click Upload to see what went wrong'
