@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   #THIS SHOULD REALLY BE BEFORE_SAVE
   before_create :encrypt_password
   
-  after_create :set_stars_redeemed
+  after_create :set_stars_redeemed, :set_swag
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -119,6 +119,11 @@ class User < ActiveRecord::Base
   
   def add_swag(num)
     self.swag += num
+    self.save(false)
+  end
+  
+  def set_swag
+    self.swag = 100
     self.save(false)
   end
     
