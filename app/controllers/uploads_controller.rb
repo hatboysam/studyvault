@@ -38,8 +38,15 @@ class UploadsController < ApplicationController
           #if we can record the download
           current_user.add_swag(50)
           @upload.user.add_swag(20)
-          redirect_to @upload.linked.url
           current_user.charge
+          current_user.add_download
+          
+            if (6.hours > (Time.now - current_user.last_download_email))
+              UserMailer.download_email(current_user).deliver
+              current_user.reset_downloads
+            end
+          
+          redirect_to @upload.linked.url
         else 
           #couldn't record the download, not doing anything here
         end

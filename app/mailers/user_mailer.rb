@@ -38,4 +38,12 @@ class UserMailer < ActionMailer::Base
          :subject => "Your StudyHeist Marketplace response was accepted!")
   end
   
+  def download_email(user)
+    @user = user
+    @downloads = @user.downloads.take(@user.downloads_since_email)
+    @number = @user.downloads_since_email
+    
+    mail(:to => "#{@user.username} <#{@user.email}>",
+         :subject => "You have #{@number} downloads to rate on StudyHeist")
+  
 end

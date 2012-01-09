@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
                   :password_confirmation, :confirmed, 
                   :school_id, :graduation, 
                   :admin, :stars, :credits, :school_name, :stars_redeemed,
-                  :limbo_credits
+                  :limbo_credits, :last_download_email, :downloads_since_email
   
   has_many :uploads, :dependent => :destroy
   belongs_to :school
@@ -28,7 +28,8 @@ class User < ActiveRecord::Base
   #THIS SHOULD REALLY BE BEFORE_SAVE
   before_create :encrypt_password
   
-  after_create :set_stars_redeemed, :set_swag
+  #NECESSARY DUE TO POSTGRE
+  after_create :set_defaults
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -92,11 +93,6 @@ class User < ActiveRecord::Base
     return (@responses.length > 0)
   end
   
-  def set_stars_redeemed
-    stars_redeemed = 0
-    self.save(false)
-  end
-  
   def make_request
     if self.limbo_credits.nil?
       self.limbo_credits = 0
@@ -122,8 +118,22 @@ class User < ActiveRecord::Base
     self.save(false)
   end
   
-  def set_swag
-    self.swag = 100
+  def add_download
+    self.downloads_since_email += 1
+    self.save(false)
+  end
+  
+  def reset_downloads
+    self.last_download_email = Time.now
+    self.downloads_since_email = 0
+    self.save(false)
+  end
+  
+  def set_defaults
+    stars_redeemed = 0
+    swag = 100
+    last_download_email = 1.days.ago.time
+    downloads_since_email = 0
     self.save(false)
   end
     

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106230258) do
+ActiveRecord::Schema.define(:version => 20120109060047) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -105,13 +105,15 @@ ActiveRecord::Schema.define(:version => 20120106230258) do
     t.integer  "credits"
     t.integer  "stars"
     t.integer  "graduation"
-    t.boolean  "admin",              :default => false
-    t.boolean  "confirmed",          :default => false
+    t.boolean  "admin",                 :default => false
+    t.boolean  "confirmed",             :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "stars_redeemed",     :default => 0
-    t.integer  "limbo_credits",      :default => 0
-    t.integer  "swag",               :default => 100
+    t.integer  "stars_redeemed",        :default => 0
+    t.integer  "limbo_credits",         :default => 0
+    t.integer  "swag",                  :default => 100
+    t.time     "last_download_email"
+    t.integer  "downloads_since_email"
   end
 
 end

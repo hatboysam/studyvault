@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hello, <%= @user.username %></h1>
+    <p>
+      Thanks for your downloads on StudyHeist, we hope they're helping you study!  StudyHeist thrives on user feedback, so we'd really appreciate if you could rate the files you downloaded (plus you'll earn 50 SWAG for each rating)
+    </p>
+	<p>
+		As a reminder, here are the links to the files you downloaded: 
+		</br>
+		<ul>
+		<% @downloads.each do |download| %>
+			<li><%= link_to download.upload.linked.original_filename , download.upload %></li>
+		<% end %>
+		</ul>
+    <p>
+     	Please rate the files honestly.  Without users like you, StudyHeist doesn't work as it is intended.
+    </p>
+	<p>If you have any questions, visit our <%= link_to "FAQs", "http://www.studyheist.com/about" %>
+    <p>Thanks for contributing and have a great day!</p>
+	</br>
+	<p>Sam</p>
+	<p>StudyHeist.com</p>
+  </body>
+</html>
