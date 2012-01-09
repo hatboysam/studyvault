@@ -45,5 +45,7 @@ class UserMailer < ActionMailer::Base
     
     mail(:to => "#{@user.username} <#{@user.email}>",
          :subject => "You have #{@number} downloads to rate on StudyHeist")
+         
+  end
   
 end
