@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20120109060047) do
     t.integer  "stars_redeemed",        :default => 0
     t.integer  "limbo_credits",         :default => 0
     t.integer  "swag",                  :default => 100
-    t.time     "last_download_email"
+    t.datetime "last_download_email"
     t.integer  "downloads_since_email"
   end
 

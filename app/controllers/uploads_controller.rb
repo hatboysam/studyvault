@@ -41,7 +41,7 @@ class UploadsController < ApplicationController
           current_user.charge
           current_user.add_download
           
-            if (6.hours < (Time.now - current_user.last_download_email))
+            if (12.hours < (DateTime.now.to_f - current_user.last_download_email.to_f))
               UserMailer.download_email(current_user).deliver
               current_user.reset_downloads
             end

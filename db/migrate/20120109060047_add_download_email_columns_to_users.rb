@@ -1,6 +1,6 @@
 class AddDownloadEmailColumnsToUsers < ActiveRecord::Migration
   def self.up
-    add_column :users, :last_download_email, :time
+    add_column :users, :last_download_email, :datetime
     add_column :users, :downloads_since_email, :integer
   end
 

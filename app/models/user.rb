@@ -124,7 +124,7 @@ class User < ActiveRecord::Base
   end
   
   def reset_downloads
-    self.last_download_email = Time.now
+    self.last_download_email = DateTime.now
     self.downloads_since_email = 0
     self.save(false)
   end
@@ -132,7 +132,7 @@ class User < ActiveRecord::Base
   def set_defaults
     stars_redeemed = 0
     swag = 100
-    last_download_email = 1.days.ago.time
+    last_download_email = (DateTime.now - 1.days)
     downloads_since_email = 0
     self.save(false)
   end
