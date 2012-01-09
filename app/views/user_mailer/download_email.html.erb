@@ -13,7 +13,7 @@
 		</br>
 		<ul>
 		<% @downloads.each do |download| %>
-			<li><%= link_to download.upload.linked.original_filename , download.upload %></li>
+			<li><%= link_to download.upload.linked.original_filename , "http://www.studyheist.com/uploads/#{download.upload.id}" %></li>
 		<% end %>
 		</ul>
     <p>
