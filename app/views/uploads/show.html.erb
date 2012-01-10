@@ -14,8 +14,8 @@
 <h2>Course: <%= link_to @upload.course_name, @upload.course %></h2>
 
 <h2>Comments/Ratings</h2>
-<% if @downloads2.length > 0 %>
-	<% if @comments2.length < 1 %>
+<% if current_user.has_downloaded?(@upload) %>
+	<% if !current_user.has_commented?(@upload) %>
 	Comment or rate.
 	<p><%= render "/shared/comment_form"%></p>
 	<% end %>

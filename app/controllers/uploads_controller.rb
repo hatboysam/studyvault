@@ -24,9 +24,7 @@ class UploadsController < ApplicationController
     @comment = Comment.new
     @upload = Upload.find(params[:id])
     @comments = @upload.comments.all
-    @comments2 = @upload.comments.find(:all, :conditions => {:user_id => current_user.id})
-    @downloads = @upload.downloads.all
-    @downloads2 = @upload.downloads.find(:all, :conditions => {:user_id => current_user.id})
+    @downloads = @upload.downloads.all 
   end
   
   def download

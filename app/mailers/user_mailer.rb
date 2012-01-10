@@ -40,11 +40,12 @@ class UserMailer < ActionMailer::Base
   
   def download_email(user)
     @user = user
-    @downloads = @user.downloads.take(@user.downloads_since_email)
-    @number = @user.downloads_since_email
+    @downloads = @user.downloads.reject{|x| @user.has_commented? x.upload}
+    @number = @downloads.length
     
     mail(:to => "#{@user.username} <#{@user.email}>",
-         :subject => "You have #{@number} downloads to rate on StudyHeist")
+         :subject => "You have #{@number} new downloads to rate on StudyHeist - #{DateTime.now.strftime("%B %d, %Y")
+}")
          
   end
   

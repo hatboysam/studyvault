@@ -93,6 +93,11 @@ class User < ActiveRecord::Base
     return (@responses.length > 0)
   end
   
+  def has_commented?(upload)
+    @comments = upload.comments.find(:all, :conditions => {:user_id => self.id}) unless upload.nil?
+    return (@comments.length > 0)
+  end
+  
   def make_request
     if self.limbo_credits.nil?
       self.limbo_credits = 0

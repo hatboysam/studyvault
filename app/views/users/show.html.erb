@@ -9,7 +9,7 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
 	<% end %>
 <% end %>
 
-<h3>School</h3>
+<h3>School
 <% if @user.school %>
 <%= link_to @user.school.name, @user.school %>
 <% elsif @user == current_user %>
@@ -17,12 +17,11 @@ School not in our database, you won't be able to upload until you select a valid
 <% else %>
 None
 <% end %>
+</h3>
 
-<h3>Graduation Year</h3>
-<%= @user.graduation %>
+<h3>Graduation Year: <span style = "color: #F1F7E2;"><%= @user.graduation %></span></h3>
 
-<h3>Credits Earned from Uploads</h3>
-<%= @user.stars_redeemed/10 %>
+<h3>Credits Earned from Uploads: <span style = "color: #F1F7E2;"><%= @user.stars_redeemed/10 %></span></h3>
 
 <h3>Uploads</h3>
 <ul>
