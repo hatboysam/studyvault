@@ -6,6 +6,12 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:session][:email],
                              params[:session][:password])
+                             
+    if signed_in?
+      flash[:error] = "You are alredy signed in, sign out if you want to sign in to a different account."
+      redirect_to current_user
+    end
+    
     if user.nil?
       flash[:error] = "Signin Failed"
       render 'new'

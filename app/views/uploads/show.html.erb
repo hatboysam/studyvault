@@ -16,7 +16,7 @@
 <h2>Comments/Ratings</h2>
 <% if current_user.has_downloaded?(@upload) %>
 	<% if !current_user.has_commented?(@upload) %>
-	Comment or rate.
+	Comment or rate
 	<p><%= render "/shared/comment_form"%></p>
 	<% end %>
 <% end %>
