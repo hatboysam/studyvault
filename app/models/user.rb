@@ -119,6 +119,14 @@ class User < ActiveRecord::Base
   end
   
   def add_swag(num)
+    old_swag_div = (self.swag / 5000)
+    new_swag_div = ((self.swag + num) / 5000)
+    
+    #this is if you've crossed a new 5000 SWAG mark
+    if (new_swag_div > old_swag_div)
+      self.credits += 2
+    end
+    
     self.swag += num
     self.save(false)
   end
