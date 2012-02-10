@@ -24,7 +24,8 @@
 
 body {
 	width: 960px;
-	background: #4E7178;
+	background: url('/images/behindback.png'), top left, repeat;
+	/*background: #4E7178;*/
 	font-family: ubuntu;
 	font-size: large;
 	color: #F1F7E2;
@@ -77,10 +78,11 @@ ul {
 }
 
 .uploadli {
-	background: #4FA9B8;
+	/*background: #4FA9B8;*/
+	background: url('/images/uploadback.png') top left, repeat;
 	border: 1px 1px 1px 1px;
 	border-style: solid;
-	border-color: white;
+	border-color: #4E7178;
 	margin-bottom: 10px;
 	padding: 10px;
 	width: 700px;
@@ -304,7 +306,6 @@ div#mainbod table {
 }
 
 div#maintext {
-	background: #202B30;
 	text-align: center;
 	margin-top: 10px;
 	min-height: 520px;
@@ -366,28 +367,28 @@ div#maintext {
 }
 .roundpadded {
   padding: 10px 10px 10px 10px;
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    7px;
+  -webkit-border-radius: 7px;
+  border-radius:         7px;
 }
 
 .rounddoublepadded {
   padding: 20px 20px 20px 20px;
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    6px;
+  -webkit-border-radius: 6px;
+  border-radius:         6px;
 }
 
 .round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    6px;
+  -webkit-border-radius: 6px;
+  border-radius:         6px;
 }
 
 .roundish {
-  -moz-border-radius:    5px;
-  -webkit-border-radius: 5px;
-  border-radius:         5px;
+  -moz-border-radius:    3px;
+  -webkit-border-radius: 3px;
+  border-radius:         3px;
 }
 
 .fb-like {
@@ -428,4 +429,16 @@ div#maintext {
 	  -moz-border-radius:    5px;
 	  -webkit-border-radius: 5px;
 	  border-radius:         5px;
+}
+
+.shadow {
+	-moz-box-shadow: 	3px 3px 6px 4px #0D152A;
+	-webkit-box-shadow: 3px 3px 6px 4px #0D152A;
+	box-shadow: 		3px 3px 6px 4px #0D152A;
+}
+
+.topbar {
+	background-image: url('/images/topbar.png'), url('/images/generalback.png');
+	background-position: center top, center top;
+	background-repeat: repeat-x, repeat;
 }

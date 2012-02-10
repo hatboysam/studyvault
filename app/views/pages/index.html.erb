@@ -5,6 +5,8 @@
 		$("#creditsdiv").hide();
 		
 		$("#yield").removeClass('yield');
+		$("#yield").removeClass('shadow');
+		$("#yield").removeClass('topbar');
 		
 		$("#browse").click(
 			function() {
@@ -73,7 +75,7 @@
 				<td>Get Credits</td>
 			</tr>
 		</table>
-			<p><div id = "maintext" class = "rounddoublepadded">
+			<p><div id = "maintext" class = "rounddoublepadded shadow topbar">
 			<% if signed_in? %>
 			<div id = "uploaddiv">
 				<%= render '/shared/upload_form' %>
