@@ -200,14 +200,20 @@ input[type="file"] {
 
 .uploadbutton {
 	background: url("/images/uploadbutton.png") center bottom no-repeat;
+	margin-bottom: 20px;
 }
 
 .uploadbutton-selected {
 	background: url("/images/upload-selected.png") center bottom no-repeat;
+	margin-bottom: 20px;
 }
 
 .uploadbutton label {
 	margin-bottom: 10px;
+}
+
+#forspinner {
+	margin-top: 20px;
 }
 
 input, textarea, select {
