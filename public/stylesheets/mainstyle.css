@@ -290,9 +290,11 @@ img.nav {
 	width: 100px;
 }
 
-td.nav:hover {
+/*
+a:hover {
 	background: #474747;
 }
+*/
 
 div#mainbod td {
 	text-align: center;

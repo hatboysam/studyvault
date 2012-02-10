@@ -40,6 +40,37 @@
         		source: data4
     		});
 
+			browseOn = "/images/browseflat.png"
+			browseOff = "/images/browseflatout.png"
+			uploadOn = "/images/uploadflat.png"
+		 	uploadOFf= "/images/uploadflatout.png"
+			creditsOn = "/images/creditsflat.png"
+			creditsOff = "/images/creditsflatout.png"
+			
+			$('#browse').mouseover(
+				function() {
+					$('#browse').attr('src', "/images/browseflat.png")
+			});
+			$('#browse').mouseout(
+				function() {
+					$('#browse').attr('src', "/images/browseflatout.png")
+			});
+			$('#contribute').mouseover(
+				function() {
+					$('#contribute').attr('src', "/images/uploadflat.png")
+			});
+			$('#contribute').mouseout(
+				function() {
+					$('#contribute').attr('src', "/images/uploadflatout.png")
+			});
+			$('#credits').mouseover(
+				function() {
+					$('#credits').attr('src', "/images/creditsflat.png")
+			});
+			$('#credits').mouseout(
+				function() {
+					$('#credits').attr('src', "/images/creditsflatout.png")
+			});
  
 	});
 </script>
@@ -49,23 +80,23 @@
 			<tr>
 				<td class = "nav round">
 					<% if signed_in? %>
-					<img src = "/images/browse.png" class = "nav" id = "browse"></img>
+					<img src = "/images/browseflatout.png" class = "nav" id = "browse" ></img>
 					<% else %>
-					<a href = "?signedin=false"><img src = "/images/browse.png" class = "nav" id = "browse"></img></a>
+					<a href = "?signedin=false"><img src = "/images/browseflatout.png" class = "nav" id = "browse"></img></a>
 					<% end %>
 				</td>
 				<td class = "nav round">
 					<% if signed_in? %>
-					<img src = "/images/contribute.png" class = "nav" id = "contribute"></img>
+					<img src = "/images/uploadflatout.png" class = "nav" id = "contribute"></img>
 					<% else %>
-					<a href = "?signedin=false"><img src = "/images/contribute.png" class = "nav" id = "contribute"></img></a>
+					<a href = "?signedin=false"><img src = "/images/uploadflatout.png" class = "nav" id = "contribute"></img></a>
 					<% end %>
 				</td>
 				<td class = "nav round">
 					<% if signed_in? %>
-					<img src = "/images/credits.png" class = "nav" id = "credits"></img>
+					<img src = "/images/creditsflatout.png" class = "nav" id = "credits"></img>
 					<% else %>
-					<a href = "?signedin=false"><img src = "/images/credits.png" class = "nav" id = "credits"></img></a>
+					<a href = "?signedin=false"><img src = "/images/creditsflatout.png" class = "nav" id = "credits"></img></a>
 					<% end %>
 				<td>
 			</tr>
