@@ -7,29 +7,29 @@
 	</br>
 	<div class = "field">
 		<%= label_tag :full_name, "Full Name on Card:"%>
-		<%= text_field_tag :full_name, nil, name: nil, :class => "name" %>
+		<%= text_field_tag :full_name, nil, name: nil, :class => "name payment" %>
 	</div>
 	<div class="field">
     	<%= label_tag :card_number, "Credit Card Number:" %>
-    	<%= text_field_tag :card_number, nil, name: nil, :class => "card-number" %>
+    	<%= text_field_tag :card_number, nil, name: nil, :class => "card-number payment" %>
   	</div>
   	<div class="field">
     	<%= label_tag :card_code, "Security Code on Card (CVV):" %>
-    	<%= text_field_tag :card_code, nil, name: nil, :class => "card-cvc" %>
+    	<%= text_field_tag :card_code, nil, name: nil, :class => "card-cvc payment" %>
   	</div>
   	<div class="field">
     	<%= label_tag :card_month, "Card Expiration (MM/YYYY):" %>
 		<div class = "monthyear">
-    	<%= text_field_tag :card_expiry_month, nil, name: nil, :class => "card-expiry-month" %> /
-   		<%= text_field_tag :card_expiry_year, nil, name: nil, :class => "card-expiry-year" %>
+    	<%= text_field_tag :card_expiry_month, nil, name: nil, :class => "card-expiry-month payment" %> /
+   		<%= text_field_tag :card_expiry_year, nil, name: nil, :class => "card-expiry-year payment" %>
 		</div>
   	</div>
 	<div class = "field">
 		<%= label_tag :billing_zip, "Billing ZIP Code:"%>
-		<%= text_field_tag :billing_zip, nil, name: nil, :class => "address_zip" %>
+		<%= text_field_tag :billing_zip, nil, name: nil, :class => "address_zip payment" %>
 	</div>
 	<div class="actions">
-		<%= f.submit "Purchase", :class => "submit-button round info" %></div>
+		<%= f.submit "Purchase", :class => "submit-button round info payment" %></div>
 	</div>
 	</br>
 <div id="stripe_error">

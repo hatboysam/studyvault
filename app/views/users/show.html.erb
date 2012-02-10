@@ -9,49 +9,72 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
 	<% end %>
 <% end %>
 
-<h3>School
-<% if @user.school %>
-<%= link_to @user.school.name, @user.school %>
-<% elsif @user == current_user %>
-School not in our database, you won't be able to upload until you select a valid school.
-<% else %>
-None
-<% end %>
-</h3>
+<div class = "midbar round">
+	<h3>Info</h3>
+	<img src = "/images/minusbutton.png" class = "minus">
+</div>
+<div class = "midbody round">
+	<h3>School: 
+	<% if @user.school %>
+		<%= link_to @user.school.name, @user.school %>
+		<% elsif @user == current_user %>
+		School not in our database, you won't be able to upload until you 			select a valid school.
+		<% else %>
+		None
+		<% end %>
+	</h3>
 
-<h3>Graduation Year: <span style = "color: #F1F7E2;"><%= @user.graduation %></span></h3>
 
-<h3>Credits Earned from Uploads: <span style = "color: #F1F7E2;"><%= @user.stars_redeemed/10 %></span></h3>
+	<h3>Graduation Year: <span style = "color: #F1F7E2;"><%= @user.graduation 	%></span></h3>
 
-<h3>Uploads</h3>
-<ul>
-<% if !@uploads.nil? %>
-<% @uploads.each do |upload| %>
+	<h3>Credits Earned from Uploads: <span style = "color: #F1F7E2;"><%= @user.stars_redeemed/10 %></span></h3>
+
+</div>
+
+<div class = "midbar round">
+	<h3>Uploads</h3>
+	<img src = "/images/minusbutton.png" class = "minus">
+</div>
+<div class = "midbody round">
+	<ul class>
+	<% if !@uploads.nil? %>
+		<% @uploads.each do |upload| %>
 	<%= render upload %>
-<% end %>
-<% end %>
-</ul>
+	<% end %>
+	<% end %>
+	</ul>
+</div>
 
 <% if signed_in? %>
 <% if @user == current_user %>
 
-<h3>Downloads</h3>
-<ul>
-<% if !@downloads.nil? %>
-<% @downloads.each do |download| %>
-	<%= render download %>
-<% end %>
-<% end %>
-</ul>
+<div class = "midbar round">
+	<h3>Downloads</h3>
+	<img src = "/images/minusbutton.png" class = "minus">
+</div>
+<div class = "midbody round">
+		<ul>
+		<% if !@downloads.nil? %>
+			<% @downloads.each do |download| %>
+			<%= render download %>
+			<% end %>
+			<% end %>
+		</ul>
+</div>
 
-<h3>Requests</h3>
+<div class = "midbar round">
+	<h3>Requests</h3>
+	<img src = "/images/minusbutton.png" class = "minus">
+</div>
+<div class = "midbody round">
 	<% if @requests.size == 0%>
 		None
 	<% end %>
-<ul>
-	<% @requests.each do |request|%>
-		<%= render request %>
-	<% end %>
-</ul>
+	<ul>
+		<% @requests.each do |request|%>
+			<%= render request %>
+			<% end %>
+		</ul>
+</div>
 <% end %>
 <% end %>

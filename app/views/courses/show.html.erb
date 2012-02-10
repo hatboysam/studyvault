@@ -1,11 +1,16 @@
 <h2><%= @course.course_name %> - <%= @course.school.name %> - Files</h2>
 <% @years.each do |year| %>
-<h3><%= year %></h3>
-<ul class = "indent">
-	<% @uploads.each do |upload| %>
-		<% if upload.year.year == year %>
-		<%= render upload %>
-		<% end %>
-	<% end %>
-</ul>
+<div class = "midbar round">
+	<h3><%= year %></h3>
+	<img src = "/images/minusbutton.png" class = "minus">
+</div>
+<div class = "midbody round">
+	<ul class = "indent">
+		<% @uploads.each do |upload| %>
+			<% if upload.year.year == year %>
+			<%= render upload %>
+			<% end %>
+			<% end %>
+		</ul>
+</div>
 <% end %>

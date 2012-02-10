@@ -113,14 +113,14 @@
 			</div>
 			<div id = "browsediv">
 				<h2>Browse Files by School</h2>
-				<% form_tag(schoolsearch_path, :method => "get") do %>
+				<%= form_tag(schoolsearch_path, :method => "get") do %>
 				<%= label_tag :school_name, "School:", :id => 'school_name_label'%>
 				<%= text_field_tag :school_name, nil, :id => 'school_name', :class => "roundish" %>
 				<%= submit_tag "Go", :id => 'school_browse'%>
 				<% end %>	
 				</br>
 				<h2>Browse Files by Course</h2>
-				<% form_tag(coursesearch_path, :method => "get") do %>
+				<%= form_tag(coursesearch_path, :method => "get") do %>
 				<%= label_tag :course_name, "Course:", :id => 'course_name_label'%>
 				<%= text_field_tag :course_name, nil, :id => 'course_name', :class => "roundish" %>
 				<%= submit_tag "Go", :id => 'course_browse'%>

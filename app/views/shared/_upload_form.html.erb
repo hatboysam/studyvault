@@ -66,7 +66,7 @@ $(document).ready(function () {
 });
 </script>
 
-<% form_for(@upload, :html => {:multipart => true}) do |f| %>
+<%= form_for(@upload, :html => {:multipart => true}) do |f| %>
 	
 	<%= f.error_messages %>
 	
@@ -96,7 +96,7 @@ $(document).ready(function () {
 	<%= f.hidden_field(:ratings, :value => '0' )%>
 	<%= f.hidden_field(:school_id, :value => current_user.school.id )%>
 	
-	<div class = "field upload">
+	<div class = "field upload uploadbutton">
 		<%= f.label(:linked, "Upload File") %><br />
 		<%= f.file_field(:linked) %>
 	</div>

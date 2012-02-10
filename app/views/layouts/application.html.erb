@@ -46,10 +46,25 @@
 <body>
 	<script>
 	$(document).ready(function () {
+		
+		//makes sure all download links open in a new window
 		$(".downloadlink").click(
 			function() {
 				window.location.replace(window.location.pathname+"/?downloaded=true&swag=50");
-			});
+		});
+			
+		//Minimizing effect when clicking on a minus button
+		$(".minus").click(
+			function() {
+			   $(this).parent().next(".midbody").slideToggle(400);	
+		});
+		
+		//This is to change the browse button to a selected
+		//button on all upload fields
+		$('input[type=file]').change(function() {
+			$(this).parent().addClass("uploadbutton-selected")
+			$(this).parent().removeClass("uploadbutton")
+		});
 	});	
 	</script>
 	
@@ -59,7 +74,7 @@
 		<%= yield %>
 		</br>
 		<div class="fb-like" data-href="http://www.facebook.com/pages/StudyHeist/227560507320555" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-colorscheme="light" data-font="arial"></div>
-	</div>
+		</div>
 
 </body>
 </html>

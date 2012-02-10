@@ -6,17 +6,22 @@
 
 
 <% @subjects.each do |subject| %>
-<h3><%= subject %></h3>
-<ul class = "indent">
-	<% @courses.each do |course| %>
-		<% if course.subject == subject%>
-		<%= link_to course.full_name, course %>
-			<% @requests.each do |request| %>
-				<% if request.course.full_name == course.full_name %>
-					<%= render request %>
+<div class = "midbar round">
+	<h3><%= subject %></h3>
+	<img src = "/images/minusbutton.png" class = "minus">
+</div>
+<div class = "midbody round">
+	<ul class = "indent">
+		<% @courses.each do |course| %>
+			<% if course.subject == subject%>
+			<%= link_to course.full_name, course %>
+				<% @requests.each do |request| %>
+					<% if request.course.full_name == course.full_name %>
+						<%= render request %>
+						<% end %>
+					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
-	<% end %>
-</ul>
+	</ul>
+</div>
 <% end %>
