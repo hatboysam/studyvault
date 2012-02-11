@@ -77,9 +77,11 @@ $(document).ready(function () {
 	<%= f.hidden_field(:request_id, :value => @request.id )%>
 	<%= f.hidden_field(:user_id, :value => current_user.id )%>
 	
-	<div class = "field uploadbutton">
+	<div class = "field">
 		<%= f.label(:linked, "Response File") %><br />
-		<%= f.file_field(:linked) %>
+		<div class = "uploadbutton">
+			<%= f.file_field(:linked) %>
+		</div>
 	</div>
 	
 	<% fields_for @upload do |fu| %>

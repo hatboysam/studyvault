@@ -208,16 +208,16 @@ input[type="file"] {
 
 .uploadbutton {
 	background-image: url("/images/uploadbutton.png");
-	background-position: left bottom;
+	background-position: left top;
 	background-repeat: no-repeat;
-	margin-bottom: 20px;
+	margin-top: 5px;
 }
 
 .uploadbutton-selected {
 	background-image: url("/images/upload-selected.png");
-	background-position: left bottom;
+	background-position: left top;
 	background-repeat: no-repeat;
-	margin-bottom: 20px;
+	margin-top: 5px;
 }
 
 .uploadbutton label {

@@ -96,9 +96,11 @@ $(document).ready(function () {
 	<%= f.hidden_field(:ratings, :value => '0' )%>
 	<%= f.hidden_field(:school_id, :value => current_user.school.id )%>
 	
-	<div class = "field upload uploadbutton">
+	<div class = "field upload">
 		<%= f.label(:linked, "Upload File") %><br />
-		<%= f.file_field(:linked) %>
+		<div class = "uploadbutton">
+			<%= f.file_field(:linked) %>
+		</div>
 	</div>
 	
 	<div class="actions" id = "spintarget">
