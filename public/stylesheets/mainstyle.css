@@ -24,7 +24,9 @@
 
 body {
 	width: 960px;
-	background: url('/images/behindback.png'), top left, repeat;
+	background-image: url('/images/behindback.png');
+	background-position: top left; 
+	background-repeat: repeat;
 	/*background: #4E7178;*/
 	font-family: ubuntu;
 	font-size: large;
@@ -79,7 +81,9 @@ ul {
 
 .uploadli {
 	/*background: #4FA9B8;*/
-	background: url('/images/uploadback.png') top left, repeat;
+	background-image: url('/images/uploadback.png');
+	background-position: top left;
+	background-repeat: repeat;
 	border: 1px 1px 1px 1px;
 	border-style: solid;
 	border-color: #4FA9B8;
@@ -169,7 +173,7 @@ div#flash {
 }
 
 input[type="submit"] {
-	background: url("/images/behindback.png");
+	background-image: url("/images/behindback.png");
 	max-width: 100px;
 	min-width: 70px;
 	min-height: 32px;
@@ -187,7 +191,7 @@ input[type="text"], select, textarea, input[type="password"]{
 	padding-right: 10px;
 	padding-left: 10px;
 	
-	background: url("/images/behindback.png");
+	background-image: url("/images/behindback.png");
 
 }
 
@@ -199,12 +203,16 @@ input[type="file"] {
 }
 
 .uploadbutton {
-	background: url("/images/uploadbutton.png") center bottom no-repeat;
+	background-image: url("/images/uploadbutton.png");
+	background-position: center bottom;
+	background-repeat: no-repeat;
 	margin-bottom: 20px;
 }
 
 .uploadbutton-selected {
-	background: url("/images/upload-selected.png") center bottom no-repeat;
+	background-image: url("/images/upload-selected.png");
+	background-position: center bottom;
+	background-repeat: no-repeat;
 	margin-bottom: 20px;
 }
 
@@ -232,7 +240,7 @@ input[type="file"] {
 }
 
 option {
-	background: url("/images/behindback.png");	
+	background-image: url("/images/behindback.png");	
 }
 
 #swagbox {
