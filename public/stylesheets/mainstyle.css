@@ -79,6 +79,10 @@ ul {
 	padding: 0px;
 }
 
+img {
+	border: 0;
+}
+
 .uploadli {
 	/*background: #4FA9B8;*/
 	background-image: url('/images/uploadback.png');
