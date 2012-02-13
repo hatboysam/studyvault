@@ -4,7 +4,9 @@ class PurchasesController < ApplicationController
   
   def create
     @token = params[:stripeToken]
-    Stripe.api_key = "kTAsb04yQMFHdYcu5yZmyW0Gmt5DAf3M"
+    #Stripe.api_key = "kTAsb04yQMFHdYcu5yZmyW0Gmt5DAf3M"
+    #real key follows
+    Stripe.api_key = "d3lvLeQXArw7U78P0dsajddZt3zI3Uzd"
     @charge = Stripe::Charge.create(
       :amount => 499, # amount in cents, again
       :currency => "usd",
