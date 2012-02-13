@@ -24,9 +24,10 @@
 
 body {
 	width: 960px;
-	background-image: url('/images/behindback.png');
-	background-position: top left; 
-	background-repeat: repeat;
+	background-image: url('/images/behind-header.png'), url('/images/behindback.png');
+	background-position: top center, top left; 
+	background-repeat: repeat-x,  repeat;
+	
 	/*background: #4E7178;*/
 	font-family: ubuntu;
 	font-size: large;
@@ -47,6 +48,7 @@ body {
 	float: right;
 	font-size: large;
 	font-weight: bold;
+	padding-top: 3px;
 }
 
 a {
@@ -137,9 +139,9 @@ div#flash {
 	width: 580px;
 	border-style: solid;
 	border: 1px 1px 1px 1px;
-	margin-top: 80px;
-	margin-bottom: -60px;
-	margin-left: 145px;
+	margin-top: 90px;
+	margin-bottom: -80px;
+	margin-left: 180px;
 	padding-top: 10px;
 	text-align: center;
 	font-size: large;
@@ -361,6 +363,7 @@ input.payment {
 
 #header{
 	margin-bottom: 50px;
+	/*background-color: #307E87;*/
 }
 
 img.nav {

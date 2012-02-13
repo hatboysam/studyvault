@@ -1,5 +1,6 @@
 	<div id = "header">
 		<a href= <%= "#{root_path}" %>> <img alt = "StudyHeist" src = "/images/logo.png" class = "logo" ></img></a>
+		
 		<div class = "usertop">
 		<% if signed_in? %>
 			<%= link_to "#{current_user.username} (#{current_user.credits} CR | #{current_user.swag} SWAG ) ", current_user %> | 
@@ -10,14 +11,18 @@
 			<%= link_to "Sign In", signin_path %> |
 			<%= link_to "Sign Up", signup_path %>
 		<% end %>
+		</br>
+		<div class="fb-like" data-href="http://www.facebook.com/pages/StudyHeist/227560507320555" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-colorscheme="light" data-font="arial">
+		</div>
 		<% if @swag %>
 			<% if @swag > 0 %>
 			<div id = "swagbox" class = "roundish">You earned <%= @swag %> SWAG!</div>
 			<% elsif @swag < 0 %>
 			<div id = "swagbox" class = "roundish">You lost <%= @swag %> SWAG.</div>
 			<% end %>
-		<% end %>
+		<% end %>	
 		</div>
+		
 		
 		</br>
 		
