@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   before_create :encrypt_password
   
   #NECESSARY DUE TO POSTGRE
-  after_create :set_defaults
+  after_create :set_defaults, :reset_downloads
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
