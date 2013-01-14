@@ -1,5 +1,5 @@
 Studyvault::Application.configure do
-  # Settings specified here will take precedence over those in config/environment.rb
+  # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
   # test suite.  You never need to work with it otherwise.  Remember that
@@ -7,7 +7,11 @@ Studyvault::Application.configure do
   # and recreated between test runs.  Don't rely on the data there!
   config.cache_classes = true
 
-  # Log error messages when you accidentally call methods on nil.
+  # Configure static asset server for tests with Cache-Control for performance
+  config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=3600"
+
+  # Log error messages when you accidentally call methods on nil
   config.whiny_nils = true
 
   # Show full error reports and disable caching
@@ -32,15 +36,7 @@ Studyvault::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-  
-  #action mailer
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => 'studyheist.com',
-  :user_name            => 'accounts@studyheist.com',
-  :password             => 'shep222222',
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  }
+
+  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
+  config.assets.allow_debugging = true
 end

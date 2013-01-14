@@ -1,4 +1,4 @@
-Studyvault::Application.routes.draw do
+ Studyvault::Application.routes.draw do
   
   root :to => "pages#index"
   

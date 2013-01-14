@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+#gem 'rails', '3.0.1'
+
+gem 'rails', '3.1.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -17,7 +19,9 @@ gem 'dynamic_form'
 
 gem 'nifty-generators'
 
-gem 'will_paginate', '3.0.pre2'
+#gem 'will_paginate', '3.0.pre2'
+
+gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
 
 gem 'mime-types'
 
@@ -32,6 +36,8 @@ gem 'rdoc'
 gem "rake", "0.8.7"
 
 gem 'stripe'
+
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'

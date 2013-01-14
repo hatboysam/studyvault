@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+  <title>StudyHeist - Rob The Vault</title>
+  	<%= stylesheet_link_tag "jquery-ui-1.8.16.custom" %>
+	<%= stylesheet_link_tag "mainstyle" %>
+  	<%= javascript_include_tag "spin" %>
+	<%= javascript_include_tag "jquery.min" %>
+	<%= javascript_include_tag "https://js.stripe.com/v1/"%>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+	<%= javascript_include_tag "rails" %>
+  	
+
+	<%= csrf_meta_tag %>
+	<%= yield :head %>
+
+
+	<script type="text/javascript">
+
+  	var _gaq = _gaq || [];
+  	_gaq.push(['_setAccount', 'UA-28046262-1']);
+  	_gaq.push(['_trackPageview']);
+
+  	(function() {
+    	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  		})();
+
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=6557325490";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+	
+	
+</head>
+<body>
+	<script>
+	$(document).ready(function () {
+		
+		//makes sure all download links open in a new window
+		$(".downloadlink").click(
+			function() {
+				//window.location.replace(window.location.pathname+"/?downloaded=true&swag=50");
+				window.location.replace(window.location.pathname+"/?downloaded=true");
+		});
+			
+		//Minimizing effect when clicking on a minus button
+		$(".minus").click(
+			function() {
+			   $(this).parent().next(".midbody").slideToggle(400);	
+		});
+		
+		//This is to change the browse button to a selected
+		//button on all upload fields
+		$('input[type=file]').change(function() {
+			$(this).parent().addClass("uploadbutton-selected")
+			$(this).parent().removeClass("uploadbutton")
+		});
+	});	
+	</script>
+		
+	<%= render 'shared/header' %>
+	<div class = "yield round down100 shadow topbar" id = "yield">
+		<%= yield %>
+		</br>
+</body>
+</html>
