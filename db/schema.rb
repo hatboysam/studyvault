@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(:version => 20120109060047) do
   add_index "schools", ["name"], :name => "index_schools_on_name", :unique => true
 
   create_table "uploads", :force => true do |t|
-    t.integer  "user_id",             :limit => 255
     t.string   "linked_file_name"
     t.string   "linked_content_type"
     t.integer  "linked_file_size"
@@ -90,9 +89,10 @@ ActiveRecord::Schema.define(:version => 20120109060047) do
     t.datetime "updated_at"
     t.string   "professor"
     t.datetime "year"
-    t.text     "description",                        :default => "No description given"
+    t.text     "description",         :default => "No description given"
     t.integer  "school_id"
     t.integer  "course_id"
+    t.integer  "user_id"
     t.string   "temp_coursename"
   end
 
