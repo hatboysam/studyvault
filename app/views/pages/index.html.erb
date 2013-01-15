@@ -1,8 +1,52 @@
-<div class="container">
-	<div class="hero-unit">
-		<h1>Welcome to StudyHeist</h1>
-		<p>
-			StudyHeist is a national database for study materials.  Share your best material to get access to study guides around the nation.
-		</p>
-	</div>
+
+<!-- Script for school suggestions -->
+<script>
+$(document).ready(function () {
+	var data = "/schools.js"
+	$('#school_name').autocomplete({
+		source: data
+	});	
+}
+</script>
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+<h1>Welcome to StudyHeist</h1>
+<br />
+<p>
+	<%= form_tag(schoolsearch_path, :method => "get") do %>
+		<%= text_field_tag :school_name, nil, :id => 'school_name', :placeholder => "Start typing the name of your school...", :size => 300, :class => "input-xxlarge search-query", :style => "width:80%;max-width:600px" %>
+		<%= submit_tag "Go", :id => 'school_browse', :class => "btn btn-primary" %>
+	<% end %>
+</p>
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+<div class="span4">
+  <h2><i class="icon-search"></i>Search</h2>
+  <div class="index-column">
+    <p>
+      Search by course or even by teacher, everything is automatically categorized.  Get what you need without wading through huge result pages.
+    </p>
+  </div>
+  <p><a class="btn btn-success" href="#">Search now &raquo;</a></p>
+</div>
+<div class="span4">
+  <h2><i class="icon-cloud-upload"></i>Upload</h2>
+  <div class="index-column">
+    <p>
+      Upload your own files to earn credits.  The better ratings you get, the more credits you earn.   This is the backbone of StudyHeist. 
+    </p>
+  </div>
+  <p><a class="btn btn-success" href="#">Upload files &raquo;</a></p>
+</div>
+<div class="span4">
+  <h2><i class="icon-shopping-cart"></i>Buy</h2>
+  <div class="index-column">
+    <p>
+      If you don't have anything to share, you can buy credits to get access to more finals.  You get what you want right away, and StudyHeist can cover its costs.
+    </p>
+  </div>
+  <p><a class="btn btn-success" href="#">Buy credits &raquo;</a></p>
 </div>

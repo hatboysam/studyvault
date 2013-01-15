@@ -67,6 +67,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    font-awesome-rails (3.0.1.0)
+      railties (>= 3.1)
     hike (1.2.1)
     i18n (0.6.1)
     jquery-rails (2.1.4)
@@ -145,6 +147,7 @@ DEPENDENCIES
   activemerchant
   aws-s3
   dynamic_form
+  font-awesome-rails
   jquery-rails (>= 1.0.12)
   mime-types
   nifty-generators
