@@ -61,9 +61,11 @@
   <body>
 
       <%= render 'shared/header' %>
-      <div class = "container">
+      <!-- Start Container -->
+      <div class = "container"> 
         <div class="row">
           <div class="span12" style="margin-top:60px;">
+
             <!-- Begin Flash -->
             <% [:info, :error, :notice, :alert, :success].each do |key| %>
               <% if flash[key] %>
@@ -79,14 +81,22 @@
             <%= yield %>
           </div>
         </div>
-      </div>
 
-      <hr>
+        <hr>
 
-      <footer>
-        <span>&copy; Habosa 2013 </span>
-        <div class="fb-like" data-href="http://www.facebook.com/pages/StudyHeist/227560507320555" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-colorscheme="light" data-font="arial">
-      </footer>
+        <!-- Begin Footer -->
+        <div class="row" id="footer">
+          <div class="span12">
+            <span>&copy; Habosa 2013 </span>
+            <div class="fb-like" data-href="http://www.facebook.com/pages/StudyHeist/227560507320555" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-colorscheme="light" data-font="arial">
+          </div>
+          <br />
+          <br />
+        </div>
+        <!-- End Footer -->
+      </div> 
+      <!-- End Container -->
+
 
     <!-- Javascripts
     ================================================== -->

@@ -15,6 +15,8 @@ gem 'paperclip'
 
 gem 'aws-s3'
 
+gem 'aws-sdk'
+
 gem 'dynamic_form'
 
 gem 'nifty-generators'

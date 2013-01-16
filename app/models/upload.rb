@@ -73,7 +73,7 @@ class Upload < ActiveRecord::Base
       @clip = @split.size - 1
       
       for i in 0 ... @split.size
-        @split[i] = @split[i].capitalize
+        @split[i] = @split[i].capitalize unless (@split[i] == @split[i].upcase)
       end
       
       @subject = @split.take(@clip).join(' ')

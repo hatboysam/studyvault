@@ -1,41 +1,62 @@
-<li class = "uploadli round">
-	<% if (upload.user.id == current_user.id) || (current_user.has_downloaded?(upload))%>
-	<span class = "downloadicon">
-		<%= link_to image_tag("/images/freedownload.png"), "/uploads/#{upload.id}/download", :target => "_blank", :class => "downloadlink" %>
-	</span>
-	<% else %>
-		<span class = "downloadicon">
-		<%= link_to image_tag("/images/paydownload.png"), "/uploads/#{upload.id}/download", :target => "_blank", :class => "downloadlink" %>
-		</span>
-	<% end %>
-	<span class = "typeicon">
-		<% if upload.linked.content_type.include?("pdf") %>
-			<img src = "/images/filetypes/adobefile.png"></img>
-		<% elsif upload.linked.content_type.include?(".doc") || upload.linked.content_type.include?("msword") %>
-			<img src = "/images/filetypes/wordfile.png"></img>
-		<% elsif upload.linked.content_type.include?("presentation") %>
-			<img src = "/images/filetypes/pptfile.png"></img>
-		<% elsif upload.linked.content_type.include?(".sheet") %>
-			<img src = "/images/filetypes/excelfile.png"></img>
-		<% elsif upload.linked.content_type.include?("image") %>
-			<img src = "/images/filetypes/picfile.png"></img>
+<tr>
+	<td>
+		<% if (upload.user.id == current_user.id) || (current_user.has_downloaded?(upload))%>
+			<span class = "downloadicon">
+				<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
+					<i class="icon-cloud-download icon-large"></i>
+				</a>
+			</span>
 		<% else %>
-			<img src = "/images/filetypes/textfile.png"></img>
+			<span class = "downloadicon">
+				<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
+					<i class="icon-cloud-download icon-large"></i>
+				</a>
+			</span>
 		<% end %>
-	</span>	
-	<%= "#{upload.linked.original_filename}" %>
-	<% if upload.ratings > 0 %>
-	<span class = "rating">(<%= upload.stars/upload.ratings %>/10 Stars)</span>
-	<% end %>
-	 </br>
-	<%= "#{upload.semester}  #{upload.year.year}" %> | Professor:  <%= upload.professor %> | <%= link_to "More Info", upload %>
-	<% if upload.user == current_user %> 
-	|  <%= link_to "delete", upload, :method => :delete,
-                                     :confirm => "You sure?",
-                                     :title => upload.linked.original_filename,
-									 :class => "delete"
- 		%>
-	<% end %>
-	 </br>
-	<end>
-</li>
+	</td>
+	<td style="text-align:center;">
+		<span class = "typeicon">
+			<% if upload.linked.content_type.include?("pdf") %>
+				<i class="icon-file icon-large"></i>
+			<% elsif upload.linked.content_type.include?(".doc") || upload.linked.content_type.include?("msword") %>
+				<i class="icon-file-alt icon-large"></i>
+			<% elsif upload.linked.content_type.include?("presentation") %>
+				<i class="icon-list-alt icon-large"></i>
+			<% elsif upload.linked.content_type.include?(".sheet") %>
+				<i class="icon-table icon-large"></i>
+			<% elsif upload.linked.content_type.include?("image") %>
+				<i class="icon-camera icon-large"></i>
+			<% else %>
+				<i class="icon-paper-clip icon-large"></i>
+			<% end %>
+		</span>
+	</td>
+	<td>
+		<%= "#{upload.linked.original_filename}" %>
+		<% if upload.ratings > 0 %>
+			<span class = "rating">
+				(<%= upload.stars/upload.ratings %>/10 Stars)
+			</span>
+		<% end %>
+	</td>
+	<td>
+		<%= "#{upload.course.course_name}" %>
+	</td>
+	<td>
+		<%= "#{upload.semester}  #{upload.year.year}" %>
+	</td>
+	<td>
+		<%= upload.professor %>
+	</td>
+	<td>
+		<% if upload.user == current_user %> 
+		<%= link_to "More Info", upload %>
+		|  <%= link_to "delete", upload, :method => :delete,
+	                                     :confirm => "You sure?",
+	                                     :title => upload.linked.original_filename,
+										 :class => "delete"
+	 		%>
+		<% end %>
+		<end>
+	</td>
+</tr>

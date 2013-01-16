@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   
   def confirm
     self.confirmed = true
-    self.save(false)
+    self.save(:validate => false)
   end
   
   #getter for school name
@@ -73,14 +73,14 @@ class User < ActiveRecord::Base
       self.stars -= 10
       self.credits += 1
     end
-    self.save(false)
+    self.save(:validate => false)
   end
   
   #WARNING 
   #THIS ALLOWS FOR NEGATIVE CREDITS
   def charge
     self.credits -= 1
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def has_downloaded?(file)
@@ -104,18 +104,18 @@ class User < ActiveRecord::Base
     end
     self.limbo_credits += 2
     self.credits -= 2
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def return_deposit
     self.limbo_credits -=2
     self.credits +=2
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def response_accepted
     self.credits += 2
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def add_swag(num)
@@ -128,18 +128,18 @@ class User < ActiveRecord::Base
     end
     
     self.swag += num
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def add_download
     self.downloads_since_email += 1
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def reset_downloads
     self.last_download_email = DateTime.now
     self.downloads_since_email = 0
-    self.save(false)
+    self.save(:validate => false)
   end
   
   def set_defaults
@@ -147,7 +147,7 @@ class User < ActiveRecord::Base
     swag = 100
     last_download_email = (DateTime.now - 1.days)
     downloads_since_email = 0
-    self.save(false)
+    self.save(:validate => false)
   end
     
 

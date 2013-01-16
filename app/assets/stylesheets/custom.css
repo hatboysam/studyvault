@@ -7,3 +7,25 @@
 .fb-like {
 	float: right;
 }
+
+.description {
+	max-height: 200px;
+}
+
+
+.downloadicon a {
+	text-decoration: none;
+}
+
+.uploadli {
+	list-style: none;
+	margin-left: 0px;
+}
+
+h1.short {
+	line-height: 90%;
+}
+
+h1.short > small {
+	padding-left: 10px;
+}

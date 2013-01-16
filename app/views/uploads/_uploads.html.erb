@@ -1,0 +1,19 @@
+<% if @uploads.size != 0 %>
+	<table class="table table-striped">
+			<tr>
+				<th>Link</th>
+				<th style="text-align:center;">
+					Type
+				</th>
+				<th >Name</th>
+				<th>Course</th>
+				<th>Semester</th>
+				<th>Professor</th>
+				<th>Actions</th>
+			</tr>
+			<%= render 	:partial => "uploads/upload", 
+						:collection => @uploads %>
+	</table>
+<% else %>
+	No uploads
+<% end %>

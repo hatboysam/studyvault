@@ -11,12 +11,17 @@ $(document).ready(function () {
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
-<h1>Welcome to StudyHeist</h1>
+<h1 class="short">
+  <p>Welcome to StudyHeist</p>
+  <small>
+    The nationwide database for all study materials
+  </small>
+</h1>
 <br />
 <p>
 	<%= form_tag(schoolsearch_path, :method => "get") do %>
 		<%= text_field_tag :school_name, nil, :id => 'school_name', :placeholder => "Start typing the name of your school...", :size => 300, :class => "input-xxlarge search-query", :style => "width:80%;max-width:600px" %>
-		<%= submit_tag "Go", :id => 'school_browse', :class => "btn btn-primary" %>
+		<%= submit_tag "Search", :id => 'school_browse', :class => "btn btn-primary" %>
 	<% end %>
 </p>
 </div>
@@ -39,7 +44,7 @@ $(document).ready(function () {
       Upload your own files to earn credits.  The better ratings you get, the more credits you earn.   This is the backbone of StudyHeist. 
     </p>
   </div>
-  <p><a class="btn btn-success" href="#">Upload files &raquo;</a></p>
+  <p><a class="btn btn-success" href="upload">Upload files &raquo;</a></p>
 </div>
 <div class="span4">
   <h2><i class="icon-shopping-cart"></i>Buy</h2>
@@ -48,5 +53,6 @@ $(document).ready(function () {
       If you don't have anything to share, you can buy credits to get access to more finals.  You get what you want right away, and StudyHeist can cover its costs.
     </p>
   </div>
-  <p><a class="btn btn-success" href="#">Buy credits &raquo;</a></p>
+  <p><a class="btn btn-success" href="<%= new_purchase_path %>">Buy credits &raquo;</a></p>
+</div>
 </div>

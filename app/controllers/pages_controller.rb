@@ -26,6 +26,13 @@ class PagesController < ApplicationController
       format.js
     end
   end
+
+  def upload
+    if signed_in?
+      @user = current_user
+      @upload = Upload.new
+    end
+  end
   
   def about
     

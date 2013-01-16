@@ -36,12 +36,13 @@
     get 'accept', :on => :member
   end
   
-  match '/signup',  :to => 'users#new'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
-  match '/about',   :to => 'pages#about'
+  match '/signup',    :to => 'users#new'
+  match '/signin',    :to => 'sessions#new'
+  match '/signout',   :to => 'sessions#destroy'
+  match '/about',     :to => 'pages#about'
   match '/aboutswag', :to => 'pages#aboutswag'
-  match '/terms',   :to => 'pages#terms'
+  match '/terms',     :to => 'pages#terms'
+  match '/upload',    :to => 'pages#upload'
   
   match '/schoolsearch', :to => 'schools#search'
   match '/coursesearch', :to => 'courses#search'
