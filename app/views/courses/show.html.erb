@@ -1,5 +1,7 @@
 <h2><%= @course.course_name %> - <%= @course.school.name %> - All Files</h2>
 	<% @years.each do |year| %>
 	<h3><%= year %></h3>
-	<%= render "uploads/uploads", :uploads => @uploads.find_all{|u| u.year.year == year} %>
+	<%= render "uploads/uploads", 
+			:uploads => @uploads.find_all{|u| u.year.year == year},
+			:downloads => false %>
 <% end %>

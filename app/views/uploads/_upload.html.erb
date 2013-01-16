@@ -32,7 +32,7 @@
 		</span>
 	</td>
 	<td>
-		<%= "#{upload.linked.original_filename}" %>
+		<%= link_to "#{upload.linked.original_filename}", upload %>
 		<% if upload.ratings > 0 %>
 			<span class = "rating">
 				(<%= upload.stars/upload.ratings %>/10 Stars)
@@ -50,13 +50,13 @@
 	</td>
 	<td>
 		<% if upload.user == current_user %> 
-		<%= link_to "More Info", upload %>
-		|  <%= link_to "delete", upload, :method => :delete,
-	                                     :confirm => "You sure?",
-	                                     :title => upload.linked.original_filename,
-										 :class => "delete"
-	 		%>
+			<%= link_to "delete", upload, 
+								:method => :delete,
+	                            :confirm => "Are you sure?",
+	                            :title => upload.linked.original_filename,
+	                            :class => "delete"%>
+	    <% else %>
+	    	None
 		<% end %>
-		<end>
 	</td>
 </tr>

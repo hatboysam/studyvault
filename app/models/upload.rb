@@ -61,7 +61,7 @@ class Upload < ActiveRecord::Base
         self.stars = @stars
         self.ratings = @comments.length
       end
-      self.save(false)
+      self.save(:validate => false)
     end
     
     def course_name

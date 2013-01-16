@@ -41,21 +41,12 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
 </div>
 
 <h3>Uploads</h3>
-<%= render "uploads/uploads", :uploads => @uploads %>
+<%= render "uploads/uploads", :uploads => @uploads, :downloads => false %>
 
 <% if signed_in? %>
 	<% if @user == current_user %>
 		<h3>Downloads</h3>
-		<div>
-			
-			<% if @downloads.size == 0 %>
-				No downloads yet
-			<% end %>
-			<ul>
-				<%= render 	:partial => "downloads/download", 
-							:collection => @downloads %>
-			</ul>
-		</div>
+		<%= render 	"uploads/uploads", :uploads => @downloads, :downloads => true %>
 
 		<h3>Requests</h3>
 		<div>

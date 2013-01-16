@@ -1,9 +1,5 @@
-<li class ="uploadli round">
-	User: <%= comment.user.username %>
-	</br>
-	Rating: <%= comment.rating %>/10
-	</br>
-	<% if !comment.content.blank? %>
-	Comments: <%= comment.content %>
-	<% end %>
-</li>
+<tr>
+	<td><%= comment.user.username %></td>
+	<td><%= comment.rating %>/10</td>
+	<td><%= comment.content %></td>
+</tr>

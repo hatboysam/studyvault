@@ -1,4 +1,1 @@
-<li>
-  <%= render Upload.find(download.upload_id) %>
-  <p class = "downloadtime"> Downloaded <%= time_ago_in_words(download.created_at) %> ago </p>
-</li>
+<%= render Upload.find(download.upload_id) %>

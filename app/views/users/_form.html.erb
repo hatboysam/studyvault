@@ -11,27 +11,27 @@ $(document).ready(function () {
 <%= form_for(@user) do |f| %>
 	<%= f.error_messages %>
 	<div class = "field" >
-		<%= f.label :Username, "Username*" %><br />
+		<%= f.label :Username, "Username*" %>
 		<%= f.text_field :username %>
 	</div>
 	<div class = "field" >
-		<%= f.label :Email, "Email Address*" %><br />
+		<%= f.label :Email, "Email Address*" %>
 		<%= f.text_field :email %>
 	</div>
 	<div class = "field" >
-		<%= f.label :Password, "Password*" %><br />
+		<%= f.label :Password, "Password*" %>
 		<%= f.password_field :password %>
 	</div>
 	<div class = "field" >
-		<%= f.label :Password_Confirmation, "Confirm Password*" %><br />
+		<%= f.label :Password_Confirmation, "Confirm Password*" %>
 		<%= f.password_field :password_confirmation %>
 	</div>
 	<div class = "field" >
-		<%= f.label :school_name, "School Name*" %><br />
+		<%= f.label :school_name, "School Name*" %>
 		<%= f.text_field :school_name %>
 	</div>
 	<div class = "field" >
-		<%= f.label :Graduation, "Year of Graduation*" %><br />
+		<%= f.label :Graduation, "Year of Graduation*" %>
 		<%= f.text_field :graduation %>
 	</div>
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
 	<%= f.hidden_field(:limbo_credits, :value => '0' )%>
 	
   	<div class="actions">
-    	<%= f.submit "Submit" %>
+    	<%= f.submit "Submit", :class => "btn btn-success" %>
   	</div>
 <% end %>
 

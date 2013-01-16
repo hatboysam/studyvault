@@ -1,27 +1,46 @@
-<ul>
-<%= render @upload %>
-</ul>
 
-<h2>Uploaded by: <%= link_to "#{@upload.user.username}", @upload.user %>
+<h2>
+	<%= @upload.linked.original_filename %>
+	<span class = "downloadicon">
+		<a target="_blank" class="downloadlink" href=<%= "/uploads/#{@upload.id}/download" %>>
+			<i class="icon-cloud-download"></i>
+		</a>
+	</span>
+</h2>
 
-<h2>Description</h2>
-<%= @upload.description %>
+<h3>File Info</h3>
+<div class="well">
+	<p>
+		<h4>
+			Uploaded by: 
+			<%= link_to "#{@upload.user.username}", @upload.user %>
+		</h4>
+		<h4>
+			School: 
+			<%= link_to @upload.school.name, @upload.school %>
+		</h4>
+		<h4>
+			Course: 
+			<%= link_to @upload.course_name, @upload.course %>
+		</h4>
+		<h4>
+			Description:
+			<%= @upload.description %>
+		</h4>
+		<h4>
+			Number of Downloads: 
+			<%= @downloads.length %>
+		</h4>
+	</p>
+</div>
 
-<h2>Number of Downloads: <%= @downloads.length %></h2>
-
-<h2>School: <%= link_to @upload.school.name, @upload.school %></h2>
-
-<h2>Course: <%= link_to @upload.course_name, @upload.course %></h2>
-
-<h2>Comments/Ratings</h2>
+<h3>Comments/Ratings</h3>
 <% if current_user.has_downloaded?(@upload) %>
 	<% if !current_user.has_commented?(@upload) %>
-	Comment or rate
-	<p><%= render "/shared/comment_form"%></p>
+		Please rate this file:
+		<p>
+			<%= render '/shared/comment_form' %>
+		</p>
 	<% end %>
 <% end %>
-	<ul>
-		<% @comments.each do |comment| %>
-			<%= render comment %>
-		<% end %>
-	</ul>
+<%= render "comments/comments", :comments => @comments %>

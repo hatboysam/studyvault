@@ -10,7 +10,8 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <% if signed_in? %>
-            <li><%= link_to "#{current_user.username} (#{current_user.credits} CR) ", current_user %> </li> 
+            <li><%= link_to "#{current_user.username} (#{current_user.credits} CR) ", current_user %> </li>
+            <li><%= link_to "Upload", "/upload" %> </li> 
             <li><%= link_to "About", about_path %> </li>
             <li><%= link_to "Sign Out", signout_path %>
           <% else %>
