@@ -1,12 +1,10 @@
-
 <!-- Script for school suggestions -->
 <script>
 $(document).ready(function () {
-	var data = "/schools.js"
-	$('#school_name').autocomplete({
-		source: data
-	});	
-}
+
+  auto_school('#school_name');
+
+});
 </script>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
@@ -20,7 +18,7 @@ $(document).ready(function () {
 <br />
 <p>
 	<%= form_tag(schoolsearch_path, :method => "get") do %>
-		<%= text_field_tag :school_name, nil, :id => 'school_name', :placeholder => "Start typing the name of your school...", :size => 300, :class => "input-xxlarge search-query", :style => "width:80%;max-width:600px" %>
+		<%= text_field_tag :school_name, nil, :id => 'school_name', :placeholder => "Start typing the name of your school...", :size => 300, :class => "input-xxlarge search-query", :style => "width:80%;max-width:600px"%>
 		<%= submit_tag "Search", :id => 'school_browse', :class => "btn btn-primary" %>
 	<% end %>
 </p>

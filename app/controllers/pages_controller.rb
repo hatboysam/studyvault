@@ -12,15 +12,15 @@ class PagesController < ApplicationController
     if params[:term]
       @search = params[:term]
       if ENV['RAILS_ENV'] == "development"
-        @raw = current_user.school.uploads.find(:all, :conditions => ['professor LIKE ?', "#{@search}%"])
+        @raw = current_user.school.uploads.find(:all, :limit => 20, :conditions => ['professor LIKE ?', "#{@search}%"])
       else
-        @raw = current_user.school.uploads.find(:all, :conditions => ['professor ILIKE ?', "#{@search}%"])
+        @raw = current_user.school.uploads.find(:all, :limit => 20, :conditions => ['professor ILIKE ?', "#{@search}%"])
       end
     else
-      @raw = current_user.school.uploads
+      @raw = current_user.school.uploads.find(:all, :limit => 20)
     end
     
-    @professors = @raw.map(&:professor).first(10).uniq
+    @professors = @raw.each_with_index.map{|x,i| {id: i, value: x.professor}}
     
     respond_to do |format|
       format.js

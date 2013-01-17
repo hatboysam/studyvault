@@ -18,3 +18,63 @@ $(document).ready(function () {
 				window.location.replace(window.location.pathname+"/?downloaded=true");
 		});
 });	
+
+//** AUTOCOMPLETE **//
+function get_school_suggestions(key,cont) {
+	var path = "/schools.js";
+	var params = { "term":key };
+	$.get(
+	  path,
+	  params,
+	  function(obj){
+	    cont(JSON.parse(obj));
+	  }
+	);
+}
+
+function get_course_suggestions(key,cont) {
+	var path = "/courses.js";
+	var params = { "term":key };
+	$.get(
+	  path,
+	  params,
+	  function(obj){
+	    cont(JSON.parse(obj));
+	  }
+	);
+}
+
+function get_professor_suggestions(key,cont) {
+	var path = "/professors.js";
+	var params = { "term":key };
+	$.get(
+	  path,
+	  params,
+	  function(obj){
+	    cont(JSON.parse(obj));
+	  }
+	);
+}
+
+function auto_complete(selector, callback) {
+	$(selector).autocomplete({
+		ajax_get : callback,
+		minchars : 1,
+		timeout : 4000,
+		noresults : 'No matches'
+	});
+}
+
+function auto_school(selector) {
+	auto_complete(selector, get_school_suggestions);
+}
+
+function auto_course(selector) {
+	auto_complete(selector, get_course_suggestions);
+}
+
+function auto_professor(selector) {
+	auto_complete(selector, get_professor_suggestions);
+}
+
+

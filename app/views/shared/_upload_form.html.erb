@@ -51,15 +51,8 @@
 <script>
 $(document).ready(function () {
 	
- 	var data2 = "/courses.js"
-    $('#upload_temp_coursename').autocomplete({
-        source: data2
-    });
-
-	var data3 = "/professors.js"
-    $('#upload_professor').autocomplete({
-        source: data3
-    });
+	auto_course('#upload_temp_coursename');
+	auto_professor('#upload_professor');
  
 });
 </script>

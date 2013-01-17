@@ -8,15 +8,15 @@ class CoursesController < ApplicationController
       @subject = @split.first
       @code = @split.last
       if ENV['RAILS_ENV'] == "development"
-        @courses = current_user.school.courses.find(:all, :conditions => ['full_name LIKE ? OR full_name LIKE ?', "%#{@subject}%", "%#{@code}%"])
+        @courses = current_user.school.courses.find(:all, :limit => 20, :conditions => ['full_name LIKE ? OR full_name LIKE ?', "%#{@subject}%", "%#{@code}%"])
       else
-        @courses = current_user.school.courses.find(:all, :conditions => ['full_name ILIKE ? OR full_name ILIKE ?', "%#{@subject}%", "%#{@code}%"])
+        @courses = current_user.school.courses.find(:all, :limit => 20, :conditions => ['full_name ILIKE ? OR full_name ILIKE ?', "%#{@subject}%", "%#{@code}%"])
       end
     else
-      @courses = Course.all
+      @courses = Course.find(:all, :limit => 20)
     end
     
-    @course_names = @courses.map(&:full_name).first(10)
+    @course_names = @courses.map{|x| {id: x.id, value: x.full_name}}
     
     respond_to do |format|
       format.html

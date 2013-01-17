@@ -6,16 +6,16 @@ class SchoolsController < ApplicationController
       @split = params[:term].split(' ')
       if ENV['RAILS_ENV'] == "development"
         #@schools = School.find(:all, :conditions => ['name LIKE ?', "#{params[:term]}%"])
-        @schools = School.find(:all, :conditions => ['name LIKE ? AND name LIKE ?', "#{@split.first}%", "%#{@split.last}%"])
+        @schools = School.find(:all, :limit => 20, :conditions => ['name LIKE ? AND name LIKE ?', "#{@split.first}%", "%#{@split.last}%"])
       else 
         #@schools = School.find(:all, :conditions => ['name ILIKE ?', "#{params[:term]}%"])
-        @schools = School.find(:all, :conditions => ['name ILIKE ? AND name ILIKE ?', "#{@split.first}%", "%#{@split.last}%"])
+        @schools = School.find(:all, :limit => 20, :conditions => ['name ILIKE ? AND name ILIKE ?', "#{@split.first}%", "%#{@split.last}%"])
       end
     else
-      @schools = School.all
+      @schools = School.find(:all, :limit => 20)
     end
     
-    @school_names = @schools.map(&:name).first(20)
+    @school_names = @schools.map{|x| {id: x.id, value: x.name}}
     
     respond_to do |format|
       format.html

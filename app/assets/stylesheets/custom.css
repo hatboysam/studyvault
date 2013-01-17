@@ -29,3 +29,65 @@ h1.short {
 h1.short > small {
 	padding-left: 10px;
 }
+
+/* Menu DIV */
+.jqac-menu{
+  color: black;
+  background-color: white;
+  border: 1px solid #aaa;
+  margin-top: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+/* unordered list for suggestions */
+.jqac-menu ul {
+  list-style: none;
+  margin: 1px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+/* list item */
+.jqac-menu li {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+/* SPAN "link" */
+.jqac-menu .jqac-link {
+  cursor: hand; cursor: pointer;
+  display: block;
+}
+/* highlighted menu item */
+.jqac-menu .jqac-highlight {
+  background-color: #0081c2;
+  color: #ffffff;
+}
+/* warning for no results */
+.jqac-menu .jqac-warning {
+  font-style: italic;
+}
+/* loading for AJAX get */
+.jqac-menu .jqac-loading {
+  font-style: italic;
+  text-decoration: blink;
+}
+/* matched sub-string */
+.jqac-menu em {
+    text-decoration: none;
+    font-style: none;
+    font-weight: bold;
+}
+/* suggestion info */
+.jqac-menu .jqs-info {
+    text-align: right;
+    font-style: italic;
+    font-size: .75em;
+    color: #666;
+}
