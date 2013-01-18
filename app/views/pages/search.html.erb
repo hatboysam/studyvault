@@ -1,0 +1,16 @@
+<script>
+$(document).ready(function() {
+	auto_school('#school');
+	auto_course('#course');
+	auto_professor('#professor');
+});
+</script>
+
+<div class="page-header">
+  <h1>Search Files <small>Find what you need.</small></h1>
+</div>
+<%= render "shared/search_form" %>
+<br />
+<br />
+<h2>Results:</h2>
+<%= render "uploads/uploads", :uploads => @uploads, :downloads => false %>

@@ -43,6 +43,7 @@
   match '/aboutswag', :to => 'pages#aboutswag'
   match '/terms',     :to => 'pages#terms'
   match '/upload',    :to => 'pages#upload'
+  match '/search',     :to => 'pages#search'
   
   match '/schoolsearch', :to => 'schools#search'
   match '/coursesearch', :to => 'courses#search'

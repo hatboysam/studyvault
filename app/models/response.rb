@@ -25,7 +25,7 @@ class Response < ActiveRecord::Base
     
     def assign_upload(upload)
       self.upload_id = upload.id
-      self.save(false)
+      self.save(:validate => false)
     end
   
 end

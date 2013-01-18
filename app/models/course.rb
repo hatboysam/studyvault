@@ -19,7 +19,7 @@ class Course < ActiveRecord::Base
     def set_school
       @first = self.uploads.all.first
       self.school_id = @first.school_id
-      self.save(false)
+      self.save(:validate => false)
     end
         
     def num_uploads

@@ -6,7 +6,7 @@ namespace :db do
     User.all.each do |user|
       user.last_download_email = (DateTime.now - 1.days)
       user.downloads_since_email = 0
-      user.save(false)
+      user.save(:validate => false)
     end
     
   end

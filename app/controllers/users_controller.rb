@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   def add
     @user = User.find(params[:id])
     @user.add_credits(5)
-    if @user.save(false)
+    if @user.save(:validate => false)
       flash[:success] = "Five more credits added!"
     else
       flash[:error] = "Sorry, buying credits failed"

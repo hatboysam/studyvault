@@ -17,7 +17,7 @@ class ResponsesController < ApplicationController
 		  @upload.ratings = 0
 		  @response.user.add_swag(100)
 		  
-      if @upload.save(false)
+      if @upload.save(:validate => false)
         @upload.user.add_swag(200)
         @response.assign_upload(@upload)
       end

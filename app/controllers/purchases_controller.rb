@@ -19,7 +19,7 @@ class PurchasesController < ApplicationController
       @purchase.make_good
       flash[:success] = "Purchase Successful"
       @purchase.user.add_credits(10);
-      @purchase.user.save(false)
+      @purchase.user.save(:validate => false)
       UserMailer.purchase_receipt(@purchase).deliver
       redirect_to root_path
     else

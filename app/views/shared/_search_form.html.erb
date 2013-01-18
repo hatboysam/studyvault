@@ -1,0 +1,36 @@
+<div class="row">
+	<%= form_tag do %>
+		<div class="span3">
+			<%= label_tag(:school, "School: ")  %>
+			<%= text_field_tag :school, nil, :id => 'school', :class => "search-query", :value => @school_name %>
+		</div>
+		<div class="span3">
+			<%= label_tag(:course, "Course: ")  %>
+			<%= text_field_tag :course, nil, :id => 'course', :class => "search-query", :value => @course_name %>
+		</div>
+		<div class="span3">
+			<%= label_tag(:professor, "Professor: ") %>
+			<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query", :value => @professor_name %>
+		</div>
+		<div class="span2">
+			<table>
+				<tr class="pad">
+					<td>Any</td>
+					<td>All</td>
+				</tr>
+				<tr class="pad">
+					<td>
+						<input type="radio" value="ANY" name="match" checked="checked" />
+					</td>
+					<td>
+						<input type="radio" value="ALL" name="match" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="span1">
+			<%= label_tag(:search, "Search:", :class => "white") %>
+			<%= submit_tag "Search", :class => "btn btn-success", :style => "float:left;" %>
+		</div>
+	<% end %>
+</div>

@@ -10,14 +10,16 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <% if signed_in? %>
-            <li><%= link_to "#{current_user.username} (#{current_user.credits} CR) ", current_user %> </li>
-            <li><%= link_to "Upload", "/upload" %> </li> 
-            <li><%= link_to "About", about_path %> </li>
-            <li><%= link_to "Sign Out", signout_path %>
+            <li><%= link_to "#{current_user.username} (#{current_user.credits} CR) ", current_user %></li>
+            <li><%= link_to "Upload", "/upload" %></li>
+            <li><%= link_to "Search", "/search" %></li> 
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Sign Out", signout_path %></li>
           <% else %>
-            <li><%= link_to "About ", about_path %> </li>
-            <li><%= link_to "Sign In", signin_path %> </li>
-            <li><%= link_to "Sign Up", signup_path %> </li>
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Search", "/search" %></li> 
+            <li><%= link_to "Sign In", signin_path %></li>
+            <li><%= link_to "Sign Up", signup_path %></li>
           <% end %>
         </ul>
       </div><!--/.nav-collapse -->

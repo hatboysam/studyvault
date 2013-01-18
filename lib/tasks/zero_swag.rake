@@ -5,7 +5,7 @@ namespace :db do
     
     User.all.each do |user|
       user.swag = 100
-      user.save(false)
+      user.save(:validate => false)
     end
     
   end

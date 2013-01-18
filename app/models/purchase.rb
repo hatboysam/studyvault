@@ -6,7 +6,7 @@ class Purchase < ActiveRecord::Base
   
   def make_good
     self.good = true
-    self.save(false)
+    self.save(:validate => false)
   end
   
 end

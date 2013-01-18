@@ -22,6 +22,16 @@
 	margin-left: 0px;
 }
 
+tr.pad td {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+label.white {
+  color: white;
+}
+
 h1.short {
 	line-height: 90%;
 }
