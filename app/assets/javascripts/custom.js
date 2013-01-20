@@ -19,6 +19,24 @@ $(document).ready(function () {
 		});
 });	
 
+//** FORM VALIDATION **//
+$(document).ready(function() {
+	//Disable button if validating a form
+	if($("[data-validate='parsley']").size() > 0) {
+		$('.btn-success').addClass('disabled');
+	}
+	//Only enable button when # of success = # validated
+	$('.parsley-validated').live('change', function(e) {
+		var num_validated = $('.parsley-validated').size();
+		var num_success = $('.parsley-success').size();
+		if(num_validated == num_success) {
+			$('.btn-success').removeClass('disabled');
+		} else {
+			$('.btn-success').addClass('disabled');
+		}
+	});
+});
+
 //** AUTOCOMPLETE **//
 function get_school_suggestions(key,cont) {
 	var path = "/schools.js";

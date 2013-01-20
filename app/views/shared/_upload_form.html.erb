@@ -57,27 +57,31 @@ $(document).ready(function () {
 });
 </script>
 
-<%= form_for(@upload, :html => {:multipart => true}) do |f| %>
+<%= form_for(@upload, :html => {:multipart => true, "data-validate" => "parsley"}) do |f| %>
 	
 	<%= f.error_messages %>
 	<div class="row">
 		<div class = "field span4">
-			<%= f.label(:semester, "Semester") %>
-			<%= f.select(:semester, options_for_select([["Fall","Fall"],["Spring","Spring"],["Summer","Summer"]])) %>
+			<%= f.label(:semester, "Semester*") %>
+			<%= f.select(:semester, options_for_select([["Fall","Fall"],["Spring","Spring"],["Summer","Summer"],["Winter","Winter"]])) %>
 		</div>
 		<div class = "field span4">
-			<%= f.label(:year, "Year") %>
+			<%= f.label(:year, "Year*") %>
 			<%= date_select :upload, :year, :start_year => 1980, :end_year => Time.now.year, :discard_month => true %>
 		</div>
 	</div>
 	<div class="row">
 		<div class = "field span4">
-			<%= f.label(:temp_coursename, "Course Name (ex: BIOL 202)") %>
-			<%= f.text_field :temp_coursename %>
+			<%= f.label(:temp_coursename, "Course Name* (ex: BIOL 202)") %>
+			<%= f.text_field :temp_coursename,
+				"data-trigger" => "change",
+				"data-notblank" => "true" %>
 		</div>
 		<div class = "field span4">
-			<%= f.label(:professor, "Professor") %>
-			<%= f.text_field :professor %>
+			<%= f.label(:professor, "Professor*") %>
+			<%= f.text_field :professor,
+				"data-trigger" => "change",
+				"data-notblank" => "true" %>
 		</div>
 	</div>
 
@@ -109,3 +113,4 @@ $(document).ready(function () {
 	</div>
 	
 <% end %>
+<p><b>Note:</b> * indicates required field </p>

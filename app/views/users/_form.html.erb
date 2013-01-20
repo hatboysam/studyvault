@@ -4,31 +4,50 @@ $(document).ready(function () {
 });
 </script>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => { "data-validate" => "parsley"}) do |f| %>
 	<%= f.error_messages %>
 	<div class = "field" >
 		<%= f.label :Username, "Username*" %>
-		<%= f.text_field :username %>
+		<%= f.text_field :username,
+			"data-trigger" => "change",
+			"data-notblank" => "true",
+			"data-type" => "alphanum" %>
 	</div>
 	<div class = "field" >
 		<%= f.label :Email, "Email Address*" %>
-		<%= f.text_field :email %>
+		<%= f.text_field :email,
+			"data-trigger" => "change",
+			"data-notblank" => "true",
+			"data-type" => "email" %>
 	</div>
 	<div class = "field" >
 		<%= f.label :Password, "Password*" %>
-		<%= f.password_field :password %>
+		<%= f.password_field :password,
+			"data-trigger" => "change",
+			"data-notblank" => "true",
+			"data-validation-minlength" => "1", 
+			"data-minlength" => "6", 
+			"data-maxlength" => "40" %>
 	</div>
 	<div class = "field" >
 		<%= f.label :Password_Confirmation, "Confirm Password*" %>
-		<%= f.password_field :password_confirmation %>
+		<%= f.password_field :password_confirmation,
+			"data-trigger" => "change",
+			"data-equalTo" => "#user_password" %>
 	</div>
 	<div class = "field" >
 		<%= f.label :school_name, "School Name*" %>
-		<%= f.text_field :school_name %>
+		<%= f.text_field :school_name,
+			"data-trigger" => "change",
+			"data-notblank" => "true" %>
 	</div>
 	<div class = "field" >
 		<%= f.label :Graduation, "Year of Graduation*" %>
-		<%= f.text_field :graduation %>
+		<%= f.text_field :graduation,
+			"data-trigger" => "change",
+			"data-type" => "digits",
+			"data-minlength" => "4",
+			"data-maxlength" => "4" %>
 	</div>
 
 	<%= f.hidden_field(:credits, :value => '5' )%>
@@ -43,4 +62,4 @@ $(document).ready(function () {
   	</div>
 <% end %>
 
-<p> * indicates required field </p>
+<p><b>Note:</b> * indicates required field </p>

@@ -1,18 +1,16 @@
 <tr>
 	<td>
-		<% if (upload.user.id == current_user.id) || (current_user.has_downloaded?(upload))%>
-			<span class = "downloadicon">
+		<span class = "downloadicon">
+			<% if signed_in? %>
 				<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
 					<i class="icon-cloud-download icon-large"></i>
 				</a>
-			</span>
-		<% else %>
-			<span class = "downloadicon">
-				<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
+			<% else %>
+				<a class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
 					<i class="icon-cloud-download icon-large"></i>
 				</a>
-			</span>
-		<% end %>
+			<% end %>
+		</span>
 	</td>
 	<td style="text-align:center;">
 		<span class = "typeicon">

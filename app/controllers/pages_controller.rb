@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   
+  before_filter :authenticate, :only => [:upload]
+
   def index
     if signed_in?
       @user = current_user
