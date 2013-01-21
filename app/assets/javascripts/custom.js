@@ -24,6 +24,12 @@ $(document).ready(function() {
 	//Disable button if validating a form
 	if($("[data-validate='parsley']").size() > 0) {
 		$('.btn-success').addClass('disabled');
+		$('.btn-success').click(function(e) {
+			var form = $(this).closest('form');
+			form.unbind('submit');
+			form.submit();
+		});
+		//Fix for form not submitting
 	}
 	//Only enable button when # of success = # validated
 	$('.parsley-validated').live('change', function(e) {

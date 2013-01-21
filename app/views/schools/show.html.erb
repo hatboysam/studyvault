@@ -3,7 +3,9 @@
 Want to earn 2 free credits for uploading a file?  Need to request a file you don't see here?  Try visiting the <%= link_to "#{current_user.school.name} Marketplace!", school_requests_path(current_user.school)%>
 </div>
 
-<h2><%= @school.name %> - Courses</h2>
+<div class="page-header">
+  <h1><%= @school.name %> <small>All Courses</small></h1>
+</div> 
 
 <% @subjects.each do |subject| %>
 <h3><%= subject %></h3>
