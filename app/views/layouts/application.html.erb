@@ -45,8 +45,6 @@
     <%= stylesheet_link_tag "jquery-ui-1.8.16.custom" %>
     <%= stylesheet_link_tag "custom" %>
 
-    <%= javascript_include_tag "application" %>
-
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -57,14 +55,23 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
   
+    <style type="text/css">
+      #maincontainer {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+
+    <%= javascript_include_tag "application" %>
+
   </head>
   <body>
 
       <%= render 'shared/header' %>
       <!-- Start Container -->
-      <div class = "container"> 
+      <div class = "container" id="maincontainer"> 
         <div class="row">
-          <div class="span12" style="margin-top:60px;">
+          <div class="span12">
 
             <!-- Begin Flash -->
             <% [:info, :error, :notice, :alert, :success].each do |key| %>
@@ -101,6 +108,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    
 
   </body>
 </html>
