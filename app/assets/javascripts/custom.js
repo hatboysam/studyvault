@@ -17,6 +17,10 @@ $(document).ready(function () {
 				//window.location.replace(window.location.pathname+"/?downloaded=true&swag=50");
 				window.location.replace(window.location.pathname+"/?downloaded=true");
 		});
+		$(".disabled").live("click",function(e){
+			e.preventDefault();
+			return true;
+		});
 });	
 
 //** FORM VALIDATION **//
@@ -24,12 +28,12 @@ $(document).ready(function() {
 	//Disable button if validating a form
 	if($("[data-validate='parsley']").size() > 0) {
 		$('.btn-success').addClass('disabled');
-		$('.btn-success').click(function(e) {
-			var form = $(this).closest('form');
-			form.unbind('submit');
-			form.submit();
-		});
-		//Fix for form not submitting
+		//Fix for form not submitting (only for Parsley 1.0.0)
+		//$('.btn-success').click(function(e) {
+			//var form = $(this).closest('form');
+			//form.unbind('submit');
+			//form.submit();
+		//});
 	}
 	//Only enable button when # of success = # validated
 	$('.parsley-validated').live('change', function(e) {

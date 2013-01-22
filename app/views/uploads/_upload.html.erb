@@ -1,15 +1,21 @@
 <tr>
-	<td>
+	<td style="text-align:center;">
 		<span class = "downloadicon">
-			<% if signed_in? %>
-				<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
-					<i class="icon-cloud-download icon-large"></i>
-				</a>
-			<% else %>
-				<a class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
-					<i class="icon-cloud-download icon-large"></i>
-				</a>
-			<% end %>
+			<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
+				<i class="icon-cloud-download icon-large"></i>
+				<br />
+				<small>
+					<% if signed_in? %>
+						<% if upload.user_id == current_user.id || current_user.has_downloaded?(upload) %>
+							FREE
+						<% else %>
+							1 CR
+						<% end %>
+					<% else %>
+						1 CR
+					<% end %>
+				</small>
+			</a>
 		</span>
 	</td>
 	<td style="text-align:center;">
@@ -31,10 +37,12 @@
 	</td>
 	<td>
 		<%= link_to "#{upload.linked.original_filename}", upload %>
+	</td>
+	<td>
 		<% if upload.ratings > 0 %>
-			<span class = "rating">
-				(<%= upload.stars/upload.ratings %>/10 Stars)
-			</span>
+			<span class="<%= upload.rating_class %>"></span>
+		<% else %>
+			N/A
 		<% end %>
 	</td>
 	<td>

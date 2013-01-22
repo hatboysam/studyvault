@@ -31,6 +31,14 @@
 			Number of Downloads: 
 			<%= @downloads.length %>
 		</h4>
+		<h4>
+			Average Rating:
+			<% if @upload.ratings > 0 %>
+				<%= @upload.avg_rating %>/10
+			<% else %>
+				N/A
+			<% end %> 
+		</h4>
 	</p>
 </div>
 

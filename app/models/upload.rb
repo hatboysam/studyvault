@@ -67,6 +67,15 @@ class Upload < ActiveRecord::Base
     def course_name
       return course.full_name if course
     end
+
+    def avg_rating
+      return (self.stars/self.ratings)
+    end
+
+    def rating_class
+      out_of_50 = self.avg_rating * 5;
+      return "rating-static rating-#{out_of_50}"
+    end
     
     def set_course_name
       @split = temp_coursename.split(' ')

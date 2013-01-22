@@ -20,4 +20,9 @@ class Comment < ActiveRecord::Base
     def give_stars
       self.file.user.get_stars(self.rating)
     end
+
+    def rating_class
+        out_of_50 = rating * 5;
+        return "rating-static rating-#{out_of_50}"
+    end
 end
