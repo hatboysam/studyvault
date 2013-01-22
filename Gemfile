@@ -37,7 +37,7 @@ gem 'rdoc'
 
 gem "rake", "0.8.7"
 
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 

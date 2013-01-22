@@ -52,6 +52,9 @@ $(document).ready(function () {
       If you don't have anything to share, you can buy credits to get access to more finals.  You get what you want right away, and StudyHeist can cover its costs.
     </p>
   </div>
-  <p><a class="btn btn-success" href="<%= new_purchase_path %>">Buy credits &raquo;</a></p>
+  <!-- <p><a class="btn btn-success" href="<%= new_purchase_path %>">Buy credits &raquo;</a></p> -->
+  <p>
+    <%= render "shared/stripe_form" %>
+  </p>
 </div>
 </div>

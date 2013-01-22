@@ -1,6 +1,6 @@
 class Purchase < ActiveRecord::Base
   
-  attr_accessible :user_id, :credits, :goo
+  attr_accessible :user_id, :credits, :good
   
   belongs_to :user
   

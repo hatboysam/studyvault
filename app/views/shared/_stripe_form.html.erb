@@ -1,42 +1,27 @@
-<span class="payment-errors"></span>
-<%= form_for @purchase do |f| %>
-	<%= f.error_messages %>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.hidden_field :credits, :value => 5 %> 
-	<div class = "field">
-		<%= label_tag :full_name, "Full Name on Card:"%>
-		<%= text_field_tag :full_name, nil, name: nil, :class => "name payment" %>
-	</div>
-	<div class="field">
-    	<%= label_tag :card_number, "Credit Card Number:" %>
-    	<%= text_field_tag :card_number, nil, name: nil, :class => "card-number payment" %>
-  	</div>
-  	<div class="field">
-    	<%= label_tag :card_code, "Security Code on Card (CVV):" %>
-    	<%= text_field_tag :card_code, nil, name: nil, :class => "card-cvc payment input-small" %>
-  	</div>
-  	<div class="field">
-    	<%= label_tag :card_month, "Card Expiration (MM/YYYY):" %>
-		<div class = "monthyear">
-    	<%= text_field_tag :card_expiry_month, nil, name: nil, :class => "card-expiry-month payment input-small" %> /
-   		<%= text_field_tag :card_expiry_year, nil, name: nil, :class => "card-expiry-year payment input-small" %>
-		</div>
-  	</div>
-	<div class = "field">
-		<%= label_tag :billing_zip, "Billing ZIP Code:"%>
-		<%= text_field_tag :billing_zip, nil, name: nil, :class => "address_zip payment input-small" %>
-	</div>
-	<br />
-	<div class="actions">
-		<%= f.submit "Complete Payment", :class => "btn btn-success" %>
-	</div>
-	</br>
-	<div id="stripe_error">
-		<noscript>
-		JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
-		</noscript>
-	</div>
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+
+<input type="submit" class="btn btn-success" id="stripeButton" value="Buy Credits &raquo;"></input>
+<script>
+	$('#stripeButton').click(function() {
+		var token = function(res){
+			console.log('Got token ID: ', res.id);
+			$('#stripeToken').attr("value",res.id);
+			$('#stripeToken').closest('form').submit();
+		};
+
+		StripeCheckout.open({
+			key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+			address: false,
+			amount: 499,
+			name: "StudyHeist - Buy 10 Credits",
+			panelLabel: "10 Credits - ",
+			token: token 
+		});
+		return false;
+	});
+
+</script>
+
+<%= form_tag purchases_path do %>
+	<input type="hidden" name="stripeToken" id="stripeToken"></input> 
 <% end %>
-<p>
-	<b>Note:</b> your payment information is handled completely by <%= link_to "Stripe", "http://www.stripe.com"%>.  It never touches our servers nor does it enter our logs, so you don't need to worry about security.   Their advanced technology helps us do simple, fast, and secure purchases with minimal personal information.
-</p>

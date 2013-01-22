@@ -14,6 +14,14 @@ GIT
   specs:
     will_paginate (3.0.pre3)
 
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: fb29711a4f0101001f63e4fde9803d57b07adedd
+  specs:
+    stripe (1.7.9)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -138,9 +146,6 @@ GEM
     sqlite3 (1.3.7)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
-    stripe (1.7.8)
-      multi_json (>= 1.0.4, < 2)
-      rest-client (~> 1.4)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.12)
@@ -168,6 +173,6 @@ DEPENDENCIES
   rake (= 0.8.7)
   rdoc
   sqlite3-ruby
-  stripe
+  stripe!
   twitter-bootstrap-rails!
   will_paginate!
