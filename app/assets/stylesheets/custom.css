@@ -29,7 +29,11 @@
 	text-decoration: none;
 }
 
-.downloadicon i {
+td.center, th.center {
+  text-align: center;
+}
+
+td .downloadicon i {
   margin-left: 8px;
 }
 

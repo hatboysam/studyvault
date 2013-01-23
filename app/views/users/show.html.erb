@@ -64,13 +64,11 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
 
 		<h3>Requests</h3>
 		<div>
-			<% if @requests.size == 0%>
+			<% if @requests.size == 0 %>
 				No requests
+			<% else %>
+				<%= render  "requests/requests", :requests => @requests %>
 			<% end %>
-			<ul>
-				<%= render 	:partial => "requests/request", 
-							:collection => @requests %>
-			</ul>
 		</div>
 	<% end %>
 <% end %>

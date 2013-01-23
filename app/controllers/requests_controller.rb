@@ -27,8 +27,8 @@ class RequestsController < ApplicationController
     @school = School.find(params[:school_id])
     @request = Request.new
     @requests = @school.requests
-    @courses = @school.requests.all.map(&:course).uniq.sort_by &:full_name
-    @subjects = @courses.map(&:subject).uniq
+    @courses = @requests.map(&:course).uniq.sort_by(&:full_name)
+    @subjects_to_courses = @courses.group_by(&:subject)
   end
   
   def destroy

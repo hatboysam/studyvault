@@ -1,23 +1,28 @@
-<li class ="uploadli round request">
-	<b>User: </b><%= request.user.username %>
-	</br>
-	<b>Course: </b><%= request.course.full_name %> |
-	<%= request.semester + " " %> <%= request.year.year %>
-	</br>
-	<% if !request.description.blank? %>
-	<b>Description: </b><%= request.description %>
-	<% end %>
-	<% if request.user.id == current_user.id %>
-		</br><%= link_to "delete request", request, 
-									 :method => :delete,
-                                     :confirm => "You sure?",
-                                     :title => "Delete Request", 
-									 :class => "delete" %> | 
-					<%= link_to "view responses", request_responses_path(request) %>
-	<% elsif !current_user.has_responded?(request) %>
-		<a href = <%= "/requests/#{request.id}/responses"%> ><%= image_tag "/images/respond.png", :class => "respond"%></a>
-	<% else %>
-	</br>
-	<span class = "delete">You have already responded to this request, thanks!</span>
-	<% end %>
-</li>
+<tr>
+	<td><%= link_to request.course_name, request.course %></td>
+	<td><%= request.user.username %></td>
+	<td><%= request.description %></td>
+	<td><%= request.semester + " " %> <%= request.year.year %></td>
+	<td><%= request.professor %></td>
+	<td>
+		<!-- Current User's Request -->
+		<% if request.user.id == current_user.id %>
+			<%= link_to "delete", request, 
+						:method => :delete,
+                        :confirm => "You sure?",
+                        :title => "Delete Request", 
+						:class => "delete" %> | 
+			<%= link_to "responses", request_responses_path(request) %>
+		<!-- A Request the User Has Not Responded To -->
+		<% elsif !current_user.has_responded?(request) %>
+			<a href = <%= "/requests/#{request.id}/responses"%> >
+				Respond
+			</a>
+		<!-- User Has Responded-->
+		<% else %>
+			<span class = "delete">
+				None
+			</span>
+		<% end %>
+	</td>
+</tr>

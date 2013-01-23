@@ -1,24 +1,8 @@
 <tr>
-	<td style="text-align:center;">
-		<span class = "downloadicon">
-			<a target="_blank" class="downloadlink" href=<%= "/uploads/#{upload.id}/download" %>>
-				<i class="icon-cloud-download icon-large"></i>
-				<br />
-				<small>
-					<% if signed_in? %>
-						<% if upload.user_id == current_user.id || current_user.has_downloaded?(upload) %>
-							FREE
-						<% else %>
-							1 CR
-						<% end %>
-					<% else %>
-						1 CR
-					<% end %>
-				</small>
-			</a>
-		</span>
+	<td class="center">
+		<%= render 'uploads/downloadicon', :upload => upload %>
 	</td>
-	<td style="text-align:center;">
+	<td class="center">
 		<span class = "typeicon">
 			<% if upload.linked.content_type.include?("pdf") %>
 				<i class="icon-file icon-large"></i>

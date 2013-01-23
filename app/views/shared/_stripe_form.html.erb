@@ -1,26 +1,6 @@
 <script src="https://checkout.stripe.com/v2/checkout.js"></script>
 
 <input type="submit" class="btn btn-success" id="stripeButton" value="Buy Credits &raquo;"></input>
-<script>
-	$('#stripeButton').click(function() {
-		var token = function(res){
-			console.log('Got token ID: ', res.id);
-			$('#stripeToken').attr("value",res.id);
-			$('#stripeToken').closest('form').submit();
-		};
-
-		StripeCheckout.open({
-			key: "<%= Rails.configuration.stripe[:publishable_key] %>",
-			address: false,
-			amount: 499,
-			name: "StudyHeist - Buy 10 Credits",
-			panelLabel: "10 Credits - ",
-			token: token 
-		});
-		return false;
-	});
-
-</script>
 
 <%= form_tag purchases_path do %>
 	<input type="hidden" name="stripeToken" id="stripeToken"></input> 

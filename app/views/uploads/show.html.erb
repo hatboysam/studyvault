@@ -1,12 +1,15 @@
-
-<h2>
-	<%= @upload.linked.original_filename %>
-	<span class = "downloadicon">
-		<a target="_blank" class="downloadlink" href=<%= "/uploads/#{@upload.id}/download" %>>
-			<i class="icon-cloud-download"></i>
-		</a>
-	</span>
-</h2>
+<table>
+	<tr>
+		<td style="padding-right:20px;">
+			<h2>
+				<%= @upload.linked.original_filename %>
+			</h2>
+		</td>
+		<td class="center">
+			<%= render "uploads/downloadicon", :upload => @upload %>
+		</td>
+	</tr>
+</table>
 
 <h3>File Info</h3>
 <div class="well">

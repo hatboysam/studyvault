@@ -54,7 +54,11 @@ $(document).ready(function () {
   </div>
   <!-- <p><a class="btn btn-success" href="<%= new_purchase_path %>">Buy credits &raquo;</a></p> -->
   <p>
-    <%= render "shared/stripe_form" %>
+    <% if signed_in? %>
+      <%= render "shared/stripe_form" %>
+    <% else %>
+      <p><a class="btn btn-success" href="?signedin=false">Buy Credits &raquo;</a></p>
+    <% end %>
   </p>
 </div>
 </div>
