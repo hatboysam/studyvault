@@ -36,6 +36,7 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
     @courses = @school.courses.all.sort_by &:full_name
     @subjects = @courses.map(&:subject).uniq
+    @subjects_to_courses = @courses.group_by(&:subject)
   end
   
   def search

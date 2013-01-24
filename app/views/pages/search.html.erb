@@ -13,4 +13,9 @@ $(document).ready(function() {
 <br />
 <br />
 <h2>Results:</h2>
+<% if @school != nil %>
+	<%= link_to "See all files for #{@school.name}", @school %>
+	<br />
+	<br />
+<% end %>
 <%= render "uploads/uploads", :uploads => @uploads, :downloads => false %>

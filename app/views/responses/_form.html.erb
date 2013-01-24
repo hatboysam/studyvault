@@ -52,33 +52,26 @@
 <script>
 $(document).ready(function () {
 	
- 	var data2 = "/courses.js"
-    $('#response_temp_coursename').autocomplete({
-        source: data2
-    });
-
-	var data3 = "/professors.js"
-    $('#response_professor').autocomplete({
-        source: data3
-    });
+	auto_course('#response_temp_coursename');
+	auto_professor('#response_professor');
  
 });
 </script>
 
-<% form_for(@response, :html => {:multipart => true}) do |f| %>
+<%= form_for(@response, :html => {:multipart => true}) do |f| %>
 	
 	<%= f.error_messages %>
 	
 	<div class = "field">
-		<%= f.label(:description, "File Description") %><br />
-		<%= f.text_area :description, :class => "round" %>
+		<%= f.label(:description, "File Description") %>
+		<%= f.text_field :description, :class => "round" %>
 	</div>
 	
 	<%= f.hidden_field(:request_id, :value => @request.id )%>
 	<%= f.hidden_field(:user_id, :value => current_user.id )%>
 	
 	<div class = "field">
-		<%= f.label(:linked, "Response File") %><br />
+		<%= f.label(:linked, "Response File") %>
 		<div class = "uploadbutton">
 			<%= f.file_field(:linked) %>
 		</div>
@@ -88,9 +81,9 @@ $(document).ready(function () {
 		<%= fu.hidden_field(:stars, :value => 0 )%>
 		<%= fu.hidden_field(:ratings, :value => 0 )%>
 	<% end %>
-	
+	<br />
 	<div class="actions" id = "spintarget">
-    	<%= f.submit "Submit" %>
+    	<%= f.submit "Submit", :class => "btn btn-success" %>
   	</div>
 
 	<div id = "forspinner">

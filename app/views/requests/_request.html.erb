@@ -11,11 +11,14 @@
 						:method => :delete,
                         :confirm => "You sure?",
                         :title => "Delete Request", 
-						:class => "delete" %> | 
-			<%= link_to "responses", request_responses_path(request) %>
+						:class => "btn btn-danger btn-small" %>
+			<%= link_to "responses", 
+						request_responses_path(request),
+						:class => "btn btn-primary btn-small"  %>
 		<!-- A Request the User Has Not Responded To -->
 		<% elsif !current_user.has_responded?(request) %>
-			<a href = <%= "/requests/#{request.id}/responses"%> >
+			<a 	href = <%= "/requests/#{request.id}/responses"%> 
+				class = "btn btn-success btn-small">
 				Respond
 			</a>
 		<!-- User Has Responded-->

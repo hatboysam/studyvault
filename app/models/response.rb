@@ -8,7 +8,7 @@ class Response < ActiveRecord::Base
     #paperclip
     has_attached_file :linked,
                       :storage => :s3,
-                      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+                      :s3_credentials => "config/s3.yml",
                       :path => ":class/:id/:attachment/:basename.:extension"
           
     validates_attachment_presence :linked

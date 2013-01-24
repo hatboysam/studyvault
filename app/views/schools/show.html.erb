@@ -7,13 +7,21 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
   <h1><%= @school.name %> <small>All Courses</small></h1>
 </div> 
 
-<% @subjects.each do |subject| %>
-<h3><%= subject %></h3>
-<ul class = "indent">
-	<% @courses.each do |course| %>
-		<% if course.subject == subject %>
-			<li><a href = <%= course_path(course) %>><%= course.course_name %> (<%= course.num_uploads %>)</a></li>
+<% @subjects_to_courses.each_pair do |subject, courses| %>
+	<h3><%= subject %></h3>
+	<ul class = "indent">
+		<% courses.each do |course| %>
+				<li><a href = <%= course_path(course) %>><%= course.course_name %> (<%= pluralize(course.num_uploads, "file") %>)</a></li>
 		<% end %>
-	<% end %>
-</ul>
+	</ul>
+<% end %>
+
+<% if @subjects.size == 0 %>
+	<h4>Oh no!</h4>
+	<img src="/assets/sadpanda.jpg" class="img-rounded img-polaroid" width="200" />
+	<br />
+	<br />
+	<div class="well">
+		<b>It doesn't look like anyone has uploaded anything to this school yet.  If this is your school, why don't you start the party by <%= link_to "uploading a file", "/upload" %>!  That would probably cheer up this sad, sad baby panda.  Plus you'll earn StudyHeist credits when you upload.</b>
+	</div>
 <% end %>

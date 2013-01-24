@@ -29,6 +29,12 @@
 	text-decoration: none;
 }
 
+.inputloading {
+  background-image: url('/assets/smallspinner.gif');
+  background-repeat: no-repeat;
+  background-position: 99% 50%;
+}
+
 td.center, th.center {
   text-align: center;
 }

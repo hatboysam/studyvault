@@ -85,11 +85,30 @@ function get_professor_suggestions(key,cont) {
 }
 
 function auto_complete(selector, callback) {
+	add_loading_spinner(selector);
 	$(selector).autocomplete({
 		ajax_get : callback,
 		minchars : 1,
 		timeout : 4000,
 		noresults : 'No matches'
+	});
+}
+
+//Remove loading spinner once a selection is made
+$(document).ready(function() {
+	$('.jqac-highlight').live('click', function(e) {
+		$('input').removeClass('inputloading');
+	});
+});
+
+//Add a loading spinner to an input
+function add_loading_spinner(selector) {
+	$(selector).bind('keyup', function(){
+		if ($(this).val().length >= 1) {
+			$(this).addClass("inputloading");
+		} else {
+			$(this).removeClass("inputloading");
+		}
 	});
 }
 

@@ -1,7 +1,16 @@
-<h2>Original Request</h2>
-<ul>
-<%= render @request %>
-</ul>
+<div class="page-header">
+  <h1>
+  	Request Page
+  	<small>
+  		Give help, get help.  	
+  	</small>
+  </h1>
+</div>
+
+<%= render "requests/requests", :requests => [@request] %>
+
+<br />
+<hr>
 
 <% if @request.user == current_user %>
 	<h2>Responses To Date</h2>
@@ -15,7 +24,7 @@
 		<h3>None so far...</h3>
 	<% end %>
 <% else %>
-	<h2> Submit Your Response</h2>
+	<h3>Respond to Request (Earn 2 Credits)</h3>
 	<% if !current_user.has_responded?(@request)%>
 		<%= render 'responses/form' %>
 	<% else %>
