@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       @raw = current_user.school.uploads.find(:all, :limit => 20)
     end
     
-    @professors = @raw.each_with_index.map{|x,i| {id: i, value: x.professor}}
+    @professors = @raw.map(&:professor).uniq.each_with_index.map{|x,i| {id: i, value: x}}
     
     respond_to do |format|
       format.js

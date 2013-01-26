@@ -4,19 +4,7 @@
 	</td>
 	<td class="center">
 		<span class = "typeicon">
-			<% if upload.linked.content_type.include?("pdf") %>
-				<i class="icon-file icon-large"></i>
-			<% elsif upload.linked.content_type.include?(".doc") || upload.linked.content_type.include?("msword") %>
-				<i class="icon-file-alt icon-large"></i>
-			<% elsif upload.linked.content_type.include?("presentation") %>
-				<i class="icon-list-alt icon-large"></i>
-			<% elsif upload.linked.content_type.include?(".sheet") %>
-				<i class="icon-table icon-large"></i>
-			<% elsif upload.linked.content_type.include?("image") %>
-				<i class="icon-camera icon-large"></i>
-			<% else %>
-				<i class="icon-paper-clip icon-large"></i>
-			<% end %>
+			<i class="<%= icon_class upload.linked.content_type %>"></i>
 		</span>
 	</td>
 	<td>
@@ -30,7 +18,7 @@
 		<% end %>
 	</td>
 	<td>
-		<%= "#{upload.course.course_name}" %>
+		<%= link_to "#{upload.course.course_name}", upload.course %>
 	</td>
 	<td>
 		<%= "#{upload.semester}  #{upload.year.year}" %>

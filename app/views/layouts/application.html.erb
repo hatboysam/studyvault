@@ -70,7 +70,7 @@
             <% [:info, :error, :notice, :alert, :success].each do |key| %>
               <% if flash[key] %>
                 <p>
-                  <div class="alert <%= key %>" id="flash">
+                  <div class="alert alert-<%= key %>" id="flash">
                     <span><%= flash[key] %></span>
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                   </div>

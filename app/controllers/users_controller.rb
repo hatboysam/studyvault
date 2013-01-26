@@ -20,7 +20,8 @@ class UsersController < ApplicationController
                           Before you can log in, 
                           you must click the confirmation link in 
                           your email inbox."
-                          
+
+        #Auto-confirm users in development                  
         if ENV['RAILS_ENV'] == "development"
           @user.confirm
         end
@@ -88,9 +89,12 @@ class UsersController < ApplicationController
 
 
       def correct_user
-          @user = User.find(params[:id])
-          flash[:error] = "Sorry, you don't have permission to do that"
-          redirect_to(root_path) unless (current_user == (@user))
+          user = User.find(params[:id])
+          right_user = (current_user.id == user.id) unless current_user.nil?
+          if (right_user == false)
+            flash[:error] = "Sorry, you don't have permission to do that"
+          end
+          redirect_to(root_path) unless (right_user == true)
       end
       
       def admin_user

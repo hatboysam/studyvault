@@ -29,6 +29,10 @@
 	text-decoration: none;
 }
 
+.spinner {
+  padding-left: 10px;
+}
+
 .inputloading {
   background-image: url('/assets/smallspinner.gif');
   background-repeat: no-repeat;

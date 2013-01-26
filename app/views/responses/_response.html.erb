@@ -1,32 +1,41 @@
-<li class = "uploadli round">
-	<span class = "downloadicon">
-		<%= link_to image_tag("/images/freedownload.png"), "/responses/#{response.id}/download", :target => "_blank" %>
-	</span>
+<tr>
+	<td class="center">
+		<span class = "downloadicon">
+			<a target="_blank" class="downloadlink" href=<%= "/responses/#{response.id}/download" %>>
+				<i class="icon-cloud-download icon-large"></i>
+				<br />
+				<small>
+					FREE
+				</small>
+			</a>
+		</span>
+	</td>
+
+	<td class="center">
+		<span class = "typeicon">
+			<i class="<%= icon_class response.linked.content_type %>"></i>
+		</span>
+	</td>
+
+	<td>
+		<%= "#{response.linked.original_filename}" %>
+	</td>
+
+	<td>
+		Description: <%= response.description %>
+	</td>
 	
-	<span class = "typeicon">
-		<% if response.linked.content_type.include?("pdf") %>
-			<img src = "/images/filetypes/adobefile.png"></img>
-		<% elsif response.linked.content_type.include?(".doc") || response.linked.content_type.include?("msword") %>
-			<img src = "/images/filetypes/wordfile.png"></img>
-		<% elsif response.linked.content_type.include?("presentation") %>
-			<img src = "/images/filetypes/pptfile.png"></img>
-		<% elsif response.linked.content_type.include?(".sheet") %>
-			<img src = "/images/filetypes/excelfile.png"></img>
-		<% elsif response.linked.content_type.include?("image") %>
-			<img src = "/images/filetypes/picfile.png"></img>
-		<% else %>
-			<img src = "/images/filetypes/textfile.png"></img>
+	<td>
+		<%= link_to "accept", 
+					"/responses/#{response.id}/accept", 
+					:class => "btn btn-success btn-small" %>
+		<% if response.user == current_user %> 
+			<%= link_to "delete", 
+						response, 
+						:method => :delete,
+		                :confirm => "You sure?",
+		                :title => response.linked.original_filename,
+		                :class => "btn btn-danger btn-small" %>
 		<% end %>
-	</span>	
-	<%= "#{response.linked.original_filename}" %>
-	 </br>
-	Description: <%= response.description %> | <%= link_to "Accept this response", "/responses/#{response.id}/accept" %>
-	
-	<% if response.user == current_user %> 
-	|  <%= link_to "delete", response, :method => :delete,
-                                     :confirm => "You sure?",
-                                     :title => response.linked.original_filename 		  %>
-	<% end %>
-	 </br>
-	<end>
-</li>
+	</td>
+</tr>

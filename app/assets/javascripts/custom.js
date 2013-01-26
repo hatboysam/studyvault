@@ -112,6 +112,17 @@ function add_loading_spinner(selector) {
 	});
 }
 
+function loading_state(selector, message) {
+	spinner_after_button(selector);
+	$(selector).addClass("disabled");
+	$(selector).attr('value',message);
+}
+
+//Put a loading spinner next to a button
+function spinner_after_button(selector) {
+	$(selector).after('<img class="spinner" src="/assets/smallspinner.gif" />');
+}
+
 function auto_school(selector) {
 	auto_complete(selector, get_school_suggestions);
 }

@@ -14,20 +14,12 @@
 
 <% if @request.user == current_user %>
 	<h2>Responses To Date</h2>
-	<% if @responses.size > 0 %>
-	<ul>
-		<% @responses.each do |response| %>
-			<%= render response %>
-		<% end %>
-	</ul>
-	<% else %>
-		<h3>None so far...</h3>
-	<% end %>
+	<%= render "responses/responses", :responses => @responses %>
 <% else %>
 	<h3>Respond to Request (Earn 2 Credits)</h3>
 	<% if !current_user.has_responded?(@request)%>
 		<%= render 'responses/form' %>
 	<% else %>
-		<h3>You have already responded to this request, you will be notified and rewarded if your response is accepted</h3>
+		<p>You have already responded to this request, you will be notified and rewarded if your response is accepted.</p>
 	<% end %>
 <% end %>
