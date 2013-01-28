@@ -12,10 +12,20 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 $(document).ready(function () {	
 		//makes sure all download links open in a new window
-		$(".downloadlink").click(
-			function() {
-				//window.location.replace(window.location.pathname+"/?downloaded=true&swag=50");
-				window.location.replace(window.location.pathname+"/?downloaded=true");
+		$(".downloadlink").click(function() {
+				//Popup a download box
+				$('#mainspan').prepend(
+					'<div class="alert alert-success" id="downthanks"> \
+						Thanks for downloading! \
+					</div>'
+				);
+				//Prompt the user to rate
+				$('#downthanks').append(
+					'Please ' +
+					'<a href="' + '/uploads/' + $(this).attr('data-id') + '">click here</a>' +
+					' to rate this download.' 
+				);
+				return true;
 		});
 		$(".disabled").live("click",function(e){
 			e.preventDefault();

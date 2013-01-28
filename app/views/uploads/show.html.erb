@@ -5,7 +5,7 @@
 				<%= @upload.linked.original_filename %>
 			</h2>
 		</td>
-		<td class="center">
+		<td class="center dlink">
 			<%= render "uploads/downloadicon", :upload => @upload %>
 		</td>
 	</tr>
@@ -16,15 +16,21 @@
 	<p>
 		<h4>
 			Uploaded by: 
-			<%= link_to "#{@upload.user.username}", @upload.user %>
+			<%= link_to "#{@upload.user.username}", 
+						@upload.user,
+						:class => "a-dot" %>
 		</h4>
 		<h4>
 			School: 
-			<%= link_to @upload.school.name, @upload.school %>
+			<%= link_to @upload.school.name, 
+						@upload.school,
+						:class => "a-dot" %>
 		</h4>
 		<h4>
 			Course: 
-			<%= link_to @upload.course_name, @upload.course %>
+			<%= link_to @upload.course_name, 
+						@upload.course,
+						:class => "a-dot" %>
 		</h4>
 		<h4>
 			Description:

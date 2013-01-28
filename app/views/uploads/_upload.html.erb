@@ -8,9 +8,11 @@
 		</span>
 	</td>
 	<td>
-		<%= link_to "#{upload.linked.original_filename}", upload %>
+		<%= link_to "#{upload.linked.original_filename}", 
+					upload,
+					:class => "a-dot-rev" %>
 	</td>
-	<td>
+	<td class="center">
 		<% if upload.ratings > 0 %>
 			<span class="<%= upload.rating_class %>"></span>
 		<% else %>
@@ -18,7 +20,9 @@
 		<% end %>
 	</td>
 	<td>
-		<%= link_to "#{upload.course.course_name}", upload.course %>
+		<%= link_to "#{upload.course.course_name}", 
+					upload.course,
+					:class => "a-dot-rev" %>
 	</td>
 	<td>
 		<%= "#{upload.semester}  #{upload.year.year}" %>

@@ -1,9 +1,56 @@
 /* Proper navbar-body separation */
+/* only @media version was needed before bootswatch */
+#maincontainer {
+  padding-top: 170px;
+  padding-bottom: 40px;
+}
+
 @media(min-width: 980px) {
   #maincontainer {
-    padding-top: 60px;
+    /* was 60 before bootswatch */
+    padding-top: 100px;
     padding-bottom: 40px;
   }
+}
+
+/* link differentiation for bootswatch */
+.dlink {
+  padding-top: 12px;
+}
+
+.a-dot {
+  color: black;
+  border-bottom: 1px dotted;
+}
+
+.a-dot:hover {
+  color: #777;
+  text-decoration: none;
+}
+
+.a-dot-rev {
+  color: #777;
+  border-bottom: 1px dotted;
+}
+
+.a-dot-rev:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.downloadicon a {
+  color: #0088cc;
+}
+
+/* table differentiation for bootswatch */
+th {
+  color: black;
+}
+
+/* needed for bootswatch */
+.icon-marketing {
+  padding-bottom: 12px;
+  padding-right: 30px;
 }
 
 .index-column {
@@ -29,6 +76,10 @@
 	text-decoration: none;
 }
 
+.downloadicon:hover a small{
+  text-decoration: underline;
+}
+
 .spinner {
   padding-left: 10px;
 }
@@ -44,7 +95,13 @@ td.center, th.center {
 }
 
 td .downloadicon i {
-  margin-left: 8px;
+  /* commented out for bootswatch */
+  /* margin-left: -3px; */
+}
+
+/* added for bootswatch */
+td .downloadicon small {
+  padding-left: 3px;
 }
 
 .uploadli {

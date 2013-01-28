@@ -32,7 +32,9 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
 		<h4>
 			School: 
 			<% if @user.school %>
-				<%= link_to @user.school.name, @user.school %>
+				<%= link_to @user.school.name, 
+							@user.school,
+							:class => "a-dot" %>
 			<% elsif @user == current_user %>
 				School not in our database, you won't be able to upload until you select a valid school.
 			<% else %>
@@ -61,6 +63,8 @@ Want to earn 2 free credits for uploading a file?  Need to request a file you do
 	<% if @user == current_user %>
 		<h3>Downloads</h3>
 		<%= render 	"uploads/uploads", :uploads => @downloads, :downloads => true %>
+		<br>
+		<br>
 
 		<h3>Requests</h3>
 		<div>

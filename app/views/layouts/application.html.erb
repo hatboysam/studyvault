@@ -64,17 +64,15 @@
       <!-- Start Container -->
       <div class = "container" id="maincontainer"> 
         <div class="row">
-          <div class="span12">
+          <div class="span12" id="mainspan">
 
             <!-- Begin Flash -->
             <% [:info, :error, :notice, :alert, :success].each do |key| %>
               <% if flash[key] %>
-                <p>
                   <div class="alert alert-<%= key %>" id="flash">
                     <span><%= flash[key] %></span>
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                   </div>
-                </p>
               <% end %>
             <% end %>
             <!-- End Flash -->

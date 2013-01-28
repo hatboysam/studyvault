@@ -1,4 +1,12 @@
-<h2><%= @course.course_name %> - <%= @course.school.name %> - All Files</h2>
+<div class="page-header">
+  <h1>
+  	<%= @course.course_name %> - <%= @course.school.name %>
+  	<small>
+  		All Files
+  	</small>
+  </h1>
+</div>
+
 <% @years.each do |year| %>
 	<h3><%= year %></h3>
 	<%= render "uploads/uploads", 
