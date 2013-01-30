@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def check_params
     if params[:signedin]
       if params[:signedin] == "false"
-        flash.now[:error] = "You must sign in to do that, please sign in or make an account"
+        flash.now[:error] = "Sorry, you must sign in to do that, please sign in or sign up."
       end
     end
     

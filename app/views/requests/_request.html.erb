@@ -4,7 +4,7 @@
 	<td><%= request.description %></td>
 	<td><%= request.semester + " " %> <%= request.year.year %></td>
 	<td><%= request.professor %></td>
-	<td>
+	<td class="center">
 		<!-- Current User's Request -->
 		<% if request.user.id == current_user.id %>
 			<%= link_to "delete", request, 
@@ -14,7 +14,7 @@
 						:class => "btn btn-danger btn-small" %>
 			<%= link_to "responses", 
 						request_responses_path(request),
-						:class => "btn btn-primary btn-small"  %>
+						:class => "btn btn-info btn-small"  %>
 		<!-- A Request the User Has Not Responded To -->
 		<% elsif !current_user.has_responded?(request) %>
 			<a 	href = <%= "/requests/#{request.id}/responses"%> 

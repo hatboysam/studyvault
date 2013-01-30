@@ -42,9 +42,27 @@
   color: #0088cc;
 }
 
+/* FAQs */
+.accordion-toggle {
+  color: black;
+}
+
+.accordion-toggle:hover {
+  color: #777;
+}
+
 /* table differentiation for bootswatch */
 th {
   color: black;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table-fixed td {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 /* needed for bootswatch */
@@ -195,6 +213,10 @@ h1.short > small {
     height: 16px;  
     display: block; 
     background: url('/assets/star-rating.png') 0 0 no-repeat;
+}
+
+.rating {
+  margin: 0 auto;
 }
 
 .rating-50 { background-position: 0 0; }

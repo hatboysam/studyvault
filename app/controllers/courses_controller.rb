@@ -21,15 +21,6 @@ class CoursesController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-      format.json do
-        @courses.map! do |u|
-          {
-            :label => u.course_name,
-            :value => u.id
-          }
-        end
-        render :json => @courses
-      end
     end
   end
   

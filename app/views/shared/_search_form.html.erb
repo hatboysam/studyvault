@@ -4,30 +4,41 @@
 			<%= label_tag(:school, "School: ")  %>
 			<%= text_field_tag :school, nil, :id => 'school', :class => "search-query", :value => @school_placeholder %>
 		</div>
-		<div class="span3">
-			<%= label_tag(:course, "Course: ")  %>
-			<%= text_field_tag :course, nil, :id => 'course', :class => "search-query", :value => @course_name %>
-		</div>
-		<div class="span3">
-			<%= label_tag(:professor, "Professor: ") %>
-			<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query", :value => @professor_name %>
-		</div>
-		<div class="span2">
-			<table>
-				<tr class="pad">
-					<td>Any</td>
-					<td>All</td>
-				</tr>
-				<tr class="pad">
-					<td>
-						<input type="radio" value="ANY" name="match" checked="checked" />
-					</td>
-					<td>
-						<input type="radio" value="ALL" name="match" />
-					</td>
-				</tr>
-			</table>
-		</div>
+		<% if signed_in? %>
+			<div class="span3">
+				<%= label_tag(:course, "Course: ")  %>
+				<%= text_field_tag :course, nil, :id => 'course', :class => "search-query", :value => @course_name %>
+			</div>
+			<div class="span3">
+				<%= label_tag(:professor, "Professor: ") %>
+				<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query", :value => @professor_name %>
+			</div>
+			<div class="span2">
+				<table>
+					<tr class="pad">
+						<td>Any</td>
+						<td>All</td>
+					</tr>
+					<tr class="pad">
+						<td>
+							<input type="radio" value="ANY" name="match" checked="checked" />
+						</td>
+						<td>
+							<input type="radio" value="ALL" name="match" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		<% else %>
+			<div class="span3">
+				<label for="fakecourse">Course: </label>
+				<input type="text" disabled="disabled" name="fakecourse" class="search-query" value="Sign in to search by Course.">
+			</div>
+			<div class="span3">
+				<label for="fakeprof">Professor: </label>
+				<input type="text" disabled="disabled" name="fakeprof" class="search-query" value="Sign in to search by Professor.">
+			</div>
+		<% end %>
 		<div class="span1">
 			<%= label_tag(:search, "Search:", :class => "white") %>
 			<%= submit_tag "Search", :class => "btn btn-success", :style => "float:left;" %>

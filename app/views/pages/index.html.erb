@@ -20,7 +20,7 @@ $(document).ready(function () {
 	<%= form_tag(search_path) do %>
 		<%= text_field_tag :school, nil, :id => 'school_name', :placeholder => "Start typing the name of your school...", :size => 300, :class => "input-xxlarge search-query", :style => "width:80%;max-width:600px"%>
     <%= hidden_field_tag :match, "ANY" %>
-		<%= submit_tag "Search", :id => 'school_browse', :class => "btn btn-primary" %>
+		<%= submit_tag "Search", :id => 'school_browse', :class => "btn btn-info" %>
 	<% end %>
 </p>
 </div>
