@@ -38,8 +38,33 @@
   text-decoration: none;
 }
 
+/* Cloud Download Icons */
+
 .downloadicon a {
   color: #0088cc;
+}
+
+.downloadicon a:hover {
+  color: #005580;
+}
+
+
+.downloadicon a {
+  text-decoration: none;
+}
+
+.downloadicon:hover a small{
+  text-decoration: underline;
+}
+
+td .downloadicon i {
+  /* commented out for bootswatch */
+  /* margin-left: -3px; */
+}
+
+/* added for bootswatch */
+td .downloadicon small {
+  padding-left: 3px;
 }
 
 /* FAQs */
@@ -89,15 +114,6 @@ th {
 	max-height: 200px;
 }
 
-
-.downloadicon a {
-	text-decoration: none;
-}
-
-.downloadicon:hover a small{
-  text-decoration: underline;
-}
-
 .spinner {
   padding-left: 10px;
 }
@@ -110,16 +126,6 @@ th {
 
 td.center, th.center {
   text-align: center;
-}
-
-td .downloadicon i {
-  /* commented out for bootswatch */
-  /* margin-left: -3px; */
-}
-
-/* added for bootswatch */
-td .downloadicon small {
-  padding-left: 3px;
 }
 
 .uploadli {
@@ -232,7 +238,7 @@ h1.short > small {
 .rating-35 { background-position: -12px -16px; }
 .rating-45 { background-position: 0 -16px; }
 
-/* parsley error validation */
+/* Parsley.js error validation */
 input.parsley-error, textarea.parsley-error {
   color: #B94A48 !important;
   background-color: #F2DEDE !important;
