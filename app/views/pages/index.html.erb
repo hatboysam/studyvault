@@ -25,40 +25,44 @@ $(document).ready(function () {
 </p>
 </div>
 
-<!-- Example row of columns -->
-<div class="row">
-<div class="span4">
-  <h2><i class="icon-search icon-marketing"></i>Search</h2>
-  <div class="index-column">
-    <p>
-      Search by course or even by teacher, everything is automatically categorized.  Get what you need without wading through huge result pages.
-    </p>
-  </div>
-  <p><a class="btn btn-success" href="/search">Search now &raquo;</a></p>
-</div>
-<div class="span4">
-  <h2><i class="icon-cloud-upload icon-marketing"></i>Upload</h2>
-  <div class="index-column">
-    <p>
-      Upload your own files to earn credits.  The better ratings you get, the more credits you earn.   This is the backbone of StudyHeist. 
-    </p>
-  </div>
-  <p><a class="btn btn-success" href="/upload">Upload files &raquo;</a></p>
-</div>
-<div class="span4">
-  <h2><i class="icon-shopping-cart icon-marketing"></i>Buy</h2>
-  <div class="index-column">
-    <p>
-      If you don't have anything to share, you can buy credits to get access to more finals.  You get what you want right away, and StudyHeist can cover its costs.
-    </p>
-  </div>
-  <!-- <p><a class="btn btn-success" href="<%= new_purchase_path %>">Buy credits &raquo;</a></p> -->
-  <p>
-    <% if signed_in? %>
-      <%= render "shared/stripe_form" %>
-    <% else %>
-      <p><a class="btn btn-success" href="?signedin=false">Buy Credits &raquo;</a></p>
-    <% end %>
-  </p>
-</div>
-</div>
+<div class="row"><!-- Start Three Column Row -->
+  <div class="span4"><!-- Start Search -->
+    <div class="sidepad">
+      <h2><i class="icon-search icon-marketing"></i>Search</h2>
+      <div class="index-column">
+        <p>
+          Search by course or even by teacher, everything is automatically categorized.  Get what you need without wading through huge result pages.
+        </p>
+      </div>
+      <p><a class="btn btn-success" href="/search">Search now &raquo;</a></p>
+    </div>
+  </div><!-- End Search -->
+  <div class="span4"><!-- Start Upload -->
+    <div class ="sidepad">
+      <h2><i class="icon-cloud-upload icon-marketing"></i>Upload</h2>
+      <div class="index-column">
+        <p>
+          Upload your own files to earn credits.  The better ratings you get, the more credits you earn.   This is the backbone of StudyHeist. 
+        </p>
+      </div>
+      <p><a class="btn btn-success" href="/upload">Upload files &raquo;</a></p>
+    </div>
+  </div><!-- End Upload -->
+  <div class="span4"><!-- Start Buy Credits -->
+    <div clas="sidepad">
+      <h2><i class="icon-shopping-cart icon-marketing"></i>Buy</h2>
+      <div class="index-column">
+        <p>
+          If you don't have anything to share, you can buy credits to get access to more finals.  You get what you want right away, and StudyHeist can cover its costs.
+        </p>
+      </div>
+      <p>
+        <% if signed_in? %>
+          <%= render "shared/stripe_form" %>
+        <% else %>
+          <p><a class="btn btn-success" href="?signedin=false">Buy Credits &raquo;</a></p>
+        <% end %>
+      </p>
+    </div>
+  </div><!-- End Buy Credits -->
+</div><!-- End Three Column Row -->

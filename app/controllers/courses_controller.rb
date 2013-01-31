@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  include CourseNameHelper
   
   before_filter :authenticate
   
@@ -16,7 +17,9 @@ class CoursesController < ApplicationController
       @courses = Course.find(:all, :limit => 20)
     end
     
-    @course_names = @courses.map{|x| {id: x.id, value: x.full_name}}
+    @suggestions = suggestions_list(params[:term])
+    @courses = @courses.map(&:full_name) + @suggestions
+    @course_names = @courses.each_with_index.map{|x,i| {id: i, value: x}}
     
     respond_to do |format|
       format.html

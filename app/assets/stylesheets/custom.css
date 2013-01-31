@@ -5,6 +5,11 @@
   padding-bottom: 40px;
 }
 
+.sidepad {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 @media(min-width: 980px) {
   #maincontainer {
     /* was 60 before bootswatch */
@@ -60,11 +65,7 @@
 td .downloadicon i {
   /* commented out for bootswatch */
   /* margin-left: -3px; */
-}
-
-/* added for bootswatch */
-td .downloadicon small {
-  padding-left: 3px;
+  padding-left: 10px;
 }
 
 /* FAQs */
