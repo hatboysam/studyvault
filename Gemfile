@@ -21,6 +21,9 @@ gem 'dynamic_form'
 
 gem 'nifty-generators'
 
+#Postgres for Heroku
+gem 'pg'
+
 #gem 'will_paginate', '3.0.pre2'
 
 gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
@@ -42,6 +45,13 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'font-awesome-rails'
+
+group :assets do
+  gem 'therubyracer'
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
