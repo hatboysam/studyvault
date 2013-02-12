@@ -49,7 +49,8 @@ class PagesController < ApplicationController
     #Find the requested course and school in the database
     @subject = params[:subject]
     @course_code = params[:course_code]
-    @course_name = [@subject, @course_code].join(' ')
+    @course_name = params[:course_name]
+    #@course_name = [@subject, @course_code].join(' ')
     @professor_name = params[:professor]
     course = Course.find_by_full_name(@course_name)
     @school = School.find_by_name(school_name)

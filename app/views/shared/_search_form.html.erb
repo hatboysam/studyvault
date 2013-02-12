@@ -5,7 +5,8 @@
 			<%= text_field_tag :school, nil, :id => 'school', :class => "search-query", :value => @school_placeholder %>
 		</div>
 		<% if signed_in? %>
-			<div class="span4">
+			<!--<div class="span4">
+				
 				<table style="margin:0 auto;padding0;">
 					<tr>
 						<td style="padding:0;">
@@ -32,10 +33,16 @@
 						</td>
 					</tr>
 				</table>
+				-->
+			<div class="span3" >
+				<%= label_tag(:course_name, "Course: ") %>
+				<%= text_field_tag :course_name, nil, :id => 'course', :class => "search-query", :value => @course_name,
+					:placeholder => "ex: CIS 101" %>
 			</div>
-			<div class="span2">
+			<div class="span3">
 				<%= label_tag(:professor, "Professor: ") %>
-				<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query input-small", :value => @professor_name %>
+				<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query", :value => @professor_name,
+					:placeholder => "ex: Mandelbrot" %>
 			</div>
 			<div class="span2">
 				<table>

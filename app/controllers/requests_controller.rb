@@ -26,6 +26,7 @@ class RequestsController < ApplicationController
   def index
     @school = School.find(params[:school_id])
     @request = Request.new
+    @subjects = @school.subjects
     @requests = @school.requests
     @courses = @requests.map(&:course).uniq.sort_by(&:full_name)
     @subjects_to_courses = @courses.group_by(&:subject)

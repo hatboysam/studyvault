@@ -58,7 +58,7 @@ $(document).ready(function () {
 				</tr>
 				<tr>
 					<td>
-						<% if @subjects.length > 0 %>
+						<% if @subjects.length > 5 %>
 							<%= collection_select(:upload, :subject, 
 											@subjects, :name, :name,
 											{}, 
