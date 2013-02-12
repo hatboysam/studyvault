@@ -6,6 +6,8 @@ class School < ActiveRecord::Base
    has_many :courses
    
    has_many :requests
+
+   has_many :subjects
    
    validates :name, :presence => true, :uniqueness => { :case_sensitive => false}
 end
