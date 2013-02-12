@@ -9,6 +9,8 @@ class Request < ActiveRecord::Base
   has_many   :responses, :dependent => :destroy
   
   after_create :set_course_name
+
+  attr_accessor :course_code, :subject
   
   coursename_regex = /[a-zA-Z]+\s[0-9]+/
           
@@ -19,10 +21,12 @@ class Request < ActiveRecord::Base
     
     validates :semester, :presence => true
     
-    validates :temp_coursename, :presence => true,
-                                :format => { :with => coursename_regex, 
-                                             :message => "must be of the form Subject 123" }
-                                      
+    #validates :temp_coursename, :presence => true,
+                                #:format => { :with => coursename_regex, 
+                                             #:message => "must be of the form Subject 123" }
+    validates :subject, :presence => true
+    validates :course_code, :presence => true
+
     validates :description, :presence => true
   
   
@@ -30,9 +34,11 @@ class Request < ActiveRecord::Base
       return course.full_name if course
   end
     
+    
   def set_course_name
-      self.course = course_from_course_name(self.temp_coursename)
-      self.save
+    self.temp_coursename = [self.subject, self.course_code].join(' ');
+    self.course = course_from_course_name(self.temp_coursename)
+    self.save
   end
   
 end

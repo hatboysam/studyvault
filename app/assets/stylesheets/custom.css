@@ -1,7 +1,7 @@
 /* Proper navbar-body separation */
 /* only @media version was needed before bootswatch */
 #maincontainer {
-  padding-top: 170px;
+  padding-top: 110px;
   padding-bottom: 40px;
 }
 
@@ -16,6 +16,31 @@
     padding-top: 100px;
     padding-bottom: 40px;
   }
+}
+
+
+@media(max-width: 979px) {
+  .navbar-inner .container {
+    padding-left: 20px;
+  }
+
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+body {
+  background-image: url('/assets/gplaypattern.png')
+}
+
+.table-striped {
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.table-striped tr:nth-of-type(even) {
+  background-color: white;
 }
 
 /* link differentiation for bootswatch */
@@ -75,6 +100,10 @@ td .downloadicon i {
 
 .accordion-toggle:hover {
   color: #777;
+}
+
+.logo {
+  position: relative;
 }
 
 /* table differentiation for bootswatch */

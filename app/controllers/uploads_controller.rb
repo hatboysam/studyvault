@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
       redirect_to root_path(nil, :swag => "200")
     else
       #TODO change this to be better
-      flash.now[:error] = 'Sorry, there was an error with your upload, click Upload to see what went wrong'
+      flash.now[:error] = 'Sorry, there was an error with your upload, make sure all fields are filled correctly.'
       render 'pages/index'
     end
   end

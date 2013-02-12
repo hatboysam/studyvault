@@ -5,13 +5,37 @@
 			<%= text_field_tag :school, nil, :id => 'school', :class => "search-query", :value => @school_placeholder %>
 		</div>
 		<% if signed_in? %>
-			<div class="span3">
-				<%= label_tag(:course, "Course: ")  %>
-				<%= text_field_tag :course, nil, :id => 'course', :class => "search-query", :value => @course_name %>
+			<div class="span4">
+				<table style="margin:0 auto;padding0;">
+					<tr>
+						<td style="padding:0;">
+							<%= label_tag(:subject, "Subject: ") %>
+						</td>
+						<td style="padding:0;">
+							<%= label_tag(:course_code, "Course: ")  %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= text_field_tag :subject, nil, 
+								:id => 'subject', 
+								:class => "search-query input-small", 
+								:value => @subject,
+								:placeholder => "ex: CHEM"  %>
+						</td>
+						<td>
+							<%= text_field_tag :course_code, nil, 
+								:id => 'course_code', 
+								:class => "search-query input-small", 
+								:value => @course_code,
+								:placeholder => "ex: 101"  %>
+						</td>
+					</tr>
+				</table>
 			</div>
-			<div class="span3">
+			<div class="span2">
 				<%= label_tag(:professor, "Professor: ") %>
-				<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query", :value => @professor_name %>
+				<%= text_field_tag :professor, nil, :id => 'professor', :class => "search-query input-small", :value => @professor_name %>
 			</div>
 			<div class="span2">
 				<table>
@@ -21,10 +45,10 @@
 					</tr>
 					<tr class="pad">
 						<td>
-							<input type="radio" value="ANY" name="match" checked="checked" />
+							<input type="radio" value="ANY" name="match" />
 						</td>
 						<td>
-							<input type="radio" value="ALL" name="match" />
+							<input type="radio" value="ALL" name="match" checked="checked" />
 						</td>
 					</tr>
 				</table>

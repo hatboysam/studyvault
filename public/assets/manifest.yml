@@ -1,9 +1,11 @@
 ---
+gplaypattern.png: gplaypattern-8a471f2ed679b3b5edb3df410ab96810.png
+gplaypattern_@2X.png: gplaypattern_@2X-c96d8474ff66f3136f43e6f182c54755.png
 sadpanda.jpg: sadpanda-fd8d9a4273d213bf98b93b422ed9f604.jpg
 smallspinner.gif: smallspinner-a4652bbc75fc8ba02cb4a69163e163be.gif
 star-rating.png: star-rating-6f8f9e8cebb03977e44576b5b534a33b.png
-application.js: application-979cbc57119d4289d2bdab31a01fde15.js
-application.css: application-8e16ae1cb7a9ccf7851816f0181601cb.css
+application.js: application-8340b755f93335d689674aec08d2fd2a.js
+application.css: application-24b3956711661a51a8c4479007c69866.css
 images/ui-bg_diagonals-thick_18_b81900_40x40.png: images/ui-bg_diagonals-thick_18_b81900_40x40-c3e0e1955420032feb67368f05648ded.png
 images/ui-bg_diagonals-thick_20_666666_40x40.png: images/ui-bg_diagonals-thick_20_666666_40x40-b54ce924a9f2343e1aada33aba870889.png
 images/ui-bg_flat_10_000000_40x100.png: images/ui-bg_flat_10_000000_40x100-cd2e3b2d176258c1e138e82b015b3c2d.png

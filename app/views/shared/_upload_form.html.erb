@@ -16,9 +16,9 @@ $(document).ready(function () {
  		}
  	});
 
- 	$('#upload_temp_coursename').change(function(e) {
- 		$('#coursename_suggest').text("Did you mean?");
- 	});
+ 	//$('#upload_temp_coursename').change(function(e) {
+ 		//$('#coursename_suggest').text("Did you mean?");
+ 	//});
 
 });
 </script>
@@ -37,6 +37,7 @@ $(document).ready(function () {
 		</div>
 	</div>
 	<div class="row">
+		<!--
 		<div class = "field span4">
 			<%= f.label(:temp_coursename, "Course Name* (ex: BIOL 202)") %>
 			<%= f.text_field :temp_coursename,
@@ -44,6 +45,40 @@ $(document).ready(function () {
 				"data-trigger" => "change",
 				"data-notblank" => "true" %>
 		</div>
+		-->
+		<div class = "field span4">
+			<table>
+				<tr>
+					<td>
+						<%= f.label(:subject, "Subject*") %>
+					</td>
+					<td>
+						<%= f.label(:course_code, "Course Code*") %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.text_field :subject,
+							:class => "input-small",
+							:style => "display:inline-block;",
+							:placeholder => "ex: CHEM",
+							"data-validation-minlength" => "1",
+							"data-trigger" => "change",
+							"data-notblank" => "true" %>
+					</td>
+					<td>
+						<%= f.text_field :course_code,
+							:class => "input-small",
+							:style => "display:inline-block;",
+							:placeholder => "ex: 101",
+							"data-validate-minlength" => "1",
+							"data-trigger" => "change",
+							"data-notblank" => "true" %>
+					</td>
+				</tr>
+			</table>
+		</div>
+
 		<div class = "field span4">
 			<%= f.label(:professor, "Professor*") %>
 			<%= f.text_field :professor,

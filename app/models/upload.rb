@@ -6,6 +6,9 @@ class Upload < ActiveRecord::Base
     attr_protected :linked_file_name, :linked_content_type, :linked_size
   
     after_create :set_course_name
+
+    #Fake attributes
+    attr_accessor :subject, :course_code
     
     belongs_to :user
     belongs_to :school
@@ -35,15 +38,18 @@ class Upload < ActiveRecord::Base
     validates :year, :presence => true
     
     validates :semester, :presence => true
+
+    validates :subject, :presence => true
+    validates :course_code, :presence => true
     
-    validates :temp_coursename, :presence => true,
-                                :format => { :with => coursename_regex, 
-                                              :message => "must be of the form Subject 123" }
+    #validates :temp_coursename, :presence => true,
+                                #:format => { :with => coursename_regex, 
+                                              #:message => "must be of the form Subject 123" }
     
     validates_attachment_presence :linked
     validates_attachment_size :linked, :less_than => 100.megabyte
     validates_attachment_content_type :linked, {
-      :content_type => [/[\w\W]*image[\w\W]*/, /[\w\W]*doc[\w\W]*/, /[\w\W]*sheet[\w\W]*/, /[\w\W]*pdf[\w\W]*/, /[\w\W]*presentation[\w\W]*/],
+      :content_type => [/[\w\W]*text[\w\W]*/, /[\w\W]*image[\w\W]*/, /[\w\W]*doc[\w\W]*/, /[\w\W]*sheet[\w\W]*/, /[\w\W]*pdf[\w\W]*/, /[\w\W]*presentation[\w\W]*/],
       :message => "invalid"
     }
     
@@ -76,6 +82,7 @@ class Upload < ActiveRecord::Base
     end
     
     def set_course_name
+      self.temp_coursename = [self.subject, self.course_code].join(' ');
       self.course = course_from_course_name(self.temp_coursename)
       self.save
     end
