@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212071556) do
+ActiveRecord::Schema.define(:version => 20130212080750) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -80,10 +80,8 @@ ActiveRecord::Schema.define(:version => 20130212071556) do
   add_index "schools", ["name"], :name => "index_schools_on_name", :unique => true
 
   create_table "subjects", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "school_id"
+    t.string  "name"
+    t.integer "school_id"
   end
 
   create_table "uploads", :force => true do |t|
