@@ -58,13 +58,20 @@ $(document).ready(function () {
 				</tr>
 				<tr>
 					<td>
-						<%= f.text_field :subject,
-							:class => "input-small",
-							:style => "display:inline-block;",
-							:placeholder => "ex: CHEM",
-							"data-validation-minlength" => "1",
-							"data-trigger" => "change",
-							"data-notblank" => "true" %>
+						<% if @subjects.length > 0 %>
+							<%= collection_select(:upload, :subject, 
+											@subjects, :name, :name,
+											{}, 
+											{:style => "width:90px;"}) %>
+						<% else %>
+							<%= f.text_field :subject,
+								:class => "input-small",
+								:style => "display:inline-block;",
+								:placeholder => "ex: CHEM",
+								"data-validation-minlength" => "1",
+								"data-trigger" => "change",
+								"data-notblank" => "true" %>
+						<% end %>
 					</td>
 					<td>
 						<%= f.text_field :course_code,

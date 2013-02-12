@@ -33,6 +33,7 @@ class PagesController < ApplicationController
     if signed_in?
       @user = current_user
       @upload = Upload.new
+      @subjects = current_user.school.subjects
     end
   end
 
