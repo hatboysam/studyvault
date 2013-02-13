@@ -286,3 +286,22 @@ ul.parsley-error-list {
   margin: 2px;
   list-style-type: none;
 }
+
+/* Bootstrap tours */
+.popover-content {
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  line-height: normal !important;
+  text-decoration: none;
+}
+
+.popover-content p {
+  padding-top: 10px;
+}
+
+.popover-title {
+  background-color: #121212;
+  color: #bbbbbb;
+  font-weight: bold;
+}
