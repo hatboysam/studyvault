@@ -8,13 +8,13 @@ class RequestsController < ApplicationController
       @request = current_user.requests.build(params[:request])
       if @request.save
         @request.user.make_request
-        flash[:success] = "Request posting successful.  Deposit of 2 credits made."
+        flash[:success] = "Request posting successful.  Temporary deposit of 2 credits made."
         @request.user.add_swag(50)
         redirect_to school_requests_path(@request.school, :swag => "50")
       else
         #TODO change this to be better
         flash[:error] = 'Sorry, there was an error posting your request, make sure you filled out all fields
-                          and your course name is of the format Subject 123'
+                          corectly'
         redirect_to school_requests_path(@user.school)
       end
     else

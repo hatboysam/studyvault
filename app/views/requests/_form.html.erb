@@ -39,7 +39,7 @@ $(document).ready(function () {
 				<tr>
 					<td>
 						<% if @subjects.length > 5 %>
-							<%= collection_select(:upload, :subject, 
+							<%= collection_select(:request, :subject, 
 											@subjects, :name, :name,
 											{}, 
 											{:style => "width:90px;"}) %>
